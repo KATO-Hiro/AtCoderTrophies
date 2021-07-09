@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint && prettier --check .",
-    "format": "next lint --fix . && prettier --write ."
+    "lint:fix": "next lint --fix . && prettier --write ."
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.4",
