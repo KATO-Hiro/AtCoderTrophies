@@ -24,7 +24,8 @@
     "eslint.workingDirectories": [{ "mode": "auto" }],
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.automationShell.linux": "/usr/bin/fish"
   },
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
@@ -38,9 +39,9 @@
   // Uncomment the next line if you want start specific services in your Docker Compose config.
   // "runServices": [],
   // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
-  "shutdownAction": "none"
+  "shutdownAction": "none",
   // Uncomment the next line to run commands after the container is created - for example installing curl.
-  // "postCreateCommand": "apt-get update && apt-get install -y curl",
+  "postCreateCommand": "apt-get update && apt-get install -y fish"
   // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
   // "remoteUser": "vscode"
 }
