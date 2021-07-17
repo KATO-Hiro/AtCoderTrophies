@@ -9,6 +9,7 @@ import createCache from '@emotion/cache';
 
 import '../styles/globals.css';
 import theme from '../styles/theme';
+import Header from '../parts/Header/Header';
 
 // See:
 // https://github.com/mui-org/material-ui/tree/next/examples/nextjs
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <Header />
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
