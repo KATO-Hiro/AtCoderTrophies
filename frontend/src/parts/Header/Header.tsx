@@ -4,8 +4,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import MainNav from '../../components/MainNav/MainNav';
 import MuiNextLink from '../../components/MuiNextLink/MuiNextLink';
+
+import PRODUCT_NAME from '../../constants/product-name';
+import { TWITTER_URL, GITHUB_URL } from '../../constants/urls';
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -24,12 +30,27 @@ const Header = (): JSX.Element => (
               href='/'
               sx={{ color: `white` }}
               style={{ textDecoration: 'none' }}
-            >
-              AtCoder Trophies
-            </MuiNextLink>
+            />
+            {PRODUCT_NAME}
           </Typography>
         </Container>
         <MainNav />
+        <IconButton
+          color='inherit'
+          href={TWITTER_URL}
+          target='_blank'
+          rel='noreferrer'
+        >
+          <TwitterIcon />
+        </IconButton>
+        <IconButton
+          color='inherit'
+          href={GITHUB_URL}
+          target='_blank'
+          rel='noreferrer'
+        >
+          <GitHubIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
     <Offset />
