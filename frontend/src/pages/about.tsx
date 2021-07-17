@@ -1,9 +1,11 @@
 import Container from '@material-ui/core/Container';
 
-export default function Home(): JSX.Element {
+function AboutPage(): JSX.Element {
   return (
     <Container maxWidth='sm'>
-      <h1>Home Page</h1>
+      <h1>About</h1>
     </Container>
   );
 }
+
+export default AboutPage;
