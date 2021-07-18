@@ -13,6 +13,8 @@ import MuiNextLink from '../../components/MuiNextLink/MuiNextLink';
 import PRODUCT_NAME from '../../constants/product-name';
 import { TWITTER_URL, GITHUB_URL } from '../../constants/urls';
 
+import SideDrawer from '../../components/SideDrawer/SideDrawer';
+
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 // TODO: Extract product name as component.
@@ -51,6 +53,7 @@ const Header = (): JSX.Element => (
         >
           <GitHubIcon />
         </IconButton>
+        <SideDrawer />
       </Toolbar>
     </AppBar>
     <Offset />
