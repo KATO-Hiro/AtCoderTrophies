@@ -3,27 +3,36 @@
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/icons/Menu';
 import { useState } from 'react';
+
 import navLinks from '../../constants/nav-links';
 import MuiNextLink from '../MuiNextLink/MuiNextLink';
 
+// See:
+// https://material-ui.com/components/drawers/
+// https://www.ansonlowzf.com/build-header-component-with-nextjs-material-ui-v5/
 const SideDrawer = (): JSX.Element => {
   const [state, setState] = useState({
     right: false,
   });
 
-  const toggleDrawer = (anchor: any, open: any) => (event: any) => {
-    if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
-    ) {
-      return;
-    }
+  const toggleDrawer =
+    (anchor: any, open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return;
+      }
 
-    setState({ ...state, [anchor]: open });
-  };
+      setState({ ...state, [anchor]: open });
+    };
 
   const list = (anchor: unknown) => (
     <Box
@@ -32,21 +41,28 @@ const SideDrawer = (): JSX.Element => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      {navLinks.map(({ title, path }, i) => (
-        <Typography
-          variant='button'
-          key={title}
-          sx={{
-            ml: (theme) => theme.spacing(5),
-            my: (theme) => theme.spacing(2),
-            textTransform: `uppercase`,
-          }}
-        >
-          <MuiNextLink sx={{ color: 'common.white' }} href={path}>
-            {title}
-          </MuiNextLink>
-        </Typography>
-      ))}
+      <List>
+        {navLinks.map(({ title, path }, i) => (
+          <ListItem key={title}>
+            <Typography
+              variant='button'
+              key={title}
+              sx={{
+                ml: (theme) => theme.spacing(5),
+                my: (theme) => theme.spacing(2),
+                textTransform: `capitalize`,
+              }}
+            >
+              <MuiNextLink
+                sx={{ color: 'common.white', opacity: 0.6 }}
+                href={path}
+              >
+                {title}
+              </MuiNextLink>
+            </Typography>
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
 
