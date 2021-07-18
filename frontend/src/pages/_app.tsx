@@ -10,6 +10,7 @@ import createCache from '@emotion/cache';
 import '../styles/globals.css';
 import theme from '../styles/theme';
 import Header from '../parts/Header/Header';
+import Footer from '../parts/Footer/Footer';
 
 // See:
 // https://github.com/mui-org/material-ui/tree/next/examples/nextjs
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <CssBaseline />
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </CacheProvider>
   );
