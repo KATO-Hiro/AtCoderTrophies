@@ -1,0 +1,46 @@
+# See:
+# https://docs.github.com/en/actions/guides/building-and-testing-nodejs#building-and-testing-your-code
+name: Node.js lint and tests in frontend
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: |
+          yarn install
+      - name: Build
+        working-directory: frontend
+        run: |
+          yarn build
+      - name: Lint
+        working-directory: frontend
+        run: |
+          yarn lint
+
+      # TODO: Test
+      # - name: Test
+      #   working-directory: frontend
+      #   run: |
+      #     yarn test
+
+      # TODO: Integration Test
