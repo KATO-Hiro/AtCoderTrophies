@@ -14,7 +14,6 @@ import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
-// TODO: Extract product name as component.
 const Header = (): JSX.Element => (
   <>
     <AppBar position='fixed'>
