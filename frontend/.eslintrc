@@ -34,6 +34,15 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "import/extensions": "off",
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
     "react/jsx-filename-extension": [
       2,
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }

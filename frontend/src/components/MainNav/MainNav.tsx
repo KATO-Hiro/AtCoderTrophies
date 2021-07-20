@@ -1,12 +1,12 @@
+import IconButton from '@material-ui/core/IconButton';
 import Stack from '@material-ui/core/Stack';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-import MuiNextLink from '../MuiNextLink/MuiNextLink';
 import navLinks from '../../constants/nav-links';
-import { TWITTER_URL, GITHUB_URL } from '../../constants/urls';
+import { GITHUB_URL, TWITTER_URL } from '../../constants/urls';
+import MuiNextLink from '../MuiNextLink/MuiNextLink';
 
 // See:
 // https://www.ansonlowzf.com/build-header-component-with-nextjs-material-ui-v5/

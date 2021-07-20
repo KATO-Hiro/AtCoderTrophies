@@ -1,7 +1,7 @@
-import { ReactElement, MouseEvent } from 'react';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Zoom from '@material-ui/core/Zoom';
 import Box from '@material-ui/core/Box';
+import Zoom from '@material-ui/core/Zoom';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { ReactElement, MouseEvent } from 'react';
 
 // See:
 // https://material-ui.com/components/app-bar/#back-to-top
