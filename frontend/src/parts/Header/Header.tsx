@@ -1,16 +1,16 @@
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
-import Toolbar from '@material-ui/core/Toolbar';
-import { experimentalStyled as styled } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
 import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
 
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 import MainNav from '../../components/MainNav/MainNav';
 import MuiNextLink from '../../components/MuiNextLink/MuiNextLink';
-import PRODUCT_NAME from '../../constants/product-name';
 import SideDrawer from '../../components/SideDrawer/SideDrawer';
-import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
+import PRODUCT_NAME from '../../constants/product-name';
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
