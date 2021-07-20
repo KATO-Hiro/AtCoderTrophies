@@ -1,16 +1,15 @@
-import PropTypes from 'prop-types';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
+import PropTypes from 'prop-types';
 
 import '../styles/globals.css';
-import theme from '../styles/theme';
-import Header from '../parts/Header/Header';
 import Footer from '../parts/Footer/Footer';
+import Header from '../parts/Header/Header';
+import theme from '../styles/theme';
 
 // See:
 // https://github.com/mui-org/material-ui/tree/next/examples/nextjs

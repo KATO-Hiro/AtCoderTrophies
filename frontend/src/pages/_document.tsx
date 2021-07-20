@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Children } from 'react';
-import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { Children } from 'react';
 import theme from '../styles/theme';
 
 // See:
