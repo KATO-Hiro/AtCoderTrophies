@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 import '../styles/globals.css';
 import Footer from '../parts/Footer/Footer';
@@ -19,6 +20,15 @@ cache.compat = true;
 
 /* eslint-disable react/jsx-props-no-spreading */
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+
+    if (jssStyles) {
+      jssStyles.parentElement?.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <CacheProvider value={cache}>
       <Head>
