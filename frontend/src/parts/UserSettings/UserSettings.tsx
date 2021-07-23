@@ -1,4 +1,5 @@
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -12,6 +13,7 @@ import backgroundThemes from '../../styles/background-themes';
 // See:
 // https://material-ui.com/components/text-fields
 // https://material-ui.com/components/buttons/
+// https://material-ui.com/components/grid/
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -23,6 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: '8px',
         width: '25ch',
       },
+    },
+    grid: {
+      padding: '16px',
+      textAlign: 'center',
     },
   }),
 );
@@ -42,46 +48,52 @@ function UserSettings(): JSX.Element {
 
   return (
     <form className={classes.root} autoComplete='on'>
-      <>
-        {/* <AtCoderUserId /> */}
-        {/* TODO: Add validation. */}
-        <TextField
-          id='atcoder-user-id'
-          label='User ID'
-          placeholder='chokudai'
-          variant='standard'
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position='start'>
-                <AccountCircle />
-              </InputAdornment>
-            ),
-          }}
-        />
+      <Grid container spacing={1}>
+        <Grid item xs={12} sm={6} className={classes.grid}>
+          {/* <AtCoderUserId /> */}
+          {/* TODO: Add validation. */}
+          <TextField
+            id='atcoder-user-id'
+            label='User ID'
+            placeholder='chokudai'
+            variant='standard'
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <AccountCircle />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
 
         {/* <BackgroundTheme /> */}
-        <TextField
-          id='background-theme'
-          select
-          value={backgroundTheme}
-          label='Background theme'
-          variant='standard'
-          onChange={handleChange}
-        >
-          {backgroundThemes.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+        <Grid item xs={12} sm={6} className={classes.grid}>
+          <TextField
+            id='background-theme'
+            select
+            value={backgroundTheme}
+            label='Background theme'
+            variant='standard'
+            onChange={handleChange}
+          >
+            {backgroundThemes.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Grid>
 
         {/* <AdvancedOptions /> */}
 
         {/* <CreateTrophiesButton /> */}
-        <Button variant='contained' color='primary' onClick={handleClick}>
-          Create
-        </Button>
-      </>
+        <Grid item xs={12} className={classes.grid}>
+          <Button variant='contained' color='primary' onClick={handleClick}>
+            Create
+          </Button>
+        </Grid>
+      </Grid>
     </form>
   );
 }
