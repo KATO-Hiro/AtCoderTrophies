@@ -48,6 +48,7 @@ function UserSettings(): JSX.Element {
 
   return (
     <form className={classes.root} autoComplete='on'>
+      {/* TODO: Extract the below elements as a component. */}
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6} className={classes.grid}>
           {/* <AtCoderUserId /> */}
