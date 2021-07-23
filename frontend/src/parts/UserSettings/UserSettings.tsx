@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -10,6 +11,7 @@ import backgroundThemes from '../../styles/background-themes';
 
 // See:
 // https://material-ui.com/components/text-fields
+// https://material-ui.com/components/buttons/
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -31,6 +33,11 @@ function UserSettings(): JSX.Element {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBackgroundTheme(event.target.value);
+  };
+
+  const handleClick = () => {
+    // TODO: Send a request.
+    alert('clicked');
   };
 
   return (
@@ -69,7 +76,11 @@ function UserSettings(): JSX.Element {
         </TextField>
 
         {/* <AdvancedOptions /> */}
+
         {/* <CreateTrophiesButton /> */}
+        <Button variant='contained' color='primary' onClick={handleClick}>
+          Create
+        </Button>
       </>
     </form>
   );
