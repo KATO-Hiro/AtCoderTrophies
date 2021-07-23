@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 import '../styles/globals.css';
+import PRODUCT_NAME from '../constants/product-name';
 import Footer from '../parts/Footer/Footer';
 import Header from '../parts/Header/Header';
 import theme from '../styles/theme';
@@ -32,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <CacheProvider value={cache}>
       <Head>
-        <title>AtCoder Trophies</title>
+        <title>{PRODUCT_NAME}</title>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <ThemeProvider theme={theme}>
