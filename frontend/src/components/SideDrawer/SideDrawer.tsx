@@ -42,7 +42,7 @@ const SideDrawer = (): JSX.Element => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {navLinks.map(({ title, path }, i) => (
+        {navLinks.map(({ title, path }) => (
           <ListItem key={title}>
             <Typography
               variant='button'
