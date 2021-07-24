@@ -9,4 +9,9 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+// See:
+// https://github.com/martpie/next-transpile-modules
+const transpileModules = require('next-transpile-modules');
+const withTM = transpileModules(['copy-text-to-clipboard']);
+
+module.exports = withTM(nextConfig);
