@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/icons/Menu';
 import { useState } from 'react';
 
+import externalLinks from '../../constants/external-links';
 import navLinks from '../../constants/nav-links';
 import MuiNextLink from '../MuiNextLink/MuiNextLink';
 
@@ -42,7 +43,7 @@ const SideDrawer = (): JSX.Element => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {navLinks.map(({ title, path }, i) => (
+        {navLinks.map(({ title, path }) => (
           <ListItem key={title}>
             <Typography
               variant='button'
@@ -56,6 +57,29 @@ const SideDrawer = (): JSX.Element => {
               <MuiNextLink
                 sx={{ color: 'common.white', opacity: 0.6 }}
                 href={path}
+              >
+                {title}
+              </MuiNextLink>
+            </Typography>
+          </ListItem>
+        ))}
+        {/* HACK: Don't Repeat Yourself. */}
+        {externalLinks.map(({ title, path }) => (
+          <ListItem key={title}>
+            <Typography
+              variant='button'
+              key={title}
+              sx={{
+                ml: (theme) => theme.spacing(5),
+                my: (theme) => theme.spacing(2),
+                textTransform: `capitalize`,
+              }}
+            >
+              <MuiNextLink
+                sx={{ color: 'common.white', opacity: 0.6 }}
+                href={path}
+                target='_blank'
+                rel='noreferrer'
               >
                 {title}
               </MuiNextLink>
