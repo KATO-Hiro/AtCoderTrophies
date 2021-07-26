@@ -7,7 +7,7 @@ import UserSettings from '../parts/UserSettings/UserSettings';
 
 export default function Home(): JSX.Element {
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth='md'>
       <h1>{ProductName}</h1>
 
       <UserSettings />
