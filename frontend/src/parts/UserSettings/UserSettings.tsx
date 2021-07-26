@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         // https://next.material-ui.com/guides/migration-v4/
         // margin: parseInt(theme.spacing(1), 10),
         margin: '8px',
-        width: '25ch',
+        width: '100%',
       },
     },
     grid: {
