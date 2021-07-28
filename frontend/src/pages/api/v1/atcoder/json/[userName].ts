@@ -15,6 +15,7 @@ export default function handler(
   // TODO: Error handling.
   // username is not exist.
 
+  res.setHeader('Content-type', 'application/json');
   res
     .status(200)
     .json({ user_name: userName, background_theme: backgroundTheme });
