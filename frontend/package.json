@@ -19,6 +19,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
     "@types/prop-types": "^15.7.4",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "copy-text-to-clipboard": "^3.0.1",
     "next": "11.0.1",
