@@ -7,6 +7,14 @@ export default function handler(
 ): any {
   const { userName, background_theme: backgroundTheme } = req.query;
 
+  // TODO: Set initial values.
+
+  // TODO: Error handling.
+  // No username.
+
+  // TODO: Error handling.
+  // username is not exist.
+
   res
     .status(200)
     .json({ user_name: userName, background_theme: backgroundTheme });
