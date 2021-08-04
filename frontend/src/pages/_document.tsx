@@ -4,6 +4,11 @@ import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { Children } from 'react';
+import PRODUCT_NAME, {
+  PRODUCT_DESCRIPTION,
+  PRODUCT_URL,
+} from '../constants/product-name';
+import { TWITTER_USER_NAME } from '../constants/urls';
 import theme from '../styles/theme';
 
 // See:
@@ -21,6 +26,20 @@ export default class MyDocument extends Document {
     return (
       <Html lang='ja'>
         <Head>
+          <meta property='og:site_name' content={PRODUCT_NAME} />
+          <meta property='og:title' content={PRODUCT_NAME} />
+          <meta property='og:description' content={PRODUCT_DESCRIPTION} />
+          <meta property='og:type' content='website' />
+          <meta property='og:url' content={PRODUCT_URL} />
+          <meta
+            property='og:image'
+            content={`${PRODUCT_URL}/android-chrome-512x512.png`}
+          />
+
+          <meta name='twitter:card' content='summary' />
+          <meta name='twitter:site' content={TWITTER_USER_NAME} />
+          <meta name='twitter:title' content={PRODUCT_NAME} />
+          <meta name='twitter:description' content={PRODUCT_DESCRIPTION} />
           {/* PWA primary color */}
           <meta name='theme-color' content={theme.palette.primary.main} />
           <link
