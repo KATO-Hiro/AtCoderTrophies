@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import AcceptedCountTrophy from '../../../../components/Trophy/AcceptedCountTrophy';
 
 import {
   ONE_HOUR_IN_SECONDS,
@@ -35,5 +36,10 @@ export default function handler(
     'Cache-Control',
     `public, max-age=${cacheSeconds}, stale-while-revalidate=${ONE_HOUR_IN_SECONDS}`,
   );
-  res.status(200).send(circle(userName as string));
+
+  // res.status(200).send(circle(userName as string));
+
+  // TODO: Enable to show multiple trophies.
+  const acceptedCountTrophy = new AcceptedCountTrophy(1000);
+  res.status(200).send(acceptedCountTrophy.render());
 }
