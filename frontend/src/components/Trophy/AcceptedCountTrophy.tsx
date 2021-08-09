@@ -16,7 +16,7 @@ export default class AcceptedCountTrophy extends Trophy {
     ];
 
     super(score, rankConditions);
-    this.title = 'Accepted Count';
+    this.title = 'AcceptedCount';
     this.filterTitles = ['AcceptedCount', 'Accepted', 'AC'];
   }
 }
