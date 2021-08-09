@@ -3,13 +3,13 @@ import { RANK } from '../../constants/rank';
 export default class RankCondition {
   readonly rank: RANK;
 
-  readonly message: string;
+  readonly titleName: string;
 
   readonly requiredScore: number;
 
-  constructor(rank: RANK, message: string, requiredScore: number) {
+  constructor(rank: RANK, titleName: string, requiredScore: number) {
     this.rank = rank;
-    this.message = message;
+    this.titleName = titleName;
     this.requiredScore = requiredScore;
   }
 
@@ -17,8 +17,8 @@ export default class RankCondition {
     return this.rank;
   }
 
-  get getMessage(): string {
-    return this.message;
+  get getTitleName(): string {
+    return this.titleName;
   }
 
   get getRequiredScore(): number {

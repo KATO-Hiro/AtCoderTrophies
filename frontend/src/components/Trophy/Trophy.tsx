@@ -41,17 +41,17 @@ export default class Trophy {
 
     // Set the rank that hit the first condition.
     const rankCondition = sortedRankConditions.find(
-      (r) => this.score >= r.requiredScore,
+      (r) => this.score >= r.getRequiredScore,
     );
 
     if (rankCondition != null) {
-      this.rank = rankCondition.rank;
+      this.rank = rankCondition.getRank;
       this.rankCondition = rankCondition;
-      this.topMessage = rankCondition.message;
+      this.topMessage = rankCondition.getTitleName;
     }
   }
 
-  private calculateNextRankPercentage() {
+  private calculateNextRankRatio() {
     if (this.rank === RANK.UNKNOWN) {
       return 0;
     }
@@ -91,7 +91,7 @@ export default class Trophy {
     } = theme;
     const nextRankBar = getNextRankBar(
       this.title,
-      this.calculateNextRankPercentage(),
+      this.calculateNextRankRatio(),
       NEXT_RANK_BAR,
     );
     return `
