@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import AcceptedCountTrophy from '../../../../components/Trophy/AcceptedCountTrophy';
+import RatedPointSumTrophy from '../../../../components/Trophy/RatedPointSumTrophy';
 
 import {
   ONE_HOUR_IN_SECONDS,
@@ -40,6 +41,8 @@ export default function handler(
   // res.status(200).send(circle(userName as string));
 
   // TODO: Enable to show multiple trophies.
-  const acceptedCountTrophy = new AcceptedCountTrophy(1000);
-  res.status(200).send(acceptedCountTrophy.render());
+  // const acceptedCountTrophy = new AcceptedCountTrophy(1000);
+  // res.status(200).send(acceptedCountTrophy.render());
+  const ratedPointSumTrophy = new RatedPointSumTrophy(150000);
+  res.status(200).send(ratedPointSumTrophy.render());
 }

@@ -3,6 +3,10 @@ export default function abridgeScore(score: number): string {
     return '0pt';
   }
 
+  if (Math.abs(score) > 999900) {
+    return `${(Math.sign(score) * (Math.abs(score) / 10 ** 6)).toFixed(1)}Mpt`;
+  }
+
   if (Math.abs(score) > 999) {
     return `${(Math.sign(score) * (Math.abs(score) / 1000)).toFixed(1)}kpt`;
   }
