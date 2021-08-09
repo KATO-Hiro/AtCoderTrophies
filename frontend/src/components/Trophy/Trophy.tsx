@@ -20,7 +20,7 @@ export default class Trophy {
 
   bottomMessage = '0';
 
-  title = '';
+  title = ''; // Use Pascal case (ex: HogeFugaFoo)
 
   filterTitles: Array<string> = [];
 
