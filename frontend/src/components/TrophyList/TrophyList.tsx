@@ -1,7 +1,7 @@
 import { RANK, RANK_ORDER } from '../../constants/rank';
 import AcceptedCountTrophy from '../Trophy/AcceptedCountTrophy';
 import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
-import CPlusPlusTrophy from '../Trophy/CPlusPlusTrophy';
+import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
@@ -19,7 +19,7 @@ export default class TrophyList {
     // TODO: Replace numbers to UserInfo.
     this.trophies.push(
       new AcceptedCountTrophy(5000),
-      new CPlusPlusTrophy(3500),
+      new CPlusPluserTrophy(3500),
       new CSharperTrophy(30),
       new JavaerTrophy(5),
       new LongestStreakCount(200),

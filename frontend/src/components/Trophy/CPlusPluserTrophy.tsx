@@ -2,7 +2,7 @@ import { RANK } from '../../constants/rank';
 import RankCondition from './RankCondition';
 import Trophy from './Trophy';
 
-export default class CPlusPlusTrophy extends Trophy {
+export default class CPlusPluserTrophy extends Trophy {
   constructor(score: number) {
     const rankConditions = [
       new RankCondition(RANK.SSS, 'God Solver', 5000),
@@ -16,7 +16,7 @@ export default class CPlusPlusTrophy extends Trophy {
     ];
 
     super(score, rankConditions);
-    this.title = `CPlusPlus`;
+    this.title = `CPlusPluser`;
     this.filterTitles = ['C++', 'CPlusPlus', 'Cplusplus', 'cplusplus'];
   }
 }
