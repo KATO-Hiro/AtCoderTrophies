@@ -1,11 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import AcceptedCountTrophy from '../../../../components/Trophy/AcceptedCountTrophy';
-import RatedPointSumTrophy from '../../../../components/Trophy/RatedPointSumTrophy';
-
+import TrophyFrame from '../../../../components/TrophyFrame/TrophyFrame';
 import {
+  DEFAULT_PANEL_SIZE,
+  DEFAULT_MARGIN_H,
+  DEFAULT_MARGIN_W,
+  DEFAULT_NO_BACKGROUND,
+  DEFAULT_NO_FRAME,
   ONE_HOUR_IN_SECONDS,
   ONE_DAY_IN_SECONDS,
 } from '../../../../constants/default-values';
+import { COLORS } from '../../../../styles/background-themes';
 
 const circle = (name: string) => `\
   <svg height="100" width="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +26,16 @@ export default function handler(
 ): any {
   const { userName, background_theme: backgroundTheme } = req.query;
 
-  // TODO: Set initial values.
+  // TODO: Enable to change the following parameters using user info.
+  const maxColumn = 5;
+  const maxRow = 5;
+  const theme = COLORS.monokai;
+  const marginWidth = DEFAULT_MARGIN_W;
+  const paddingHeight = DEFAULT_MARGIN_H;
+  const noBackground = DEFAULT_NO_BACKGROUND;
+  const noFrame = DEFAULT_NO_FRAME;
+  const titles: Array<string> = [];
+  const ranks: Array<string> = [];
 
   // TODO: Error handling.
   // No username.
@@ -38,11 +51,17 @@ export default function handler(
     `public, max-age=${cacheSeconds}, stale-while-revalidate=${ONE_HOUR_IN_SECONDS}`,
   );
 
-  // res.status(200).send(circle(userName as string));
-
-  // TODO: Enable to show multiple trophies.
-  // const acceptedCountTrophy = new AcceptedCountTrophy(1000);
-  // res.status(200).send(acceptedCountTrophy.render());
-  const ratedPointSumTrophy = new RatedPointSumTrophy(150000);
-  res.status(200).send(ratedPointSumTrophy.render());
+  const trophyFrame = new TrophyFrame(
+    titles,
+    ranks,
+    maxColumn,
+    maxRow,
+    DEFAULT_PANEL_SIZE,
+    marginWidth,
+    paddingHeight,
+    noBackground,
+    noFrame,
+  );
+  // TODO: Use user info.
+  res.status(200).send(trophyFrame.render(null, theme));
 }
