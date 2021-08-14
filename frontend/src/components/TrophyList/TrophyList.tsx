@@ -10,6 +10,7 @@ import JavaerTrophy from '../Trophy/JavaerTrophy';
 import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
+import PerlerTrophy from '../Trophy/PerlerTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
 import PythonistaTrophy from '../Trophy/PythonistaTrophy';
 import RatedPointSumTrophy from '../Trophy/RatedPointSumTrophy';
@@ -34,6 +35,7 @@ export default class TrophyList {
       new KotlinerTrophy(9),
       new LongestStreakCount(200),
       new PHPerTrophy(2),
+      new PerlerTrophy(950),
       new PyPyUserTrophy(250),
       new PythonistaTrophy(350),
       new RatedPointSumTrophy(275000),
