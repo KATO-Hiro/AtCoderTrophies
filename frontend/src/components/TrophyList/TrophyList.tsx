@@ -7,6 +7,7 @@ import CSharperTrophy from '../Trophy/CSharperTrophy';
 import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
+import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
@@ -30,6 +31,7 @@ export default class TrophyList {
       new DProgrammerTrophy(1),
       new GopherTrophy(120),
       new JavaerTrophy(5),
+      new KotlinerTrophy(9),
       new LongestStreakCount(200),
       new PHPerTrophy(2),
       new PyPyUserTrophy(250),
