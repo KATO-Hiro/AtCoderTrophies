@@ -2,6 +2,7 @@ import { RANK, RANK_ORDER } from '../../constants/rank';
 import AcceptedCountTrophy from '../Trophy/AcceptedCountTrophy';
 import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
+import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
@@ -20,6 +21,7 @@ export default class TrophyList {
     this.trophies.push(
       new AcceptedCountTrophy(5000),
       new CPlusPluserTrophy(3500),
+      new CProgrammerTrophy(15),
       new CSharperTrophy(30),
       new JavaerTrophy(5),
       new LongestStreakCount(200),
