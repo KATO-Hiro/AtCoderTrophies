@@ -4,6 +4,7 @@ import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
+import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
 import PythonistaTrophy from '../Trophy/PythonistaTrophy';
@@ -23,6 +24,7 @@ export default class TrophyList {
       new CPlusPluserTrophy(3500),
       new CProgrammerTrophy(15),
       new CSharperTrophy(30),
+      new DProgrammerTrophy(1),
       new JavaerTrophy(5),
       new LongestStreakCount(200),
       new PythonistaTrophy(350),
