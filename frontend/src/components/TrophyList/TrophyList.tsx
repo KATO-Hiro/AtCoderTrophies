@@ -8,6 +8,7 @@ import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
+import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
 import PythonistaTrophy from '../Trophy/PythonistaTrophy';
 import RatedPointSumTrophy from '../Trophy/RatedPointSumTrophy';
 import RubyistTrophy from '../Trophy/RubyistTrophy';
@@ -29,6 +30,7 @@ export default class TrophyList {
       new GopherTrophy(120),
       new JavaerTrophy(5),
       new LongestStreakCount(200),
+      new PyPyUserTrophy(250),
       new PythonistaTrophy(350),
       new RatedPointSumTrophy(275000),
       new RubyistTrophy(200),
