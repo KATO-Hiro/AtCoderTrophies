@@ -1,7 +1,8 @@
-from fastapi import FastAPI
-import json
-import requests
+from fastapi import FastAPI, status
 import uvicorn
+
+import crud
+import schemas
 
 
 app = FastAPI()
@@ -10,6 +11,26 @@ app = FastAPI()
 @app.get("/")
 async def root():
     return {"message": "Hello, AtCoder Trophies!"}
+
+
+@app.get(
+    "/ac_count/{user_name}",
+    tags=["statistics"],
+    response_model=schemas.AcceptedCount,
+    status_code=status.HTTP_200_OK,
+    summary="Read unique ac count for user",
+)
+async def read_accepted_count(user_name: str):
+    """
+    Read unique accepted (ac) count for user.
+
+    - **count**: the number of unique ac problems.
+    - **rank**: rank based on accepted count (0-indexed).
+    """
+
+    results = crud.read_accepted_count_by_user_name(user_name)
+
+    return schemas.AcceptedCount(**results)
 
 
 if __name__ == "__main__":
