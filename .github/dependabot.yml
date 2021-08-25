@@ -12,3 +12,12 @@ updates:
     schedule:
       interval: "daily"
     versioning-strategy: increase-if-necessary
+
+  # Enable version updates for pypi
+  - package-ecosystem: "pip"
+    # look for `requirements.txt` in the `backend` directory
+    directory: "/backend"
+    # check for updates every day (weekdays)
+    schedule:
+      interval: "daily"
+    versioning-strategy: auto
