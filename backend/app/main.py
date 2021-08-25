@@ -2,11 +2,17 @@ from fastapi import FastAPI, status
 import uvicorn
 
 from app.crud import (
+    read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
     read_rated_point_sum_by_user_name,
     read_longest_streak_by_user_name,
 )
-from app.schemas import AcceptedCount, RatedPointSum, LongestStreak
+from app.schemas import (
+    AcceptedCount,
+    AcceptedCountByLanguage,
+    RatedPointSum,
+    LongestStreak,
+)
 
 
 app = FastAPI()
@@ -35,6 +41,35 @@ async def read_accepted_count(user_name: str):
     results = read_accepted_count_by_user_name(user_name)
 
     return AcceptedCount(**results)
+
+
+@app.get(
+    "/ac_count_by_lang/{user_name}",
+    tags=["statistics"],
+    response_model=AcceptedCountByLanguage,
+    status_code=status.HTTP_200_OK,
+    summary="Read ac count of each language for user",
+)
+async def read_accepted_count_by_language(user_name: str):
+    """
+    Read ac count of each language for user.
+
+    - **languages**: list of accepted count and its rank for each language.
+
+    - **language**: name of programming language.
+    - **count**: the number of unique ac problems.
+    - **rank**: rank based on accepted count (1-indexed).
+    """
+
+    results = read_accepted_count_by_language_using_user_name(user_name)
+
+    # HACK: The following code is expected to be written more simply.
+    accepted_count_by_language = AcceptedCountByLanguage()
+
+    for result in results:
+        accepted_count_by_language.languages.append(result)
+
+    return accepted_count_by_language
 
 
 @app.get(
