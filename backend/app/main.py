@@ -1,8 +1,12 @@
 from fastapi import FastAPI, status
 import uvicorn
 
-from app.crud import read_accepted_count_by_user_name, read_rated_point_sum_by_user_name
-from app.schemas import AcceptedCount, RatedPointSum
+from app.crud import (
+    read_accepted_count_by_user_name,
+    read_rated_point_sum_by_user_name,
+    read_longest_streak_by_user_name,
+)
+from app.schemas import AcceptedCount, RatedPointSum, LongestStreak
 
 
 app = FastAPI()
@@ -51,6 +55,26 @@ async def read_rated_point_sum(user_name: str):
     results = read_rated_point_sum_by_user_name(user_name)
 
     return RatedPointSum(**results)
+
+
+@app.get(
+    "/longest_streak/{user_name}",
+    tags=["statistics"],
+    response_model=LongestStreak,
+    status_code=status.HTTP_200_OK,
+    summary="Read the longest streak for user",
+)
+async def read_longest_streak(user_name: str):
+    """
+    Read the longest streak (JST) for user.
+
+    - **count**: the longest streak (in day).
+    - **rank**: rank based on the longest streak (0-indexed).
+    """
+
+    results = read_longest_streak_by_user_name(user_name)
+
+    return LongestStreak(**results)
 
 
 if __name__ == "__main__":

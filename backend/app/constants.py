@@ -22,3 +22,14 @@ def get_rated_point_sum_api_url(user_name: str) -> str:
     )
 
     return url
+
+
+def get_longest_streak_api_url(user_name: str) -> str:
+    url: str = (
+        ATCODER_PROBLEMS_API_BASE
+        + ATCODER_PROBLEMS_API_VERSION
+        + "/user/streak_rank?user="
+        + user_name
+    )
+
+    return url
