@@ -2,7 +2,7 @@ from fastapi import FastAPI, status
 import uvicorn
 
 from app.crud import read_accepted_count_by_user_name
-import schemas
+from app.schemas import AcceptedCount
 
 
 app = FastAPI()
@@ -16,7 +16,7 @@ async def root():
 @app.get(
     "/ac_count/{user_name}",
     tags=["statistics"],
-    response_model=schemas.AcceptedCount,
+    response_model=AcceptedCount,
     status_code=status.HTTP_200_OK,
     summary="Read unique ac count for user",
 )
@@ -30,7 +30,7 @@ async def read_accepted_count(user_name: str):
 
     results = read_accepted_count_by_user_name(user_name)
 
-    return schemas.AcceptedCount(**results)
+    return AcceptedCount(**results)
 
 
 if __name__ == "__main__":
