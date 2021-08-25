@@ -1,8 +1,8 @@
 from fastapi import FastAPI, status
 import uvicorn
 
-from app.crud import read_accepted_count_by_user_name
-from app.schemas import AcceptedCount
+from app.crud import read_accepted_count_by_user_name, read_rated_point_sum_by_user_name
+from app.schemas import AcceptedCount, RatedPointSum
 
 
 app = FastAPI()
@@ -31,6 +31,26 @@ async def read_accepted_count(user_name: str):
     results = read_accepted_count_by_user_name(user_name)
 
     return AcceptedCount(**results)
+
+
+@app.get(
+    "/rated_point_sum/{user_name}",
+    tags=["statistics"],
+    response_model=RatedPointSum,
+    status_code=status.HTTP_200_OK,
+    summary="Read rated point sum for user",
+)
+async def read_rated_point_sum(user_name: str):
+    """
+    Read rated point sum (RPS) for user.
+
+    - **count**: the total points for rated contests.
+    - **rank**: rank based on RPS (0-indexed).
+    """
+
+    results = read_rated_point_sum_by_user_name(user_name)
+
+    return RatedPointSum(**results)
 
 
 if __name__ == "__main__":
