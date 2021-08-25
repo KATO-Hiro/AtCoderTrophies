@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status
 import uvicorn
 
-import crud
+from app.crud import read_accepted_count_by_user_name
 import schemas
 
 
@@ -28,7 +28,7 @@ async def read_accepted_count(user_name: str):
     - **rank**: rank based on accepted count (0-indexed).
     """
 
-    results = crud.read_accepted_count_by_user_name(user_name)
+    results = read_accepted_count_by_user_name(user_name)
 
     return schemas.AcceptedCount(**results)
 
