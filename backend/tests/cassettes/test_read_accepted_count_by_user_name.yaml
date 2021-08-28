@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      content-type:
+      - Application/json
+    method: GET
+    uri: https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user=chokudai
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAKtWSs4vzStRsjK3MNNRKkrMy1ayMjIxMqgFAEmrgbUZAAAA
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '45'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 28 Aug 2021 06:31:23 GMT
+      x-amz-apigw-id:
+      - Ew65RFZrNjMFhvg=
+      x-amzn-Remapped-content-length:
+      - '25'
+      x-amzn-Remapped-date:
+      - Sat, 28 Aug 2021 06:31:23 GMT
+      x-amzn-RequestId:
+      - 86a46207-19af-40cc-833a-2ee96973e1a8
+    status:
+      code: 200
+      message: OK
+version: 1
