@@ -40,11 +40,10 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-      # TODO: Add pytest and vcr.
-      # - name: Test with pytest
-      #   env:
-      #     PYTHONPATH: "./backend"
-      #   run: |
-      #     # See:
-      #     # https://pytest-vcr.readthedocs.io/en/latest/configuration/
-      #     pytest . --vcr-record=none
+      - name: Test with pytest
+        env:
+          PYTHONPATH: "./backend"
+        run: |
+          # See:
+          # https://pytest-vcr.readthedocs.io/en/latest/configuration/
+          pytest . --vcr-record=none
