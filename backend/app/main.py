@@ -1,4 +1,5 @@
 from fastapi import FastAPI, status
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 from app.crud import (
@@ -16,6 +17,10 @@ from app.schemas import (
 
 
 app = FastAPI()
+
+# See:
+# https://fastapi.tiangolo.com/tutorial/cors/?h=cors#use-corsmiddleware
+app.add_middleware(CORSMiddleware, allow_origins=["*"])
 
 
 @app.get("/")
