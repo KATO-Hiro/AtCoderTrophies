@@ -2,6 +2,11 @@ autopep8
 black
 fastapi
 flake8
+ipython
 mypy
+pytest
+pytest-vcr
+pytest-watch
 requests
 uvicorn
+vcrpy
