@@ -86,7 +86,7 @@ const MuiNextLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
       return (
         <a
           className={className}
-          href={href as string}
+          href={href as any}
           ref={ref as any}
           {...other}
         />
@@ -94,12 +94,7 @@ const MuiNextLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     }
 
     return (
-      <MuiLink
-        className={className}
-        href={href as string}
-        ref={ref}
-        {...other}
-      />
+      <MuiLink className={className} href={href as any} ref={ref} {...other} />
     );
   }
 
