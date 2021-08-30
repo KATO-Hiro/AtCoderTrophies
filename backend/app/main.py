@@ -2,7 +2,7 @@ from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-from app.constants import PRODUCT_NAME
+from app.constants import API_V1, PRODUCT_NAME
 from app.crud import (
     read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
@@ -30,7 +30,7 @@ async def root():
 
 
 @app.get(
-    "/ac_count/{user_name}",
+    API_V1 + "/ac_count/{user_name}",
     tags=["statistics"],
     response_model=AcceptedCount,
     status_code=status.HTTP_200_OK,
@@ -50,7 +50,7 @@ async def read_accepted_count(user_name: str):
 
 
 @app.get(
-    "/ac_count_by_lang/{user_name}",
+    API_V1 + "/ac_count_by_lang/{user_name}",
     tags=["statistics"],
     response_model=AcceptedCountByLanguage,
     status_code=status.HTTP_200_OK,
@@ -79,7 +79,7 @@ async def read_accepted_count_by_language(user_name: str):
 
 
 @app.get(
-    "/rated_point_sum/{user_name}",
+    API_V1 + "/rated_point_sum/{user_name}",
     tags=["statistics"],
     response_model=RatedPointSum,
     status_code=status.HTTP_200_OK,
@@ -99,7 +99,7 @@ async def read_rated_point_sum(user_name: str):
 
 
 @app.get(
-    "/longest_streak/{user_name}",
+    API_V1 + "/longest_streak/{user_name}",
     tags=["statistics"],
     response_model=LongestStreak,
     status_code=status.HTTP_200_OK,
