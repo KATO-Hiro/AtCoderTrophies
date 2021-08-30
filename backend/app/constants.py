@@ -1,3 +1,4 @@
+PRODUCT_NAME: str = "AtCoder Trophies"
 ATCODER_PROBLEMS_API_BASE: str = "https://kenkoooo.com/atcoder/atcoder-api"
 ATCODER_PROBLEMS_API_VERSION: str = "/v3"
 
