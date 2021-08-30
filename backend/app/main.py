@@ -2,6 +2,7 @@ from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
+from app.constants import PRODUCT_NAME
 from app.crud import (
     read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
@@ -16,7 +17,7 @@ from app.schemas import (
 )
 
 
-app = FastAPI()
+app = FastAPI(title=PRODUCT_NAME)
 
 # See:
 # https://fastapi.tiangolo.com/tutorial/cors/?h=cors#use-corsmiddleware
