@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import TrophyFrame from '../../../../components/TrophyFrame/TrophyFrame';
+import UserInfo from '../../../../components/UserInfo/UserInfo';
 import {
   DEFAULT_PANEL_SIZE,
   DEFAULT_MARGIN_H,
@@ -10,6 +11,7 @@ import {
   ONE_DAY_IN_SECONDS,
 } from '../../../../constants/default-values';
 import { COLORS } from '../../../../styles/background-themes';
+import AtCoderProblemsAPIClient from '../../../../utils/AtCoderProblemsAPIClient/atCoderProblemsAPIClient';
 
 const circle = (name: string) => `\
   <svg height="100" width="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,10 +22,10 @@ const circle = (name: string) => `\
   </svg>
 `;
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
-): any {
+): Promise<any> {
   const { userName, background_theme: backgroundTheme } = req.query;
 
   // TODO: Enable to change the following parameters using user info.
@@ -42,6 +44,11 @@ export default function handler(
 
   // TODO: Error handling.
   // username is not exist.
+  const atCoderProblemsAPIClient = new AtCoderProblemsAPIClient(
+    userName as string,
+  );
+  await atCoderProblemsAPIClient.readAPI();
+  const userInfo = new UserInfo(atCoderProblemsAPIClient);
 
   res.setHeader('Content-type', 'image/svg+xml');
 
@@ -62,6 +69,6 @@ export default function handler(
     noBackground,
     noFrame,
   );
-  // TODO: Use user info.
-  res.status(200).send(trophyFrame.render(null, theme));
+
+  res.status(200).send(trophyFrame.render(userInfo, theme));
 }

@@ -1,6 +1,7 @@
 import { Theme } from '../../interfaces/Theme';
 import Trophy from '../Trophy/Trophy';
 import TrophyList from '../TrophyList/TrophyList';
+import UserInfo from '../UserInfo/UserInfo';
 
 export default class TrophyFrame {
   private width = 0;
@@ -22,8 +23,7 @@ export default class TrophyFrame {
       panelSize * this.maxColumn + this.marginWidth * (this.maxColumn - 1);
   }
 
-  // TODO: Use UserInfo type.
-  render(userInfo: unknown, theme: Theme): string {
+  render(userInfo: UserInfo, theme: Theme): string {
     const trophyList = new TrophyList(userInfo);
 
     trophyList.filterByHidden();
