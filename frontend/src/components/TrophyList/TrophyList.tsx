@@ -18,15 +18,21 @@ import RatedPointSumTrophy from '../Trophy/RatedPointSumTrophy';
 import RubyistTrophy from '../Trophy/RubyistTrophy';
 import RustaceanTrophy from '../Trophy/RustaceanTrophy';
 import Trophy from '../Trophy/Trophy';
+import UserInfo from '../UserInfo/UserInfo';
 
 export default class TrophyList {
   private trophies = new Array<Trophy>();
 
-  constructor(userInfo: unknown) {
+  constructor(userInfo: UserInfo) {
+    const problemsAPIClient = userInfo.atCoderProblemsAPIClient;
+    const acceptedCount = problemsAPIClient.getTotalAcceptedCount();
+    const longestStreak = problemsAPIClient.getLongestStreak();
+    const ratedPointSum = problemsAPIClient.getRatedPointSum();
+
     // Basic trophies.
     // TODO: Replace numbers to UserInfo.
     this.trophies.push(
-      new AcceptedCountTrophy(5000),
+      new AcceptedCountTrophy(acceptedCount),
       new CPlusPluserTrophy(3500),
       new CProgrammerTrophy(15),
       new CSharperTrophy(30),
@@ -35,12 +41,12 @@ export default class TrophyList {
       new HaskellerTrophy(80),
       new JavaerTrophy(5),
       new KotlinerTrophy(9),
-      new LongestStreakCount(200),
+      new LongestStreakCount(longestStreak),
       new PHPerTrophy(2),
       new PerlerTrophy(950),
       new PyPyUserTrophy(250),
       new PythonistaTrophy(350),
-      new RatedPointSumTrophy(275000),
+      new RatedPointSumTrophy(ratedPointSum),
       new RubyistTrophy(200),
       new RustaceanTrophy(800),
     );
