@@ -18,6 +18,7 @@ import PythonistaTrophy from '../Trophy/PythonistaTrophy';
 import RatedPointSumTrophy from '../Trophy/RatedPointSumTrophy';
 import RubyistTrophy from '../Trophy/RubyistTrophy';
 import RustaceanTrophy from '../Trophy/RustaceanTrophy';
+import SwiftUserTrophy from '../Trophy/SwiftUserTrophy';
 import Trophy from '../Trophy/Trophy';
 import UserInfo from '../UserInfo/UserInfo';
 
@@ -51,6 +52,7 @@ export default class TrophyList {
       new RatedPointSumTrophy(ratedPointSum),
       new RubyistTrophy(200),
       new RustaceanTrophy(800),
+      new SwiftUserTrophy(0),
     );
 
     // Secret trophies.
