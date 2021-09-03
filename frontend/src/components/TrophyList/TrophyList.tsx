@@ -7,6 +7,7 @@ import CSharperTrophy from '../Trophy/CSharperTrophy';
 import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
 import HaskellerTrophy from '../Trophy/HaskellerTrophy';
+import JavaScripterTrophy from '../Trophy/JavaScripterTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
 import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
@@ -39,6 +40,7 @@ export default class TrophyList {
       new DProgrammerTrophy(1),
       new GopherTrophy(120),
       new HaskellerTrophy(80),
+      new JavaScripterTrophy(10),
       new JavaerTrophy(5),
       new KotlinerTrophy(9),
       new LongestStreakCount(longestStreak),
