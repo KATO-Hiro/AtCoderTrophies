@@ -11,6 +11,7 @@ import JavaScripterTrophy from '../Trophy/JavaScripterTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
 import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
+import NimUserTrophy from '../Trophy/NimUserTrophy';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
 import PerlerTrophy from '../Trophy/PerlerTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
@@ -45,6 +46,7 @@ export default class TrophyList {
       new JavaerTrophy(5),
       new KotlinerTrophy(9),
       new LongestStreakCount(longestStreak),
+      new NimUserTrophy(0),
       new PHPerTrophy(2),
       new PerlerTrophy(950),
       new PyPyUserTrophy(250),
