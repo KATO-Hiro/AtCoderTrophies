@@ -16,6 +16,7 @@ import JavaerTrophy from '../Trophy/JavaerTrophy';
 import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
+import OCamelUserTrophy from '../Trophy/OCamelUserTrophy';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
 import PerlerTrophy from '../Trophy/PerlerTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
@@ -63,6 +64,7 @@ export default class TrophyList {
       new KotlinerTrophy(this.getAcceptedCountByLanguage(Languages.KOTLIN)),
       new LongestStreakCount(longestStreak),
       new NimUserTrophy(this.getAcceptedCountByLanguage(Languages.NIM)),
+      new OCamelUserTrophy(this.getAcceptedCountByLanguage(Languages.OCAML)),
       new PHPerTrophy(this.getAcceptedCountByLanguage(Languages.PHP)),
       new PerlerTrophy(this.getAcceptedCountByLanguage(Languages.PERL)),
       new PyPyUserTrophy(this.getAcceptedCountByLanguage(Languages.PYPY)),
