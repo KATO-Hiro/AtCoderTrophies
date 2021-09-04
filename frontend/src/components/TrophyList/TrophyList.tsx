@@ -1,4 +1,6 @@
+import { SupportedLanguages as Languages } from '../../constants/languages';
 import { RANK, RANK_ORDER } from '../../constants/rank';
+import { SupportedLanguages } from '../../interfaces/SupportedLanguages';
 import AcceptedCountTrophy from '../Trophy/AcceptedCountTrophy';
 import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
@@ -26,39 +28,55 @@ import UserInfo from '../UserInfo/UserInfo';
 export default class TrophyList {
   private trophies = new Array<Trophy>();
 
+  private acceptedCountByLanguageList: Map<string, number> = new Map();
+
   constructor(userInfo: UserInfo) {
     const problemsAPIClient = userInfo.atCoderProblemsAPIClient;
     const acceptedCount = problemsAPIClient.getTotalAcceptedCount();
     const longestStreak = problemsAPIClient.getLongestStreak();
     const ratedPointSum = problemsAPIClient.getRatedPointSum();
+    this.acceptedCountByLanguageList =
+      problemsAPIClient.getAcceptedCountByLanguageList();
 
     // Basic trophies.
-    // TODO: Replace numbers to UserInfo.
+    // TODO: Refactoring.
     this.trophies.push(
       new AcceptedCountTrophy(acceptedCount),
-      new CPlusPluserTrophy(3500),
-      new CProgrammerTrophy(15),
-      new CSharperTrophy(30),
-      new DProgrammerTrophy(1),
-      new GopherTrophy(120),
-      new HaskellerTrophy(80),
-      new JavaScripterTrophy(10),
-      new JavaerTrophy(5),
-      new KotlinerTrophy(9),
+      new CPlusPluserTrophy(
+        this.getAcceptedCountByLanguage(Languages.C_PLUS_PLUS),
+      ),
+      new CProgrammerTrophy(this.getAcceptedCountByLanguage(Languages.C)),
+      new CSharperTrophy(this.getAcceptedCountByLanguage(Languages.C_SHARP)),
+      new DProgrammerTrophy(this.getAcceptedCountByLanguage(Languages.D)),
+      new GopherTrophy(this.getAcceptedCountByLanguage(Languages.GO)),
+      new HaskellerTrophy(this.getAcceptedCountByLanguage(Languages.HASKELL)),
+      new JavaScripterTrophy(
+        this.getAcceptedCountByLanguage(Languages.JAVASCRIPT),
+      ),
+      new JavaerTrophy(this.getAcceptedCountByLanguage(Languages.JAVA)),
+      new KotlinerTrophy(this.getAcceptedCountByLanguage(Languages.KOTLIN)),
       new LongestStreakCount(longestStreak),
-      new NimUserTrophy(0),
-      new PHPerTrophy(2),
-      new PerlerTrophy(950),
-      new PyPyUserTrophy(250),
-      new PythonistaTrophy(350),
+      new NimUserTrophy(this.getAcceptedCountByLanguage(Languages.NIM)),
+      new PHPerTrophy(this.getAcceptedCountByLanguage(Languages.PHP)),
+      new PerlerTrophy(this.getAcceptedCountByLanguage(Languages.PERL)),
+      new PyPyUserTrophy(this.getAcceptedCountByLanguage(Languages.PYPY)),
+      new PythonistaTrophy(this.getAcceptedCountByLanguage(Languages.PYTHON)),
       new RatedPointSumTrophy(ratedPointSum),
-      new RubyistTrophy(200),
-      new RustaceanTrophy(800),
-      new SwiftUserTrophy(0),
+      new RubyistTrophy(this.getAcceptedCountByLanguage(Languages.RUBY)),
+      new RustaceanTrophy(this.getAcceptedCountByLanguage(Languages.RUST)),
+      new SwiftUserTrophy(this.getAcceptedCountByLanguage(Languages.SWIFT)),
     );
 
     // Secret trophies.
     this.trophies.push(new AllSuperRankTrophy(this.isAllSRank));
+  }
+
+  private getAcceptedCountByLanguage(language: SupportedLanguages): number {
+    const acceptedCount = this.acceptedCountByLanguageList?.get(
+      language,
+    ) as number;
+
+    return acceptedCount;
   }
 
   get length(): number {
