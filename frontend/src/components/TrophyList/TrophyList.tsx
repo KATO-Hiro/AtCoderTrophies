@@ -13,6 +13,7 @@ import GopherTrophy from '../Trophy/GopherTrophy';
 import HaskellerTrophy from '../Trophy/HaskellerTrophy';
 import JavaScripterTrophy from '../Trophy/JavaScripterTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
+import JuliaUserTrophy from '../Trophy/JuliaUserTrophy';
 import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCount from '../Trophy/LongestStreakCount';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
@@ -62,6 +63,7 @@ export default class TrophyList {
         this.getAcceptedCountByLanguage(Languages.JAVASCRIPT),
       ),
       new JavaerTrophy(this.getAcceptedCountByLanguage(Languages.JAVA)),
+      new JuliaUserTrophy(this.getAcceptedCountByLanguage(Languages.JULIA)),
       new KotlinerTrophy(this.getAcceptedCountByLanguage(Languages.KOTLIN)),
       new LongestStreakCount(longestStreak),
       new NimUserTrophy(this.getAcceptedCountByLanguage(Languages.NIM)),
