@@ -18,6 +18,7 @@ import LongestStreakCount from '../Trophy/LongestStreakCount';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
 import OCamelUserTrophy from '../Trophy/OCamelUserTrophy';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
+import PascalUserTrophy from '../Trophy/PascalUserTrophy';
 import PerlerTrophy from '../Trophy/PerlerTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
 import PythonistaTrophy from '../Trophy/PythonistaTrophy';
@@ -66,6 +67,7 @@ export default class TrophyList {
       new NimUserTrophy(this.getAcceptedCountByLanguage(Languages.NIM)),
       new OCamelUserTrophy(this.getAcceptedCountByLanguage(Languages.OCAML)),
       new PHPerTrophy(this.getAcceptedCountByLanguage(Languages.PHP)),
+      new PascalUserTrophy(this.getAcceptedCountByLanguage(Languages.PASCAL)),
       new PerlerTrophy(this.getAcceptedCountByLanguage(Languages.PERL)),
       new PyPyUserTrophy(this.getAcceptedCountByLanguage(Languages.PYPY)),
       new PythonistaTrophy(this.getAcceptedCountByLanguage(Languages.PYTHON)),
