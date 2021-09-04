@@ -7,6 +7,7 @@ import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
 import CommonLisperTrophy from '../Trophy/CommonLisperTrophy';
+import CrystalUserTrophy from '../Trophy/CrystalUserTrophy';
 import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
 import HaskellerTrophy from '../Trophy/HaskellerTrophy';
@@ -51,6 +52,7 @@ export default class TrophyList {
       new CommonLisperTrophy(
         this.getAcceptedCountByLanguage(Languages.COMMON_LISP),
       ),
+      new CrystalUserTrophy(this.getAcceptedCountByLanguage(Languages.CRYSTAL)),
       new DProgrammerTrophy(this.getAcceptedCountByLanguage(Languages.D)),
       new GopherTrophy(this.getAcceptedCountByLanguage(Languages.GO)),
       new HaskellerTrophy(this.getAcceptedCountByLanguage(Languages.HASKELL)),
