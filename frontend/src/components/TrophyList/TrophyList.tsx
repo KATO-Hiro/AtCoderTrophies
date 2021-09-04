@@ -3,6 +3,7 @@ import { RANK, RANK_ORDER } from '../../constants/rank';
 import { SupportedLanguages } from '../../interfaces/SupportedLanguages';
 import AcceptedCountTrophy from '../Trophy/AcceptedCountTrophy';
 import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
+import BashUserTrophy from '../Trophy/BashUserTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
@@ -49,6 +50,7 @@ export default class TrophyList {
     // TODO: Refactoring.
     this.trophies.push(
       new AcceptedCountTrophy(acceptedCount),
+      new BashUserTrophy(this.getAcceptedCountByLanguage(Languages.BASH)),
       new CPlusPluserTrophy(
         this.getAcceptedCountByLanguage(Languages.C_PLUS_PLUS),
       ),
