@@ -1,3 +1,4 @@
+import { acceptedCountByLanguageList } from '../../constants/languages';
 import { AcceptedCountAPI } from '../../interfaces/AcceptedCountAPI';
 import { AcceptedCountByLanguageAPI } from '../../interfaces/AcceptedCountByLanguageAPI';
 import { LongestStreakAPI } from '../../interfaces/LongestStreakAPI';
@@ -12,6 +13,8 @@ export default class AtCoderProblemsAPIClient {
 
   private totalAcceptedCount = 0;
 
+  private acceptedCountByLanguageList: Map<string, number> = new Map();
+
   private ratedPointSum = 0;
 
   private longestStreak = 0;
@@ -22,7 +25,7 @@ export default class AtCoderProblemsAPIClient {
 
   async readAPI(): Promise<void> {
     await this.readAcceptedCountAPI();
-    // await this.readAcceptedCountByLanguageAPI();
+    await this.readAcceptedCountByLanguageAPI();
     await this.readRatedPointSumAPI();
     await this.readLongestStreakAPI();
   }
@@ -41,7 +44,17 @@ export default class AtCoderProblemsAPIClient {
   private async readAcceptedCountByLanguageAPI(): Promise<void> {
     const acceptedCountByLanguageAPI: AcceptedCountByLanguageAPI | null =
       await fetchAcceptedCountByLanguageAPI(this.userName);
-    // TODO: Extract ac count by each lang.
+    const languages = acceptedCountByLanguageAPI?.languages;
+
+    // HACK: This code is not beautiful.
+    if (languages !== undefined) {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const language of Object.values(languages)) {
+        acceptedCountByLanguageList.set(language.language, language.count);
+      }
+
+      this.acceptedCountByLanguageList = acceptedCountByLanguageList;
+    }
   }
 
   private async readRatedPointSumAPI(): Promise<void> {
@@ -68,6 +81,10 @@ export default class AtCoderProblemsAPIClient {
 
   public getTotalAcceptedCount(): number {
     return this.totalAcceptedCount;
+  }
+
+  public getAcceptedCountByLanguageList(): Map<string, number> {
+    return this.acceptedCountByLanguageList;
   }
 
   public getRatedPointSum(): number {
