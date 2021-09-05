@@ -62,10 +62,22 @@ export const SupportedLanguages = {
   DC: 'dc',
 } as const;
 
-export const acceptedCountByLanguageList: Map<string, number> = new Map();
+export class AcceptedCountByLanguageList {
+  languageList: Map<string, number> = new Map();
 
-// HACK: The following settings might not be good.
-// eslint-disable-next-line no-restricted-syntax
-for (const language of Object.values(SupportedLanguages)) {
-  acceptedCountByLanguageList.set(language, 0);
+  constructor() {
+    // HACK: The following settings might not be good.
+    // eslint-disable-next-line no-restricted-syntax
+    for (const language of Object.values(SupportedLanguages)) {
+      this.languageList.set(language, 0);
+    }
+  }
+
+  update(language: string, acceptedCount: number): void {
+    this.languageList.set(language, acceptedCount);
+  }
+
+  getLanguageList(): Map<string, number> {
+    return this.languageList;
+  }
 }
