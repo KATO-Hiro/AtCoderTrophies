@@ -1,4 +1,4 @@
-import { acceptedCountByLanguageList } from '../../constants/languages';
+import { AcceptedCountByLanguageList } from '../../constants/languages';
 import { AcceptedCountAPI } from '../../interfaces/AcceptedCountAPI';
 import { AcceptedCountByLanguageAPI } from '../../interfaces/AcceptedCountByLanguageAPI';
 import { LongestStreakAPI } from '../../interfaces/LongestStreakAPI';
@@ -13,7 +13,7 @@ export default class AtCoderProblemsAPIClient {
 
   private totalAcceptedCount = 0;
 
-  private acceptedCountByLanguageList: Map<string, number> = new Map();
+  private acceptedCountByLanguageList = new AcceptedCountByLanguageList();
 
   private ratedPointSum = 0;
 
@@ -50,10 +50,11 @@ export default class AtCoderProblemsAPIClient {
     if (languages !== undefined) {
       // eslint-disable-next-line no-restricted-syntax
       for (const language of Object.values(languages)) {
-        acceptedCountByLanguageList.set(language.language, language.count);
+        this.acceptedCountByLanguageList.update(
+          language.language,
+          language.count,
+        );
       }
-
-      this.acceptedCountByLanguageList = acceptedCountByLanguageList;
     }
   }
 
@@ -84,7 +85,7 @@ export default class AtCoderProblemsAPIClient {
   }
 
   public getAcceptedCountByLanguageList(): Map<string, number> {
-    return this.acceptedCountByLanguageList;
+    return this.acceptedCountByLanguageList.getLanguageList();
   }
 
   public getRatedPointSum(): number {
