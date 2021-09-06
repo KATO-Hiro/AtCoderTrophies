@@ -12,6 +12,8 @@ import getTrophyIcon from '../TrophyIcon/TrophyIcon';
 import RankCondition from './RankCondition';
 
 export default class Trophy {
+  recordedScore = 0;
+
   rankCondition: RankCondition | null = null;
 
   rank: RANK = RANK.UNKNOWN;
@@ -30,6 +32,7 @@ export default class Trophy {
     private score: number,
     private rankConditions: Array<RankCondition>,
   ) {
+    this.recordedScore = score;
     this.bottomMessage = abridgeScore(score);
     this.setRank();
   }
@@ -49,6 +52,10 @@ export default class Trophy {
       this.rankCondition = rankCondition;
       this.topMessage = rankCondition.getTitleName;
     }
+  }
+
+  getScore(): number {
+    return this.recordedScore;
   }
 
   private calculateNextRankRatio() {
