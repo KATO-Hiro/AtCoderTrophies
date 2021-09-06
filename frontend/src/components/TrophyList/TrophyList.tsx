@@ -48,40 +48,88 @@ export default class TrophyList {
 
     // Basic trophies.
     // TODO: Refactoring.
-    this.trophies.push(
-      new AcceptedCountTrophy(acceptedCount),
+    this.addTrophyAsNeeded(new AcceptedCountTrophy(acceptedCount));
+    this.addTrophyAsNeeded(
       new BashUserTrophy(this.getAcceptedCountByLanguage(Languages.BASH)),
+    );
+    this.addTrophyAsNeeded(
       new CPlusPluserTrophy(
         this.getAcceptedCountByLanguage(Languages.C_PLUS_PLUS),
       ),
+    );
+    this.addTrophyAsNeeded(
       new CProgrammerTrophy(this.getAcceptedCountByLanguage(Languages.C)),
+    );
+    this.addTrophyAsNeeded(
       new CSharperTrophy(this.getAcceptedCountByLanguage(Languages.C_SHARP)),
+    );
+    this.addTrophyAsNeeded(
       new CommonLisperTrophy(
         this.getAcceptedCountByLanguage(Languages.COMMON_LISP),
       ),
+    );
+    this.addTrophyAsNeeded(
       new CrystalUserTrophy(this.getAcceptedCountByLanguage(Languages.CRYSTAL)),
+    );
+    this.addTrophyAsNeeded(
       new DProgrammerTrophy(this.getAcceptedCountByLanguage(Languages.D)),
+    );
+    this.addTrophyAsNeeded(
       new FortranUserTrophy(this.getAcceptedCountByLanguage(Languages.FORTRAN)),
+    );
+    this.addTrophyAsNeeded(
       new GopherTrophy(this.getAcceptedCountByLanguage(Languages.GO)),
+    );
+    this.addTrophyAsNeeded(
       new HaskellerTrophy(this.getAcceptedCountByLanguage(Languages.HASKELL)),
+    );
+    this.addTrophyAsNeeded(
       new JavaScripterTrophy(
         this.getAcceptedCountByLanguage(Languages.JAVASCRIPT),
       ),
+    );
+    this.addTrophyAsNeeded(
       new JavaerTrophy(this.getAcceptedCountByLanguage(Languages.JAVA)),
+    );
+    this.addTrophyAsNeeded(
       new JuliaUserTrophy(this.getAcceptedCountByLanguage(Languages.JULIA)),
+    );
+    this.addTrophyAsNeeded(
       new KotlinerTrophy(this.getAcceptedCountByLanguage(Languages.KOTLIN)),
-      new LongestStreakCountTrophy(longestStreak),
+    );
+    this.addTrophyAsNeeded(new LongestStreakCountTrophy(longestStreak));
+    this.addTrophyAsNeeded(
       new LuaUserTrophy(this.getAcceptedCountByLanguage(Languages.LUA)),
+    );
+    this.addTrophyAsNeeded(
       new NimUserTrophy(this.getAcceptedCountByLanguage(Languages.NIM)),
+    );
+    this.addTrophyAsNeeded(
       new OCamelUserTrophy(this.getAcceptedCountByLanguage(Languages.OCAML)),
+    );
+    this.addTrophyAsNeeded(
       new PHPerTrophy(this.getAcceptedCountByLanguage(Languages.PHP)),
+    );
+    this.addTrophyAsNeeded(
       new PascalUserTrophy(this.getAcceptedCountByLanguage(Languages.PASCAL)),
+    );
+    this.addTrophyAsNeeded(
       new PerlerTrophy(this.getAcceptedCountByLanguage(Languages.PERL)),
+    );
+    this.addTrophyAsNeeded(
       new PyPyUserTrophy(this.getAcceptedCountByLanguage(Languages.PYPY)),
+    );
+    this.addTrophyAsNeeded(
       new PythonistaTrophy(this.getAcceptedCountByLanguage(Languages.PYTHON)),
-      new RatedPointSumTrophy(ratedPointSum),
+    );
+    this.addTrophyAsNeeded(new RatedPointSumTrophy(ratedPointSum));
+    this.addTrophyAsNeeded(
       new RubyistTrophy(this.getAcceptedCountByLanguage(Languages.RUBY)),
+    );
+    this.addTrophyAsNeeded(
       new RustaceanTrophy(this.getAcceptedCountByLanguage(Languages.RUST)),
+    );
+    this.addTrophyAsNeeded(
       new SwiftUserTrophy(this.getAcceptedCountByLanguage(Languages.SWIFT)),
     );
 
@@ -95,6 +143,14 @@ export default class TrophyList {
     ) as number;
 
     return acceptedCount;
+  }
+
+  private addTrophyAsNeeded(trophy: Trophy): void {
+    const score = trophy.getScore();
+
+    if (score >= 1) {
+      this.trophies.push(trophy);
+    }
   }
 
   get length(): number {
