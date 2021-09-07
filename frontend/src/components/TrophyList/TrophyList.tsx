@@ -4,6 +4,7 @@ import { SupportedLanguages } from '../../interfaces/SupportedLanguages';
 import AcceptedCountTrophy from '../Trophy/AcceptedCountTrophy';
 import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
 import BashUserTrophy from '../Trophy/BashUserTrophy';
+import BcUserTrophy from '../Trophy/BcUserTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
@@ -51,6 +52,9 @@ export default class TrophyList {
     this.addTrophyAsNeeded(new AcceptedCountTrophy(acceptedCount));
     this.addTrophyAsNeeded(
       new BashUserTrophy(this.getAcceptedCountByLanguage(Languages.BASH)),
+    );
+    this.addTrophyAsNeeded(
+      new BcUserTrophy(this.getAcceptedCountByLanguage(Languages.BC)),
     );
     this.addTrophyAsNeeded(
       new CPlusPluserTrophy(
