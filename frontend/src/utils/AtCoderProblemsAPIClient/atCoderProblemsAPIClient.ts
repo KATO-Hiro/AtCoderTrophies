@@ -11,6 +11,8 @@ import fetchRatedPointSumAPI from './ratedPointSumFetcher';
 export default class AtCoderProblemsAPIClient {
   private userName = '';
 
+  private existsUserName = true;
+
   private totalAcceptedCount = 0;
 
   private acceptedCountByLanguageList = new AcceptedCountByLanguageList();
@@ -30,24 +32,32 @@ export default class AtCoderProblemsAPIClient {
     await this.readLongestStreakAPI();
   }
 
+  isValidUserName(): boolean {
+    return this.existsUserName;
+  }
+
   private async readAcceptedCountAPI(): Promise<void> {
     const acceptedCountAPI: AcceptedCountAPI | null =
       await fetchAcceptedCountAPI(this.userName);
-    const acceptedCount = acceptedCountAPI?.count;
 
     // HACK: This code is not beautiful.
-    if (acceptedCount !== undefined) {
-      this.totalAcceptedCount = acceptedCount;
+    if (acceptedCountAPI === null) {
+      this.existsUserName = false;
+    } else {
+      this.totalAcceptedCount = acceptedCountAPI.count;
     }
   }
 
   private async readAcceptedCountByLanguageAPI(): Promise<void> {
     const acceptedCountByLanguageAPI: AcceptedCountByLanguageAPI | null =
       await fetchAcceptedCountByLanguageAPI(this.userName);
-    const languages = acceptedCountByLanguageAPI?.languages;
 
     // HACK: This code is not beautiful.
-    if (languages !== undefined) {
+    if (acceptedCountByLanguageAPI === null) {
+      this.existsUserName = false;
+    } else {
+      const { languages } = acceptedCountByLanguageAPI;
+
       // eslint-disable-next-line no-restricted-syntax
       for (const language of Object.values(languages)) {
         this.acceptedCountByLanguageList.update(
@@ -61,22 +71,24 @@ export default class AtCoderProblemsAPIClient {
   private async readRatedPointSumAPI(): Promise<void> {
     const ratedPointSumAPI: RatedPointSumAPI | null =
       await fetchRatedPointSumAPI(this.userName);
-    const ratedPointSum = ratedPointSumAPI?.count;
 
     // HACK: This code is not beautiful.
-    if (ratedPointSum !== undefined) {
-      this.ratedPointSum = ratedPointSum;
+    if (ratedPointSumAPI === null) {
+      this.existsUserName = false;
+    } else {
+      this.ratedPointSum = ratedPointSumAPI.count;
     }
   }
 
   private async readLongestStreakAPI(): Promise<void> {
     const longestStreakAPI: LongestStreakAPI | null =
       await fetchLongestStreakAPI(this.userName);
-    const longestStreak = longestStreakAPI?.count;
 
     // HACK: This code is not beautiful.
-    if (longestStreak !== undefined) {
-      this.longestStreak = longestStreak;
+    if (longestStreakAPI === null) {
+      this.existsUserName = false;
+    } else {
+      this.longestStreak = longestStreakAPI.count;
     }
   }
 
