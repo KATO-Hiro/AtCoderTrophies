@@ -26,7 +26,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<any> {
-  const { userName, background_theme: backgroundTheme } = req.query;
+  const { username: userName, background_theme: backgroundTheme } = req.query;
 
   // TODO: Enable to change the following parameters using user info.
   const maxColumn = 5;
@@ -39,20 +39,29 @@ export default async function handler(
   const titles: Array<string> = [];
   const ranks: Array<string> = [];
 
-  // TODO: Error handling.
   // No username.
+  if (userName === '') {
+    res.setHeader('Content-type', 'text');
+    res.status(404).send('Not found a query parameter: username');
+    return;
+  }
 
-  // TODO: Error handling.
-  // username is not exist.
   const atCoderProblemsAPIClient = new AtCoderProblemsAPIClient(
     userName as string,
   );
   await atCoderProblemsAPIClient.readAPI();
+
+  // username is not exist.
+  if (!atCoderProblemsAPIClient.isValidUserName()) {
+    res.setHeader('Content-type', 'text');
+    res.status(404).send(`Not found username: ${userName as string}`);
+    return;
+  }
+
   const userInfo = new UserInfo(atCoderProblemsAPIClient);
+  const cacheSeconds = ONE_DAY_IN_SECONDS;
 
   res.setHeader('Content-type', 'image/svg+xml');
-
-  const cacheSeconds = ONE_DAY_IN_SECONDS;
   res.setHeader(
     'Cache-Control',
     `public, max-age=${cacheSeconds}, stale-while-revalidate=${ONE_HOUR_IN_SECONDS}`,
