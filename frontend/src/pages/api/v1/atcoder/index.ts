@@ -54,7 +54,7 @@ export default async function handler(
   // username is not exist.
   if (!atCoderProblemsAPIClient.isValidUserName()) {
     res.setHeader('Content-type', 'text');
-    res.status(404).send(`Not found username ${userName as string}`);
+    res.status(404).send(`Not found username: ${userName as string}`);
     return;
   }
 
