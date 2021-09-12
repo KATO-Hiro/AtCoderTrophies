@@ -33,10 +33,11 @@ export default async function handler(
     background_theme: backgroundTheme,
     column,
     row,
+    title,
     rank,
   } = req.query;
 
-  // TODO: Enable to change the following parameters using user info.
+  // Enable to change the following parameters using user info.
   const maxColumn =
     column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
   const maxRow = row === undefined || row === '' ? DEFAULT_MAX_ROW : row;
@@ -47,10 +48,12 @@ export default async function handler(
   const paddingHeight = DEFAULT_MARGIN_H;
   const noBackground = DEFAULT_NO_BACKGROUND;
   const noFrame = DEFAULT_NO_FRAME;
-  const titles: Array<string> = [];
+  const titleList = title as string;
+  const titles: Array<string> =
+    title === undefined || title === '' ? [] : titleList.split(',');
   const rankList = rank as string;
   const ranks: Array<string> =
-    rankList === undefined || rank === '' ? [] : rankList.split(',');
+    rank === undefined || rank === '' ? [] : rankList.split(',');
 
   // No username.
   if (userName === '') {
