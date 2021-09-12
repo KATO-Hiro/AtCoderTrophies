@@ -6,6 +6,7 @@ import {
   DEFAULT_MARGIN_H,
   DEFAULT_MARGIN_W,
   DEFAULT_MAX_COLUMN,
+  DEFAULT_MAX_ROW,
   DEFAULT_NO_BACKGROUND,
   DEFAULT_NO_FRAME,
   ONE_HOUR_IN_SECONDS,
@@ -31,12 +32,13 @@ export default async function handler(
     username: userName,
     background_theme: backgroundTheme,
     column,
+    row,
   } = req.query;
 
   // TODO: Enable to change the following parameters using user info.
   const maxColumn =
     column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
-  const maxRow = 5;
+  const maxRow = row === undefined || row === '' ? DEFAULT_MAX_ROW : row;
   const theme = Object.keys(COLORS).includes(backgroundTheme as string)
     ? COLORS[backgroundTheme as string]
     : COLORS.default;
@@ -79,7 +81,7 @@ export default async function handler(
     titles,
     ranks,
     maxColumn as number,
-    maxRow,
+    maxRow as number,
     DEFAULT_PANEL_SIZE,
     marginWidth,
     paddingHeight,
