@@ -33,6 +33,7 @@ export default async function handler(
     background_theme: backgroundTheme,
     column,
     row,
+    rank,
   } = req.query;
 
   // TODO: Enable to change the following parameters using user info.
@@ -47,7 +48,9 @@ export default async function handler(
   const noBackground = DEFAULT_NO_BACKGROUND;
   const noFrame = DEFAULT_NO_FRAME;
   const titles: Array<string> = [];
-  const ranks: Array<string> = [];
+  const rankList = rank as string;
+  const ranks: Array<string> =
+    rankList === undefined || rank === '' ? [] : rankList.split(',');
 
   // No username.
   if (userName === '') {
