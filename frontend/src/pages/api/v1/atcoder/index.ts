@@ -31,7 +31,9 @@ export default async function handler(
   // TODO: Enable to change the following parameters using user info.
   const maxColumn = 5;
   const maxRow = 5;
-  const theme = COLORS.monokai;
+  const theme = Object.keys(COLORS).includes(backgroundTheme as string)
+    ? COLORS[backgroundTheme as string]
+    : COLORS.default;
   const marginWidth = DEFAULT_MARGIN_W;
   const paddingHeight = DEFAULT_MARGIN_H;
   const noBackground = DEFAULT_NO_BACKGROUND;
