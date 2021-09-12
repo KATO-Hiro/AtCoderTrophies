@@ -1,6 +1,6 @@
 export const DEFAULT_PANEL_SIZE = 110;
-export const DEFAULT_MAX_COLUMN = 5;
-export const DEFAULT_MAX_ROW = 3;
+export const DEFAULT_MAX_COLUMN = 4;
+export const DEFAULT_MAX_ROW = 5;
 export const DEFAULT_MARGIN_W = 0;
 export const DEFAULT_MARGIN_H = 0;
 export const DEFAULT_NO_BACKGROUND = false;

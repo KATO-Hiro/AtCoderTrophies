@@ -5,6 +5,8 @@ import {
   DEFAULT_PANEL_SIZE,
   DEFAULT_MARGIN_H,
   DEFAULT_MARGIN_W,
+  DEFAULT_MAX_COLUMN,
+  DEFAULT_MAX_ROW,
   DEFAULT_NO_BACKGROUND,
   DEFAULT_NO_FRAME,
   ONE_HOUR_IN_SECONDS,
@@ -26,18 +28,32 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<any> {
-  const { username: userName, background_theme: backgroundTheme } = req.query;
+  const {
+    username: userName,
+    background_theme: backgroundTheme,
+    column,
+    row,
+    title,
+    rank,
+  } = req.query;
 
-  // TODO: Enable to change the following parameters using user info.
-  const maxColumn = 5;
-  const maxRow = 5;
-  const theme = COLORS.monokai;
+  // Enable to change the following parameters using user info.
+  const maxColumn =
+    column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
+  const maxRow = row === undefined || row === '' ? DEFAULT_MAX_ROW : row;
+  const theme = Object.keys(COLORS).includes(backgroundTheme as string)
+    ? COLORS[backgroundTheme as string]
+    : COLORS.default;
   const marginWidth = DEFAULT_MARGIN_W;
   const paddingHeight = DEFAULT_MARGIN_H;
   const noBackground = DEFAULT_NO_BACKGROUND;
   const noFrame = DEFAULT_NO_FRAME;
-  const titles: Array<string> = [];
-  const ranks: Array<string> = [];
+  const titleList = title as string;
+  const titles: Array<string> =
+    title === undefined || title === '' ? [] : titleList.split(',');
+  const rankList = rank as string;
+  const ranks: Array<string> =
+    rank === undefined || rank === '' ? [] : rankList.split(',');
 
   // No username.
   if (userName === '') {
@@ -70,8 +86,8 @@ export default async function handler(
   const trophyFrame = new TrophyFrame(
     titles,
     ranks,
-    maxColumn,
-    maxRow,
+    maxColumn as number,
+    maxRow as number,
     DEFAULT_PANEL_SIZE,
     marginWidth,
     paddingHeight,
