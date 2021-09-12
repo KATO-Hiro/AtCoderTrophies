@@ -5,6 +5,7 @@ import {
   DEFAULT_PANEL_SIZE,
   DEFAULT_MARGIN_H,
   DEFAULT_MARGIN_W,
+  DEFAULT_MAX_COLUMN,
   DEFAULT_NO_BACKGROUND,
   DEFAULT_NO_FRAME,
   ONE_HOUR_IN_SECONDS,
@@ -26,10 +27,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<any> {
-  const { username: userName, background_theme: backgroundTheme } = req.query;
+  const {
+    username: userName,
+    background_theme: backgroundTheme,
+    column,
+  } = req.query;
 
   // TODO: Enable to change the following parameters using user info.
-  const maxColumn = 5;
+  const maxColumn =
+    column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
   const maxRow = 5;
   const theme = Object.keys(COLORS).includes(backgroundTheme as string)
     ? COLORS[backgroundTheme as string]
@@ -72,7 +78,7 @@ export default async function handler(
   const trophyFrame = new TrophyFrame(
     titles,
     ranks,
-    maxColumn,
+    maxColumn as number,
     maxRow,
     DEFAULT_PANEL_SIZE,
     marginWidth,
