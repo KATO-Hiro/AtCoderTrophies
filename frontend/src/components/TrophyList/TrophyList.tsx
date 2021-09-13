@@ -11,6 +11,7 @@ import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
 import CommonLisperTrophy from '../Trophy/CommonLisperTrophy';
 import CrystalUserTrophy from '../Trophy/CrystalUserTrophy';
+import CythonUserTrophy from '../Trophy/CythonUserTrophy';
 import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import FortranUserTrophy from '../Trophy/FortranUserTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
@@ -78,6 +79,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new CrystalUserTrophy(this.getAcceptedCountByLanguage(Languages.CRYSTAL)),
+    );
+    this.addTrophyAsNeeded(
+      new CythonUserTrophy(this.getAcceptedCountByLanguage(Languages.CYTHON)),
     );
     this.addTrophyAsNeeded(
       new DProgrammerTrophy(this.getAcceptedCountByLanguage(Languages.D)),
