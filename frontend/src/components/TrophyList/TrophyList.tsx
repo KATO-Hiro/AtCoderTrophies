@@ -6,6 +6,7 @@ import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
 import AwkUserTrophy from '../Trophy/AwkUserTrophy';
 import BashUserTrophy from '../Trophy/BashUserTrophy';
 import BcUserTrophy from '../Trophy/BcUserTrophy';
+import BrainfuckUserTrophy from '../Trophy/BrainfuckUserTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
@@ -60,6 +61,11 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new BcUserTrophy(this.getAcceptedCountByLanguage(Languages.BC)),
+    );
+    this.addTrophyAsNeeded(
+      new BrainfuckUserTrophy(
+        this.getAcceptedCountByLanguage(Languages.BRAINFUCK),
+      ),
     );
     this.addTrophyAsNeeded(
       new CPlusPluserTrophy(
