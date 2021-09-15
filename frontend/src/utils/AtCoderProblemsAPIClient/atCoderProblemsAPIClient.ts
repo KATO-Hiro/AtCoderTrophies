@@ -1,8 +1,6 @@
 import { AcceptedCountByLanguageList } from '../../constants/languages';
 import { AcceptedCountAPI } from '../../interfaces/AcceptedCountAPI';
-import {
-  AcceptedCount,
-} from '../../interfaces/AcceptedCountByLanguageAPI';
+import { AcceptedCount } from '../../interfaces/AcceptedCountByLanguageAPI';
 import { AtCoderProblemsStatAPI } from '../../interfaces/AtCoderProblemsStatAPI';
 import { LongestStreakAPI } from '../../interfaces/LongestStreakAPI';
 import { RatedPointSumAPI } from '../../interfaces/RatedPointSumAPI';
