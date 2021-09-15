@@ -1,12 +1,12 @@
 import { AcceptedCountByLanguageList } from '../../constants/languages';
 import { AcceptedCountAPI } from '../../interfaces/AcceptedCountAPI';
-import { AcceptedCountByLanguageAPI } from '../../interfaces/AcceptedCountByLanguageAPI';
+import {
+  AcceptedCount,
+} from '../../interfaces/AcceptedCountByLanguageAPI';
+import { AtCoderProblemsStatAPI } from '../../interfaces/AtCoderProblemsStatAPI';
 import { LongestStreakAPI } from '../../interfaces/LongestStreakAPI';
 import { RatedPointSumAPI } from '../../interfaces/RatedPointSumAPI';
-import fetchAcceptedCountByLanguageAPI from './acceptedCountByLanguageFetcher';
-import fetchAcceptedCountAPI from './acceptedCountFetcher';
-import fetchLongestStreakAPI from './longestStreakFetcher';
-import fetchRatedPointSumAPI from './ratedPointSumFetcher';
+import fetchAtCoderProblemsStatisticsAPI from './statisticsAPIFetcher';
 
 export default class AtCoderProblemsAPIClient {
   private userName = '';
@@ -26,68 +26,68 @@ export default class AtCoderProblemsAPIClient {
   }
 
   async readAPI(): Promise<void> {
-    await this.readAcceptedCountAPI();
-    await this.readAcceptedCountByLanguageAPI();
-    await this.readRatedPointSumAPI();
-    await this.readLongestStreakAPI();
+    await this.readAtCoderProblemsStatisticsAPI();
   }
 
   isValidUserName(): boolean {
     return this.existsUserName;
   }
 
-  private async readAcceptedCountAPI(): Promise<void> {
-    const acceptedCountAPI: AcceptedCountAPI | null =
-      await fetchAcceptedCountAPI(this.userName);
+  private async readAtCoderProblemsStatisticsAPI(): Promise<void> {
+    const atCoderProblemsStatAPI: AtCoderProblemsStatAPI | null =
+      await fetchAtCoderProblemsStatisticsAPI(this.userName);
 
-    // HACK: This code is not beautiful.
-    if (acceptedCountAPI === null) {
+    if (atCoderProblemsStatAPI === null) {
       this.existsUserName = false;
     } else {
+      this.readAcceptedCountAPI(atCoderProblemsStatAPI.accepted_count);
+      this.readAcceptedCountByLanguageAPI(
+        atCoderProblemsStatAPI.accepted_count_by_language.languages,
+      );
+      this.readRatedPointSumAPI(atCoderProblemsStatAPI.rated_point_sum);
+      this.readLongestStreakAPI(atCoderProblemsStatAPI.longest_streak);
+    }
+  }
+
+  private readAcceptedCountAPI(
+    acceptedCountAPI: AcceptedCountAPI | null,
+  ): void {
+    // HACK: This code is not beautiful.
+    if (acceptedCountAPI !== null) {
       this.totalAcceptedCount = acceptedCountAPI.count;
     }
   }
 
-  private async readAcceptedCountByLanguageAPI(): Promise<void> {
-    const acceptedCountByLanguageAPI: AcceptedCountByLanguageAPI | null =
-      await fetchAcceptedCountByLanguageAPI(this.userName);
-
+  private readAcceptedCountByLanguageAPI(
+    acceptedCountByLanguageAPI: AcceptedCount[],
+  ): void {
     // HACK: This code is not beautiful.
-    if (acceptedCountByLanguageAPI === null) {
-      this.existsUserName = false;
-    } else {
-      const { languages } = acceptedCountByLanguageAPI;
+    if (acceptedCountByLanguageAPI !== null) {
+      const languages = acceptedCountByLanguageAPI;
 
       // eslint-disable-next-line no-restricted-syntax
-      for (const language of Object.values(languages)) {
-        this.acceptedCountByLanguageList.update(
-          language.language,
-          language.count,
-        );
+      for (const aLanguage of Object.values(languages)) {
+        const { language, count, rank } = aLanguage;
+
+        this.acceptedCountByLanguageList.update(language, count);
       }
     }
   }
 
-  private async readRatedPointSumAPI(): Promise<void> {
-    const ratedPointSumAPI: RatedPointSumAPI | null =
-      await fetchRatedPointSumAPI(this.userName);
-
+  private readRatedPointSumAPI(
+    ratedPointSumAPI: RatedPointSumAPI | null,
+  ): void {
     // HACK: This code is not beautiful.
-    if (ratedPointSumAPI === null) {
-      this.existsUserName = false;
-    } else {
+    if (ratedPointSumAPI !== null) {
       this.ratedPointSum = ratedPointSumAPI.count;
     }
   }
 
-  private async readLongestStreakAPI(): Promise<void> {
-    const longestStreakAPI: LongestStreakAPI | null =
-      await fetchLongestStreakAPI(this.userName);
-
+  private readLongestStreakAPI(
+    longestStreakAPI: LongestStreakAPI | null,
+  ): void {
     // HACK: This code is not beautiful.
-    if (longestStreakAPI === null) {
-      this.existsUserName = false;
-    } else {
+    if (longestStreakAPI !== null) {
       this.longestStreak = longestStreakAPI.count;
     }
   }

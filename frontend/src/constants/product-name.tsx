@@ -21,4 +21,7 @@ export const RATED_POINT_SUM_API_URL = (userName: string): string =>
 export const LONGEST_STREAK_API_URL = (userName: string): string =>
   `${BACKEND_BASE_URL + BACKEND_API_V1}/longest_streak/${userName}`;
 
+export const ATCODER_PROBLEMS_STAT_API_URL = (userName: string): string =>
+  `${BACKEND_BASE_URL + BACKEND_API_V1}/problems_stat_api/${userName}`;
+
 export { PRODUCT_NAME as default };
