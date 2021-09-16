@@ -11,6 +11,7 @@ import BrainfuckUserTrophy from '../Trophy/BrainfuckUserTrophy';
 import CPlusPluserTrophy from '../Trophy/CPlusPluserTrophy';
 import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
+import CeylonUserTrophy from '../Trophy/CeylonUserTrophy';
 import ClojureUserTrophy from '../Trophy/ClojureUserTrophy';
 import CommonLisperTrophy from '../Trophy/CommonLisperTrophy';
 import CrystalUserTrophy from '../Trophy/CrystalUserTrophy';
@@ -83,6 +84,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new CSharperTrophy(this.getAcceptedCountByLanguage(Languages.C_SHARP)),
+    );
+    this.addTrophyAsNeeded(
+      new CeylonUserTrophy(this.getAcceptedCountByLanguage(Languages.CEYLON)),
     );
     this.addTrophyAsNeeded(
       new ClojureUserTrophy(this.getAcceptedCountByLanguage(Languages.CLOJURE)),
