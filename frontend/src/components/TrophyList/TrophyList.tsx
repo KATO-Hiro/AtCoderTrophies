@@ -2,6 +2,7 @@ import { SupportedLanguages as Languages } from '../../constants/languages';
 import { RANK, RANK_ORDER } from '../../constants/rank';
 import { SupportedLanguages } from '../../interfaces/SupportedLanguages';
 import AcceptedCountTrophy from '../Trophy/AcceptedCountTrophy';
+import AdaUserTrophy from '../Trophy/AdaUserTrophy';
 import AllSuperRankTrophy from '../Trophy/AllSuperRankTrophy';
 import AwkUserTrophy from '../Trophy/AwkUserTrophy';
 import BashUserTrophy from '../Trophy/BashUserTrophy';
@@ -55,6 +56,9 @@ export default class TrophyList {
     // Basic trophies.
     // TODO: Refactoring.
     this.addTrophyAsNeeded(new AcceptedCountTrophy(acceptedCount));
+    this.addTrophyAsNeeded(
+      new AdaUserTrophy(this.getAcceptedCountByLanguage(Languages.ADA)),
+    );
     this.addTrophyAsNeeded(
       new AwkUserTrophy(this.getAcceptedCountByLanguage(Languages.AWK)),
     );
