@@ -18,6 +18,7 @@ import CrystalUserTrophy from '../Trophy/CrystalUserTrophy';
 import CythonUserTrophy from '../Trophy/CythonUserTrophy';
 import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import DartUserTrophy from '../Trophy/DartUserTrophy';
+import DashUserTrophy from '../Trophy/DashUserTrophy';
 import ElixirUserTrophy from '../Trophy/ElixirUserTrophy';
 import FortranUserTrophy from '../Trophy/FortranUserTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
@@ -108,6 +109,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new DartUserTrophy(this.getAcceptedCountByLanguage(Languages.DART)),
+    );
+    this.addTrophyAsNeeded(
+      new DashUserTrophy(this.getAcceptedCountByLanguage(Languages.DASH)),
     );
     this.addTrophyAsNeeded(
       new ElixirUserTrophy(this.getAcceptedCountByLanguage(Languages.ELIXIR)),
