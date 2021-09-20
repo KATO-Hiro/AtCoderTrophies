@@ -8,7 +8,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import { useState } from 'react';
 
-import backgroundThemes from '../../styles/background-themes';
+import { backgroundThemes } from '../../styles/background-themes';
 
 // See:
 // https://material-ui.com/components/text-fields
@@ -78,7 +78,8 @@ function UserSettings(): JSX.Element {
             variant='standard'
             onChange={handleChange}
           >
-            {backgroundThemes.map((option) => (
+            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
+            {backgroundThemes().map((option: { [key: string]: string }) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

@@ -1,17 +1,5 @@
 import { Theme } from '../interfaces/Theme';
-
-const backgroundThemes = [
-  {
-    value: 'default',
-    label: 'Default',
-  },
-  {
-    value: 'monokai',
-    label: 'Monokai',
-  },
-];
-
-export default backgroundThemes;
+import capitalizeString from '../utils/capitalization';
 
 export const COLORS: { [name: string]: Theme } = {
   default: {
@@ -446,4 +434,21 @@ export const COLORS: { [name: string]: Theme } = {
     DEFAULT_RANK_SHADOW: '#6272a4',
     DEFAULT_RANK_TEXT: '#0d1117',
   },
+};
+
+export const backgroundThemes = (): Array<{ [key: string]: string }> => {
+  const themes: Array<{ [key: string]: string }> = [];
+
+  // TODO: The following code needs to be rewritten to be simpler.
+  // eslint-disable-next-line no-restricted-syntax
+  for (const color of Object.keys(COLORS)) {
+    const theme = {
+      value: color,
+      label: capitalizeString(color),
+    };
+
+    themes.push(theme);
+  }
+
+  return themes;
 };
