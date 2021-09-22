@@ -12,6 +12,6 @@ pytest-watch==4.2.0
 requests==2.26.0
 types-requests==2.25.8
 typing-extensions==3.10.0.2
-urllib3==1.26.6
+urllib3==1.26.7
 uvicorn==0.15.0
 vcrpy==4.1.1
