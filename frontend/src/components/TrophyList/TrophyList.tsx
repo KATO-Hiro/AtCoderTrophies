@@ -41,6 +41,7 @@ import RubyistTrophy from '../Trophy/RubyistTrophy';
 import RustaceanTrophy from '../Trophy/RustaceanTrophy';
 import SwiftUserTrophy from '../Trophy/SwiftUserTrophy';
 import Trophy from '../Trophy/Trophy';
+import VimmerTrophy from '../Trophy/VimmerTrophy'
 import UserInfo from '../UserInfo/UserInfo';
 
 export default class TrophyList {
@@ -174,6 +175,9 @@ export default class TrophyList {
     this.addTrophyAsNeeded(
       new SwiftUserTrophy(this.getAcceptedCountByLanguage(Languages.SWIFT)),
     );
+    this.addTrophyAsNeeded(
+      new VimmerTrophy(this.getAcceptedCountByLanguage(Languages.VIM))
+    )
 
     // Secret trophies.
     this.trophies.push(new AllSuperRankTrophy(this.isAllSRank));
