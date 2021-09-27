@@ -32,6 +32,7 @@ import LongestStreakCountTrophy from '../Trophy/LongestStreakCountTrophy';
 import LuaUserTrophy from '../Trophy/LuaUserTrophy';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
 import OCamelUserTrophy from '../Trophy/OCamelUserTrophy';
+import OctaveUserTrophy from '../Trophy/OctaveUserTrophy';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
 import PascalUserTrophy from '../Trophy/PascalUserTrophy';
 import PerlerTrophy from '../Trophy/PerlerTrophy';
@@ -156,6 +157,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new OCamelUserTrophy(this.getAcceptedCountByLanguage(Languages.OCAML)),
+    );
+    this.addTrophyAsNeeded(
+      new OctaveUserTrophy(this.getAcceptedCountByLanguage(Languages.OCTAVE)),
     );
     this.addTrophyAsNeeded(
       new PHPerTrophy(this.getAcceptedCountByLanguage(Languages.PHP)),
