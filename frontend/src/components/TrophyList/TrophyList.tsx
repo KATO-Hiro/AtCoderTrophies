@@ -38,6 +38,7 @@ import PascalUserTrophy from '../Trophy/PascalUserTrophy';
 import PerlerTrophy from '../Trophy/PerlerTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
 import PythonistaTrophy from '../Trophy/PythonistaTrophy';
+import RacketUserTrophy from '../Trophy/RacketUserTrophy';
 import RakuUserTrophy from '../Trophy/RakuUserTrophy';
 import RatedPointSumTrophy from '../Trophy/RatedPointSumTrophy';
 import RubyistTrophy from '../Trophy/RubyistTrophy';
@@ -175,6 +176,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new PythonistaTrophy(this.getAcceptedCountByLanguage(Languages.PYTHON)),
+    );
+    this.addTrophyAsNeeded(
+      new RacketUserTrophy(this.getAcceptedCountByLanguage(Languages.RACKET)),
     );
     this.addTrophyAsNeeded(
       new RakuUserTrophy(this.getAcceptedCountByLanguage(Languages.RAKU)),
