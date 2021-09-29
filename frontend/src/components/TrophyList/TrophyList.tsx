@@ -20,6 +20,7 @@ import DProgrammerTrophy from '../Trophy/DProgrammerTrophy';
 import DartUserTrophy from '../Trophy/DartUserTrophy';
 import DashUserTrophy from '../Trophy/DashUserTrophy';
 import ElixirUserTrophy from '../Trophy/ElixirUserTrophy';
+import ErlangUserTrophy from '../Trophy/ErlangUserTrophy';
 import FSharperTrophy from '../Trophy/FSharperTrophy';
 import FortranUserTrophy from '../Trophy/FortranUserTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
@@ -122,6 +123,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new ElixirUserTrophy(this.getAcceptedCountByLanguage(Languages.ELIXIR)),
+    );
+    this.addTrophyAsNeeded(
+      new ErlangUserTrophy(this.getAcceptedCountByLanguage(Languages.ERLANG)),
     );
     this.addTrophyAsNeeded(
       new FSharperTrophy(this.getAcceptedCountByLanguage(Languages.F_SHARP)),
