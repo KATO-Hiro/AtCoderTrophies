@@ -38,6 +38,7 @@ import OctaveUserTrophy from '../Trophy/OctaveUserTrophy';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
 import PascalUserTrophy from '../Trophy/PascalUserTrophy';
 import PerlerTrophy from '../Trophy/PerlerTrophy';
+import PrologUserTrophy from '../Trophy/PrologUserTrophy';
 import PyPyUserTrophy from '../Trophy/PyPyUserTrophy';
 import PythonistaTrophy from '../Trophy/PythonistaTrophy';
 import RacketUserTrophy from '../Trophy/RacketUserTrophy';
@@ -178,6 +179,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new PerlerTrophy(this.getAcceptedCountByLanguage(Languages.PERL)),
+    );
+    this.addTrophyAsNeeded(
+      new PrologUserTrophy(this.getAcceptedCountByLanguage(Languages.PROLOG)),
     );
     this.addTrophyAsNeeded(
       new PyPyUserTrophy(this.getAcceptedCountByLanguage(Languages.PYPY)),
