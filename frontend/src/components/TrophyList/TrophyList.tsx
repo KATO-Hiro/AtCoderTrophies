@@ -31,6 +31,7 @@ import JavaerTrophy from '../Trophy/JavaerTrophy';
 import JuliaUserTrophy from '../Trophy/JuliaUserTrophy';
 import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCountTrophy from '../Trophy/LongestStreakCountTrophy';
+import LuaJITUserTrophy from '../Trophy/LuaJITUserTrophy';
 import LuaUserTrophy from '../Trophy/LuaUserTrophy';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
 import OCamelUserTrophy from '../Trophy/OCamelUserTrophy';
@@ -159,6 +160,9 @@ export default class TrophyList {
       new KotlinerTrophy(this.getAcceptedCountByLanguage(Languages.KOTLIN)),
     );
     this.addTrophyAsNeeded(new LongestStreakCountTrophy(longestStreak));
+    this.addTrophyAsNeeded(
+      new LuaJITUserTrophy(this.getAcceptedCountByLanguage(Languages.LUAJIT)),
+    );
     this.addTrophyAsNeeded(
       new LuaUserTrophy(this.getAcceptedCountByLanguage(Languages.LUA)),
     );
