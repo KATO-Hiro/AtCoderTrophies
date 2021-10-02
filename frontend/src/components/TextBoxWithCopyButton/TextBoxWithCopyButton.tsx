@@ -10,6 +10,8 @@ import { createStyles, makeStyles } from '@material-ui/styles';
 import copy from 'copy-text-to-clipboard';
 import { useState } from 'react';
 
+import { TextBoxWithCopyButtonProps } from '../../interfaces/TextBoxWithCopyButtonProps';
+
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
@@ -27,10 +29,6 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-interface TextBoxWithCopyButtonProps {
-  label: string;
-}
-
 // See:
 // https://qiita.com/kou_pg_0131/items/211f04f59371c752bd88
 // https://github.com/sindresorhus/copy-text-to-clipboard
@@ -38,16 +36,11 @@ const TextBoxWithCopyButton = (
   props: TextBoxWithCopyButtonProps,
 ): JSX.Element => {
   const classes = useStyles();
-  const [input, setInput] = useState<string>('');
+  const { label, value } = props;
   const [openTip, setOpenTip] = useState<boolean>(false);
-  const { label } = props;
-
-  const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInput(e.target.value);
-  };
 
   const handleCloseTip = (): void => {
-    copy(input); // HACK: It might not be a good idea to describe it in this position.
+    copy(value); // HACK: It might not be a good idea to describe it in this position.
     setOpenTip(false);
   };
 
@@ -63,8 +56,7 @@ const TextBoxWithCopyButton = (
             <InputLabel>{label}</InputLabel>
             <Input
               type='text'
-              value={input}
-              onChange={handleChangeText}
+              value={value}
               endAdornment={
                 <InputAdornment position='end'>
                   <Tooltip
@@ -76,7 +68,7 @@ const TextBoxWithCopyButton = (
                     title='Copied'
                   >
                     <IconButton
-                      disabled={input === ''}
+                      disabled={value === ''}
                       onClick={handleClickButton}
                     >
                       <AssignmentIcon />
