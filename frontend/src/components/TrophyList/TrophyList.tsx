@@ -51,6 +51,7 @@ import SedUserTrophy from '../Trophy/SedUserTrophy';
 import SwiftUserTrophy from '../Trophy/SwiftUserTrophy';
 import TextUserTrophy from '../Trophy/TextUserTrophy';
 import Trophy from '../Trophy/Trophy';
+import UnlambdaUserTrophy from '../Trophy/UnlambdaUserTrophy';
 import VimmerTrophy from '../Trophy/VimmerTrophy';
 import UserInfo from '../UserInfo/UserInfo';
 
@@ -214,6 +215,11 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new TextUserTrophy(this.getAcceptedCountByLanguage(Languages.TEXT)),
+    );
+    this.addTrophyAsNeeded(
+      new UnlambdaUserTrophy(
+        this.getAcceptedCountByLanguage(Languages.UNLAMBDA),
+      ),
     );
     this.addTrophyAsNeeded(
       new VimmerTrophy(this.getAcceptedCountByLanguage(Languages.VIM)),
