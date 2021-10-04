@@ -47,6 +47,7 @@ import RakuUserTrophy from '../Trophy/RakuUserTrophy';
 import RatedPointSumTrophy from '../Trophy/RatedPointSumTrophy';
 import RubyistTrophy from '../Trophy/RubyistTrophy';
 import RustaceanTrophy from '../Trophy/RustaceanTrophy';
+import ScalalianTrophy from '../Trophy/ScalalianTrophy';
 import SchemeUserTrophy from '../Trophy/SchemeUserTrophy';
 import SedUserTrophy from '../Trophy/SedUserTrophy';
 import StandardMLUserTrophy from '../Trophy/StandardMLUserTrophy';
@@ -210,6 +211,9 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new RustaceanTrophy(this.getAcceptedCountByLanguage(Languages.RUST)),
+    );
+    this.addTrophyAsNeeded(
+      new ScalalianTrophy(this.getAcceptedCountByLanguage(Languages.SCALA)),
     );
     this.addTrophyAsNeeded(
       new SchemeUserTrophy(this.getAcceptedCountByLanguage(Languages.SCHEME)),
