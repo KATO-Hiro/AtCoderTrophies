@@ -52,6 +52,7 @@ import StandardMLUserTrophy from '../Trophy/StandardMLUserTrophy';
 import SwiftUserTrophy from '../Trophy/SwiftUserTrophy';
 import TextUserTrophy from '../Trophy/TextUserTrophy';
 import Trophy from '../Trophy/Trophy';
+import TypeScripterTrophy from '../Trophy/TypeScripterTrophy';
 import UnlambdaUserTrophy from '../Trophy/UnlambdaUserTrophy';
 import VimmerTrophy from '../Trophy/VimmerTrophy';
 import VisualBasicUserTrophy from '../Trophy/VisualBasicUserTrophy';
@@ -222,6 +223,11 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new TextUserTrophy(this.getAcceptedCountByLanguage(Languages.TEXT)),
+    );
+    this.addTrophyAsNeeded(
+      new TypeScripterTrophy(
+        this.getAcceptedCountByLanguage(Languages.TYPESCRIPT),
+      ),
     );
     this.addTrophyAsNeeded(
       new UnlambdaUserTrophy(
