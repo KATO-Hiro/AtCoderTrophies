@@ -1,6 +1,6 @@
 autopep8==1.5.7
 black==21.9b0
-fastapi==0.68.1
+fastapi==0.68.2
 flake8==3.9.2
 ipython==7.16.1
 mypy==0.910
