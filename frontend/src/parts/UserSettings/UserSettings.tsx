@@ -42,7 +42,7 @@ function UserSettings(): JSX.Element {
     backgroundTheme: 'default',
   };
   const [queryParameters, setQueryParameters] = useState(
-    initialQueryParameters
+    initialQueryParameters,
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
