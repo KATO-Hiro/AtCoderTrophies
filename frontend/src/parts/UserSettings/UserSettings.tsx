@@ -35,16 +35,28 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function UserSettings(): JSX.Element {
   const classes = useStyles();
-  const [backgroundTheme, setBackgroundTheme] = useState('default');
+
+  // TODO: Lift up states.
+  const initialQueryParameters = {
+    userName: 'chokudai',
+    backgroundTheme: 'default',
+  };
+  const [queryParameters, setQueryParameters] = useState(
+    initialQueryParameters,
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBackgroundTheme(event.target.value);
+    const { name, value } = event.target;
+    setQueryParameters({ ...queryParameters, [name]: value });
   };
 
   const handleClick = () => {
-    // TODO: Send a request.
-    alert('clicked');
+    // TODO: Overwrite query parameters of SVG API in a parent component.
+    alert(queryParameters.userName);
+    alert(queryParameters.backgroundTheme);
   };
+
+  const { userName, backgroundTheme } = queryParameters;
 
   return (
     <form className={classes.root} autoComplete='on'>
@@ -55,9 +67,11 @@ function UserSettings(): JSX.Element {
           {/* TODO: Add validation. */}
           <TextField
             id='atcoder-user-id'
+            name='userName'
             label='User ID'
             placeholder='chokudai'
             variant='standard'
+            onChange={handleChange}
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>
@@ -72,6 +86,7 @@ function UserSettings(): JSX.Element {
         <Grid item xs={12} sm={6} className={classes.grid}>
           <TextField
             id='background-theme'
+            name='backgroundTheme'
             select
             value={backgroundTheme}
             label='Background theme'
