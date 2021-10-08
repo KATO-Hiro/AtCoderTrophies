@@ -59,6 +59,7 @@ import TypeScripterTrophy from '../Trophy/TypeScripterTrophy';
 import UnlambdaUserTrophy from '../Trophy/UnlambdaUserTrophy';
 import VimmerTrophy from '../Trophy/VimmerTrophy';
 import VisualBasicUserTrophy from '../Trophy/VisualBasicUserTrophy';
+import ZshUserTrophy from '../Trophy/ZshUserTrophy';
 import UserInfo from '../UserInfo/UserInfo';
 
 export default class TrophyList {
@@ -253,6 +254,9 @@ export default class TrophyList {
       new VisualBasicUserTrophy(
         this.getAcceptedCountByLanguage(Languages.VISUAL_BASIC),
       ),
+    );
+    this.addTrophyAsNeeded(
+      new ZshUserTrophy(this.getAcceptedCountByLanguage(Languages.ZSH)),
     );
 
     // Secret trophies.
