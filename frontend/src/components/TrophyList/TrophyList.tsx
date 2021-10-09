@@ -37,6 +37,7 @@ import LuaUserTrophy from '../Trophy/LuaUserTrophy';
 import MoonScripterTrophy from '../Trophy/MoonScripterTrophy';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
 import OCamelUserTrophy from '../Trophy/OCamelUserTrophy';
+import ObjectiveCUserTrophy from '../Trophy/ObjectiveCUserTrophy';
 import OctaveUserTrophy from '../Trophy/OctaveUserTrophy';
 import PHPerTrophy from '../Trophy/PHPerTrophy';
 import PascalUserTrophy from '../Trophy/PascalUserTrophy';
@@ -188,6 +189,11 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new OCamelUserTrophy(this.getAcceptedCountByLanguage(Languages.OCAML)),
+    );
+    this.addTrophyAsNeeded(
+      new ObjectiveCUserTrophy(
+        this.getAcceptedCountByLanguage(Languages.OBJECTIVE_C),
+      ),
     );
     this.addTrophyAsNeeded(
       new OctaveUserTrophy(this.getAcceptedCountByLanguage(Languages.OCTAVE)),
