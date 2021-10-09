@@ -34,6 +34,7 @@ import KotlinerTrophy from '../Trophy/KotlinerTrophy';
 import LongestStreakCountTrophy from '../Trophy/LongestStreakCountTrophy';
 import LuaJITUserTrophy from '../Trophy/LuaJITUserTrophy';
 import LuaUserTrophy from '../Trophy/LuaUserTrophy';
+import MoonScripterTrophy from '../Trophy/MoonScripterTrophy';
 import NimUserTrophy from '../Trophy/NimUserTrophy';
 import OCamelUserTrophy from '../Trophy/OCamelUserTrophy';
 import OctaveUserTrophy from '../Trophy/OctaveUserTrophy';
@@ -176,6 +177,11 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new LuaUserTrophy(this.getAcceptedCountByLanguage(Languages.LUA)),
+    );
+    this.addTrophyAsNeeded(
+      new MoonScripterTrophy(
+        this.getAcceptedCountByLanguage(Languages.MOONSCRIPT),
+      ),
     );
     this.addTrophyAsNeeded(
       new NimUserTrophy(this.getAcceptedCountByLanguage(Languages.NIM)),
