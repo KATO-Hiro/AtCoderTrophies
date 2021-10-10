@@ -13,6 +13,7 @@ import CProgrammerTrophy from '../Trophy/CProgrammerTrophy';
 import CSharperTrophy from '../Trophy/CSharperTrophy';
 import CeylonUserTrophy from '../Trophy/CeylonUserTrophy';
 import ClojureUserTrophy from '../Trophy/ClojureUserTrophy';
+import CobolFixedUserTrophy from '../Trophy/CobolFixedUserTrophy';
 import CobolFreeUserTrophy from '../Trophy/CobolFreeUserTrophy';
 import CommonLisperTrophy from '../Trophy/CommonLisperTrophy';
 import CrystalUserTrophy from '../Trophy/CrystalUserTrophy';
@@ -114,6 +115,11 @@ export default class TrophyList {
     );
     this.addTrophyAsNeeded(
       new ClojureUserTrophy(this.getAcceptedCountByLanguage(Languages.CLOJURE)),
+    );
+    this.addTrophyAsNeeded(
+      new CobolFixedUserTrophy(
+        this.getAcceptedCountByLanguage(Languages.COBOL_FIXED),
+      ),
     );
     this.addTrophyAsNeeded(
       new CobolFreeUserTrophy(
