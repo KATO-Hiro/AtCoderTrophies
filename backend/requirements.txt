@@ -1,4 +1,4 @@
-autopep8==1.5.7
+autopep8==1.6.0
 black==21.9b0
 fastapi==0.70.0
 flake8==4.0.1
