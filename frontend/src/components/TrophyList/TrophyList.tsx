@@ -30,6 +30,7 @@ import FortranUserTrophy from '../Trophy/FortranUserTrophy';
 import GopherTrophy from '../Trophy/GopherTrophy';
 import HaskellerTrophy from '../Trophy/HaskellerTrophy';
 import HaxeJavaUserTrophy from '../Trophy/HaxeJavaUserTrophy';
+import HaxeJsUserTrophy from '../Trophy/HaxeJsUserTrophy';
 import IOIStyleCppUserTrophy from '../Trophy/IOIStyleCppUserTrophy';
 import JavaScripterTrophy from '../Trophy/JavaScripterTrophy';
 import JavaerTrophy from '../Trophy/JavaerTrophy';
@@ -176,6 +177,9 @@ export default class TrophyList {
       new HaxeJavaUserTrophy(
         this.getAcceptedCountByLanguage(Languages.HAXE_JAVA),
       ),
+    );
+    this.addTrophyAsNeeded(
+      new HaxeJsUserTrophy(this.getAcceptedCountByLanguage(Languages.HAXE_JS)),
     );
     this.addTrophyAsNeeded(
       new IOIStyleCppUserTrophy(
