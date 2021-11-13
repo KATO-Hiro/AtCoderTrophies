@@ -5,10 +5,8 @@
     "node": true
   },
   "extends": [
-    "plugin:react/recommended",
     "next",
     "next/core-web-vitals",
-    "airbnb",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -31,7 +29,7 @@
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "import/extensions": "off",
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md

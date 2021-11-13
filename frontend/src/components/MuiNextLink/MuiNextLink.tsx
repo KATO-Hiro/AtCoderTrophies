@@ -17,6 +17,8 @@ interface NextLinkComposedProps
   href?: NextLinkProps['href'];
 }
 
+// HACK: This solution is not good.
+/* eslint-disable-next-line react/display-name */
 export const NextLinkComposed = forwardRef<
   HTMLAnchorElement,
   NextLinkComposedProps
