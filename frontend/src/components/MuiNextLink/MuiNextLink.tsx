@@ -7,6 +7,7 @@ import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import { forwardRef } from 'react';
 
+/* eslint-disable react/require-default-props */
 // TODO: Extract interface as a separate file.
 interface NextLinkComposedProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
@@ -16,6 +17,8 @@ interface NextLinkComposedProps
   href?: NextLinkProps['href'];
 }
 
+// HACK: This solution is not good.
+/* eslint-disable-next-line react/display-name */
 export const NextLinkComposed = forwardRef<
   HTMLAnchorElement,
   NextLinkComposedProps
