@@ -7,6 +7,7 @@ import { Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { createStyles, makeStyles } from '@material-ui/styles';
 
+import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
 
 // See:
@@ -29,18 +30,8 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: '16px',
       textAlign: 'center',
     },
-  }),
+  })
 );
-
-type UserSettingsProps = {
-  queryParameters: QueryParametersProps;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-type QueryParametersProps = {
-  userName: string;
-  backgroundTheme: string;
-};
 
 function UserSettings(props: UserSettingsProps): JSX.Element {
   const classes = useStyles();
