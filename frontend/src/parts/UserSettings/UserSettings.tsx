@@ -6,7 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import { Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { createStyles, makeStyles } from '@material-ui/styles';
-import { useState } from 'react';
 
 import { backgroundThemes } from '../../styles/background-themes';
 
@@ -33,22 +32,19 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function UserSettings(): JSX.Element {
+type UserSettingsProps = {
+  queryParameters: QueryParametersProps;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+type QueryParametersProps = {
+  userName: string;
+  backgroundTheme: string;
+};
+
+function UserSettings(props: UserSettingsProps): JSX.Element {
   const classes = useStyles();
-
-  // TODO: Lift up states.
-  const initialQueryParameters = {
-    userName: 'chokudai',
-    backgroundTheme: 'default',
-  };
-  const [queryParameters, setQueryParameters] = useState(
-    initialQueryParameters,
-  );
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setQueryParameters({ ...queryParameters, [name]: value });
-  };
+  const { queryParameters, onChange } = props;
 
   const handleClick = () => {
     // TODO: Overwrite query parameters of SVG API in a parent component.
@@ -71,7 +67,7 @@ function UserSettings(): JSX.Element {
             label='User ID'
             placeholder='chokudai'
             variant='standard'
-            onChange={handleChange}
+            onChange={onChange}
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>
@@ -91,7 +87,7 @@ function UserSettings(): JSX.Element {
             value={backgroundTheme}
             label='Background theme'
             variant='standard'
-            onChange={handleChange}
+            onChange={onChange}
           >
             {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
             {backgroundThemes().map((option: { [key: string]: string }) => (
