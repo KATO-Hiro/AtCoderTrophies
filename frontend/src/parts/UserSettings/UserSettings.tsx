@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: '16px',
       textAlign: 'center',
     },
-  })
+  }),
 );
 
 function UserSettings(props: UserSettingsProps): JSX.Element {
