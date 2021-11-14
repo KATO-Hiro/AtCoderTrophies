@@ -35,14 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function UserSettings(props: UserSettingsProps): JSX.Element {
   const classes = useStyles();
-  const { queryParameters, onChange } = props;
-
-  const handleClick = () => {
-    // TODO: Overwrite query parameters of SVG API in a parent component.
-    alert(queryParameters.userName);
-    alert(queryParameters.backgroundTheme);
-  };
-
+  const { queryParameters, onChange, onClick } = props;
   const { userName, backgroundTheme } = queryParameters;
 
   return (
@@ -93,7 +86,7 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
 
         {/* <CreateTrophiesButton /> */}
         <Grid item xs={12} className={classes.grid}>
-          <Button variant='contained' color='primary' onClick={handleClick}>
+          <Button variant='contained' color='primary' onClick={onClick}>
             Create
           </Button>
         </Grid>
