@@ -1,5 +1,5 @@
 autopep8==1.6.0
-black==21.11b0
+black==21.11b1
 fastapi==0.70.0
 flake8==4.0.1
 ipython==7.16.1
