@@ -124,4 +124,6 @@ const MuiNextLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   );
 });
 
+MuiNextLink.displayName = 'MuiNextLink';
+
 export default MuiNextLink;
