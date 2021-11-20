@@ -48,6 +48,7 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
           <TextField
             id='atcoder-user-id'
             name='userName'
+            value={userName}
             label='User ID'
             placeholder='chokudai'
             variant='standard'
