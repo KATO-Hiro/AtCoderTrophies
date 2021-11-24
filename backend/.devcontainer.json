@@ -27,8 +27,8 @@
 			"reportMissingImports": "none"
 		},
 		"python.analysis.extraPaths": [
-			"/workspace/backend/app",
-			"./backend/app"
+			"/workspace/backend/api",
+			"./backend/api"
 		],
 		"python.languageServer": "Pylance",
 		"python.analysis.typeCheckingMode": "basic",

@@ -4,12 +4,12 @@ services:
     build: 
       context: backend
       dockerfile: Dockerfile
-    command: python app/main.py
+    command: python api/main.py
     ports:
       - 8000:8000
     tty: true
     volumes:
-      - './backend:/app/:cached'
+      - './backend:/api/:cached'
     environment:
       PYTHONPATH: .
 

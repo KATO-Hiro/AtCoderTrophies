@@ -2,14 +2,14 @@ from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-from app.constants import API_V1, PRODUCT_NAME, TWO_HOURS_IN_SECONDS
-from app.crud import (
+from api.constants import API_V1, PRODUCT_NAME, TWO_HOURS_IN_SECONDS
+from api.crud import (
     read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
     read_rated_point_sum_by_user_name,
     read_longest_streak_by_user_name,
 )
-from app.schemas import (
+from api.schemas import (
     AcceptedCount,
     AcceptedCountByLanguage,
     AtCoderProblemsStatisticsAPI,

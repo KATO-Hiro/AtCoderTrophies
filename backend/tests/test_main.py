@@ -4,14 +4,14 @@ from fastapi import HTTPException, status
 from fastapi.testclient import TestClient
 import pytest
 
-from app import crud
-from app.crud import (
+from api import crud
+from api.crud import (
     read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
     read_longest_streak_by_user_name,
     read_rated_point_sum_by_user_name,
 )
-from app.schemas import AcceptedCount, LongestStreak, RatedPointSum
+from api.schemas import AcceptedCount, LongestStreak, RatedPointSum
 
 
 def test_root(client: TestClient) -> None:
