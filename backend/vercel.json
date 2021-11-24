@@ -8,7 +8,7 @@
   ],
   "functions": {
     "app/main.py": {
-      "runtime": "@vercel/python@3.9",
+      "runtime": "@vercel/python@latest",
       "excludeFiles": "tests/**"
     }
   }
