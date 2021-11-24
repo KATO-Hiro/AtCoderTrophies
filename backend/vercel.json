@@ -11,5 +11,17 @@
       "source": "/(.*)",
       "destination": "/app/main.py"
     }
-  ]
+  ],
+  "functions": {
+    "app/main.py": {
+      "excludeFiles": [
+        "tests/**",
+        ".devcontainer.json",
+        ".dockerignore",
+        "conftest.py",
+        "Dockerfile",
+        "LICENSE"
+      ]
+    }
+  }
 }
