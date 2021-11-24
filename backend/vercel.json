@@ -7,7 +7,7 @@
     }
   ],
   "functions": {
-    "/app/main.py": {
+    "app/main.py": {
       "runtime": "@vercel/python",
       "excludeFiles": "tests/**"
     }
