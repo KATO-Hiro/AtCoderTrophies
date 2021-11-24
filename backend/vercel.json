@@ -1,11 +1,5 @@
 {
   "cleanUrls": true,
-  "builds": [
-    {
-      "src": "/app/main.py",
-      "use": "@vercel/python"
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -13,7 +7,8 @@
     }
   ],
   "functions": {
-    "app/main.py": {
+    "/app/main.py": {
+      "runtime": "@vercel/python",
       "excludeFiles": "tests/**"
     }
   }
