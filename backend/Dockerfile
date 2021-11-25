@@ -9,7 +9,8 @@ RUN apt update && \
     apt install -y fish git
 
 COPY requirements.txt ./
+COPY devel-requirements.txt ./
 RUN python -m pip install --upgrade pip
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt -r devel-requirements.txt
 
 COPY . .
