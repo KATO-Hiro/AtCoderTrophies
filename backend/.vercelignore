@@ -1,6 +1,7 @@
 .devcontainer.json
 .dockerignore
 .gitignore
+devel-requirements.txt
 Dockerfile
 LICENSE
 README.md

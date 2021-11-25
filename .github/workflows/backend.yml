@@ -25,7 +25,7 @@ jobs:
         working-directory: backend
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt -r devel-requirements.txt
 
       - name: Run Black
         working-directory: backend
