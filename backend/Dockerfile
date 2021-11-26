@@ -1,6 +1,6 @@
 # See:
 # https://vercel.com/docs/runtimes#official-runtimes/python
-FROM python:3.6
+FROM python:3.9
 
 RUN mkdir /app
 WORKDIR /app
