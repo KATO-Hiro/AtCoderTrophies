@@ -35,6 +35,10 @@ export default async function handler(
     row,
     title,
     rank,
+    margin_width: marginWidth,
+    margin_height: marginHeight,
+    no_background,
+    no_frame,
   } = req.query;
 
   // Enable to change the following parameters using user info.
@@ -44,10 +48,24 @@ export default async function handler(
   const theme = Object.keys(COLORS).includes(backgroundTheme as string)
     ? COLORS[backgroundTheme as string]
     : COLORS.default;
-  const marginWidth = DEFAULT_MARGIN_W;
-  const paddingHeight = DEFAULT_MARGIN_H;
-  const noBackground = DEFAULT_NO_BACKGROUND;
-  const noFrame = DEFAULT_NO_FRAME;
+  const paddingWidth =
+    marginWidth === undefined || marginWidth === ''
+      ? DEFAULT_MARGIN_W
+      : marginWidth;
+  const paddingHeight =
+    marginHeight === undefined || marginHeight === ''
+      ? DEFAULT_MARGIN_H
+      : marginHeight;
+  const noBackground =
+    no_background === undefined ||
+    no_background === '' ||
+    no_background === 'false'
+      ? DEFAULT_NO_BACKGROUND
+      : no_background;
+  const noFrame =
+    no_frame === undefined || no_frame === '' || no_frame === 'false'
+      ? DEFAULT_NO_FRAME
+      : no_frame;
   const titleList = title as string;
   const titles: Array<string> =
     title === undefined || title === '' ? [] : titleList.split(',');
@@ -89,10 +107,10 @@ export default async function handler(
     maxColumn as number,
     maxRow as number,
     DEFAULT_PANEL_SIZE,
-    marginWidth,
-    paddingHeight,
-    noBackground,
-    noFrame,
+    paddingWidth as number,
+    paddingHeight as number,
+    noBackground as boolean,
+    noFrame as boolean,
   );
 
   res.status(200).send(trophyFrame.render(userInfo, theme));
