@@ -16,7 +16,7 @@ export default function Home(): JSX.Element {
   );
   const { userName, backgroundTheme } = queryParameters;
   const [internalUrl, setInternalUrl] = useState(
-    `/api/v1/atcoder?username=${userName}&background_theme=${backgroundTheme}`,
+    `/api/v1/atcoder?username=${userName}&theme=${backgroundTheme}`,
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
     setQueryParameters({ ...queryParameters, [name]: value });
   };
   const handleClick = () => {
-    const value = `/api/v1/atcoder?username=${userName}&background_theme=${backgroundTheme}`;
+    const value = `/api/v1/atcoder?username=${userName}&theme=${backgroundTheme}`;
     setInternalUrl(value);
   };
 
