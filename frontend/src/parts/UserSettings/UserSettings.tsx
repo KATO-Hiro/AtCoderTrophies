@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function UserSettings(props: UserSettingsProps): JSX.Element {
   const classes = useStyles();
   const { queryParameters, onChange, onClick } = props;
-  const { userName, backgroundTheme } = queryParameters;
+  const { userName, theme } = queryParameters;
 
   return (
     <form className={classes.root} autoComplete='on'>
@@ -63,14 +63,14 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
           />
         </Grid>
 
-        {/* <BackgroundTheme /> */}
+        {/* <Theme /> */}
         <Grid item xs={12} sm={6} className={classes.grid}>
           <TextField
-            id='background-theme'
-            name='backgroundTheme'
+            id='theme'
+            name='theme'
             select
-            value={backgroundTheme}
-            label='Background theme'
+            value={theme}
+            label='Theme'
             variant='standard'
             onChange={onChange}
           >
