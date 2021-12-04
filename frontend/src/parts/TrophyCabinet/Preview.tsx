@@ -1,4 +1,7 @@
-import Image from 'next/image';
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import DOMPurify from 'dompurify';
 
 import ErrorAlert from '../../components/Alert/ErrorAlert';
 import Spinner from '../../components/Spinner/Spinner';
@@ -9,12 +12,22 @@ const PreviewHeader = (): JSX.Element => {
   return <h2>Preview</h2>;
 };
 
+type TrophySVGIconsProps = {
+  trophies: string;
+};
+
+// See:
+// https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+// https://yarnpkg.com/package/dompurify
+const TrophySVGIcons = (props: TrophySVGIconsProps): JSX.Element => {
+  const { trophies } = props;
+  const sanitizedTrophiesSVG = DOMPurify.sanitize(trophies);
+  return <div dangerouslySetInnerHTML={{ __html: sanitizedTrophiesSVG }} />;
+};
+
 // TODO: Refactoring.
 const Preview = (props: PreviewProps): JSX.Element => {
   const { url } = props;
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { trophies, isLoading, isError } = useTrophySVGIcons(url);
 
   if (isLoading) {
@@ -38,8 +51,7 @@ const Preview = (props: PreviewProps): JSX.Element => {
   return (
     <>
       <PreviewHeader />
-      {/* HACK: Use trophies. */}
-      <Image src={url} width={1000} height={1000} alt='atcoder trophies' />
+      <TrophySVGIcons trophies={trophies} />
     </>
   );
 };
