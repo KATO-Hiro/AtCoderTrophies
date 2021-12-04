@@ -21,14 +21,14 @@ export default async function handler(
 ): Promise<any> {
   const {
     username: userName,
-    background_theme: backgroundTheme,
+    theme: themeColor,
     column,
     row,
     title,
     rank,
-    margin_width: marginWidth,
-    margin_height: marginHeight,
-    no_background,
+    margin_w: marginWidth,
+    margin_h: marginHeight,
+    no_bg,
     no_frame,
   } = req.query;
 
@@ -36,8 +36,8 @@ export default async function handler(
   const maxColumn =
     column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
   const maxRow = row === undefined || row === '' ? DEFAULT_MAX_ROW : row;
-  const theme = Object.keys(COLORS).includes(backgroundTheme as string)
-    ? COLORS[backgroundTheme as string]
+  const theme = Object.keys(COLORS).includes(themeColor as string)
+    ? COLORS[themeColor as string]
     : COLORS.default;
   const paddingWidth =
     marginWidth === undefined || marginWidth === ''
@@ -48,11 +48,9 @@ export default async function handler(
       ? DEFAULT_MARGIN_H
       : marginHeight;
   const noBackground =
-    no_background === undefined ||
-    no_background === '' ||
-    no_background === 'false'
+    no_bg === undefined || no_bg === '' || no_bg === 'false'
       ? DEFAULT_NO_BACKGROUND
-      : no_background;
+      : no_bg;
   const noFrame =
     no_frame === undefined || no_frame === '' || no_frame === 'false'
       ? DEFAULT_NO_FRAME
