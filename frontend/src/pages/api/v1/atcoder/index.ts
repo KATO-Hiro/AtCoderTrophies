@@ -15,15 +15,6 @@ import {
 import { COLORS } from '../../../../styles/background-themes';
 import AtCoderProblemsAPIClient from '../../../../utils/AtCoderProblemsAPIClient/atCoderProblemsAPIClient';
 
-const circle = (name: string) => `\
-  <svg height="100" width="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="30" cy="30" r="20" stroke="black" stroke-width="3" fill="blue" />
-    <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0em">
-      <tspan x="10" y="70">${name}</tspan>
-    </text>
-  </svg>
-`;
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
