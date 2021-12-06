@@ -56,7 +56,7 @@ In the following sample, `monokai` is applied.
 </p>
 
 ```md
-[![AtCoder Trophies](https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=monokai)](https://github.com/KATO-Hiro/AtCoderTrophies)
+[![AtCoder Trophies](https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=monokai)](https://github.com/KATO-Hiro/AtCoderTrophies)
 ```
 
 ## About Rank
@@ -176,7 +176,7 @@ The following sample shows the case of two rows and three columns.
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&row=2&column=3
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&row=2&column=3
 ```
 
 ### Apply theme
@@ -213,7 +213,7 @@ List of available themes.
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=alduin
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=alduin
 ```
 
 #### algolia
@@ -223,7 +223,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=aldui
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=algolia
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=algolia
 ```
 
 #### apprentice
@@ -233,7 +233,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=algol
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=apprentice
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=apprentice
 ```
 
 #### buddhism
@@ -243,7 +243,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=appre
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=buddhism
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=buddhism
 ```
 
 #### chalk
@@ -253,7 +253,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=buddh
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=chalk
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=chalk
 ```
 
 #### darkhub
@@ -263,7 +263,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=chalk
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=darkhub
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darkhub
 ```
 
 #### discord
@@ -273,7 +273,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=darkh
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=discord
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=discord
 ```
 
 #### dracula
@@ -283,7 +283,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=disco
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=dracula
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=dracula
 ```
 
 #### flat
@@ -293,7 +293,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=dracu
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=flat
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=flat
 ```
 
 #### gitdimmed
@@ -303,7 +303,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=flat
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=gitdimmed
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=gitdimmed
 ```
 
 #### gruvbox
@@ -313,7 +313,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=gitdi
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=gruvbox
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=gruvbox
 ```
 
 #### juicyfresh
@@ -323,7 +323,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=gruvb
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=juicyfresh
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=juicyfresh
 ```
 
 #### matrix
@@ -333,7 +333,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=juicy
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=matrix
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=matrix
 ```
 
 #### monokai
@@ -343,7 +343,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=matri
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=monokai
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=monokai
 ```
 
 #### nord
@@ -353,7 +353,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=monok
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=nord
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=nord
 ```
 
 #### oldie
@@ -363,7 +363,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=nord
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=oldie
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=oldie
 ```
 
 #### onedark
@@ -373,7 +373,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=oldie
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=onedark
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=onedark
 ```
 
 #### onestar
@@ -383,7 +383,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=oneda
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=onestar
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=onestar
 ```
 
 #### radical
@@ -393,7 +393,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=onest
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=radical
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=radical
 ```
 
 #### tokyonight
@@ -403,7 +403,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=radic
 </p>
 
 ```md
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&theme=tokyonight
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=tokyonight
 ```
 
 ## Margin
@@ -437,7 +437,7 @@ The following sample shows a case where the width and height margins are 15.
 </p>
 
 ```
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&margin_w=15&margin_h=15
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&margin_w=15&margin_h=15
 ```
 
 ## Transparent background
@@ -451,7 +451,7 @@ You can turn the background transparent.
 </p>
 
 ```
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&no_bg=true
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&no_bg=true
 ```
 
 ## Hide frames
@@ -465,7 +465,7 @@ You can hide the frames around the trophies.
 </p>
 
 ```
-https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&no_frame=true
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&no_frame=true
 ```
 
 ## Contribution Guide
