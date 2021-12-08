@@ -1,26 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import createCache from '@emotion/cache';
-import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { Children } from 'react';
+
 import PRODUCT_NAME, {
   PRODUCT_DESCRIPTION,
   PRODUCT_URL,
 } from '../constants/product-name';
 import { TWITTER_USER_NAME } from '../constants/urls';
 import theme from '../styles/theme';
+import createEmotionCache from '../utils/createEmotionCache';
 
 // See:
-// https://github.com/mui-org/material-ui/tree/next/examples/nextjs
-// // https://www.ansonlowzf.com/create-a-website-with-material-ui-v5-nextjs/
-const getCache = () => {
-  const cache = createCache({ key: 'css', prepend: true });
-  cache.compat = true;
-
-  return cache;
-};
-
+// https://www.ansonlowzf.com/create-a-website-with-material-ui-v5-nextjs/
+// https://github.com/mui-org/material-ui/blob/0620bb0c47c9aa52a863d8ccca5ce7352274bc65/examples/nextjs-with-typescript/src/pages/_document.tsx
 export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
@@ -45,6 +38,10 @@ export default class MyDocument extends Document {
           <link
             rel='stylesheet'
             href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+          />
+          <link
+            rel='stylesheet'
+            href='https://fonts.googleapis.com/icon?family=Material+Icons'
           />
           <link
             rel='apple-touch-icon'
@@ -102,25 +99,22 @@ MyDocument.getInitialProps = async (ctx) => {
   // Render app and page and get the context of the page with collected side effects.
   const originalRenderPage = ctx.renderPage;
 
-  const cache = getCache();
+  const cache = createEmotionCache();
   // HACK: This solution is not good.
   /* eslint-disable-next-line @typescript-eslint/unbound-method */
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
   ctx.renderPage = () =>
     originalRenderPage({
-      // Take precedence over the CacheProvider in our custom _app.tsx
-      // HACK: This solution is not good.
-      /* eslint-disable-next-line react/display-name */
-      enhanceComponent: (Component) => (props) =>
-        (
-          <CacheProvider value={cache}>
-            <Component {...props} />
-          </CacheProvider>
-        ),
+      enhanceApp: (App: any) =>
+        function EnhanceApp(props) {
+          return <App emotionCache={cache} {...props} />;
+        },
     });
 
   const initialProps = await Document.getInitialProps(ctx);
+  // This is important. It prevents emotion to render invalid HTML.
+  // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style

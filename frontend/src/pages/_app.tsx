@@ -1,37 +1,29 @@
-import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { AppProps } from 'next/app';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
 
 import '../styles/globals.css';
 import PRODUCT_NAME from '../constants/product-name';
+import { MyAppProps } from '../interfaces/MyAppProps';
 import Footer from '../parts/Footer/Footer';
 import Header from '../parts/Header/Header';
 import theme from '../styles/theme';
+import createEmotionCache from '../utils/createEmotionCache';
 
 // See:
-// https://github.com/mui-org/material-ui/tree/next/examples/nextjs
 // https://www.ansonlowzf.com/create-a-website-with-material-ui-v5-nextjs/
-const cache = createCache({ key: 'css' });
-cache.compat = true;
+// https://github.com/mui-org/material-ui/blob/0620bb0c47c9aa52a863d8ccca5ce7352274bc65/examples/nextjs-with-typescript/src/pages/_app.tsx
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
-/* eslint-disable react/jsx-props-no-spreading */
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
+function MyApp(props: MyAppProps): JSX.Element {
+  /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
-    <CacheProvider value={cache}>
+    <CacheProvider value={emotionCache}>
       <Head>
         <title>{PRODUCT_NAME}</title>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
