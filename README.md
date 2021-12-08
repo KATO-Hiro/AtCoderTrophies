@@ -129,6 +129,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&title=AC,CP
 ### Filter by ranks
 
 You can filter the display by specifying the ranks.
+
 `Available values: SECRET SSS SS S AAA AA A B C`
 
 In the following sample, rank `AAA` is selected.
@@ -153,6 +154,7 @@ You can specify the maximum size of rows and columns.
 Trophies will be hidden if they exceed the range of both rows and columns.
 
 `Available value: number type`
+
 `Default: row=5 column=4`
 
 Restrict only row:
@@ -411,7 +413,9 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=tokyon
 ### Margin Width
 
 You can put a margin in the width between trophies.
+
 `Available value: number type`
+
 `Default: margin_w=0`
 
 ```
@@ -421,7 +425,9 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&margin_w=15
 ### Margin Height
 
 You can put a margin in the height between trophies.
+
 `Available value: number type`
+
 `Default: margin_h=0`
 
 ```
@@ -443,7 +449,9 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&margin_w=15&
 ## Transparent background
 
 You can turn the background transparent.
+
 `Available value: boolean type (true or false)`
+
 `Default: no_bg=false`
 
 <p align="center">
@@ -457,7 +465,9 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&no_bg=true
 ## Hide frames
 
 You can hide the frames around the trophies.
+
 `Available value: boolean type (true or false)`
+
 `Default: no_frame=false`
 
 <p align="center">
