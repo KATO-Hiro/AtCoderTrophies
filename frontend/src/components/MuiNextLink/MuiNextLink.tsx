@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-props-no-spreading */
-import MuiLink, { LinkProps as MuiLinkProps } from '@material-ui/core/Link';
+import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
+import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import { forwardRef } from 'react';
+
+// See:
+// https://github.com/mui-org/material-ui/blob/0620bb0c47c9aa52a863d8ccca5ce7352274bc65/examples/nextjs-with-typescript/src/components/Link.tsx
+// Add support for the sx prop for consistency with the other branches.
+const Anchor = styled('a')({});
 
 /* eslint-disable react/require-default-props */
 // TODO: Extract interface as a separate file.
@@ -47,7 +53,7 @@ export const NextLinkComposed = forwardRef<
       passHref={passHref}
       locale={locale}
     >
-      <a ref={ref} {...other} />
+      <Anchor ref={ref} {...other} />
     </NextLink>
   );
 });
@@ -87,7 +93,7 @@ const MuiNextLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   if (isExternal) {
     if (noLinkStyle) {
       return (
-        <a
+        <Anchor
           className={className}
           href={href as any}
           ref={ref as any}
