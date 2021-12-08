@@ -155,7 +155,7 @@ Trophies will be hidden if they exceed the range of both rows and columns.
 
 `Available value: number type`
 
-`Default: row=5 column=4`
+`Default: row=3 column=7`
 
 Restrict only row:
 
