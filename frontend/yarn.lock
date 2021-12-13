@@ -573,6 +573,13 @@
     prop-types "^15.7.2"
     react-is "^17.0.2"
 
+"@mui/icons-material@^5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.2.1.tgz#f037aeb7a0491bf855eaebea53de8ee427b3014e"
+  integrity sha512-AFOn0bbaGd1dw8oYE40dv3I+QnfS5xP5HSUiUGsvb1ntP0cM1kW4VqQp7BtL7DbOpEsw1ZTbw67tDqSCH7utNg==
+  dependencies:
+    "@babel/runtime" "^7.16.3"
+
 "@mui/material@^5.1.1":
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.2.3.tgz#949c32ff2d6cc64c9ec21889ddf89be76f10ef5f"
@@ -939,7 +946,7 @@
     semver "^7.3.5"
     tsutils "^3.21.0"
 
-"@typescript-eslint/typescript-estree@5.6.0":
+"@typescript-eslint/typescript-estree@5.6.0", "@typescript-eslint/typescript-estree@^5.6.0":
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-5.6.0.tgz#dfbb19c9307fdd81bd9c650c67e8397821d7faf0"
   integrity sha512-92vK5tQaE81rK7fOmuWMrSQtK1IMonESR+RJR2Tlc7w4o0MeEdjgidY/uO2Gobh7z4Q1hhS94Cr7r021fMVEeA==

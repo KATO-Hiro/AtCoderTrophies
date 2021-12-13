@@ -2,10 +2,17 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
 import { Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { createStyles, makeStyles } from '@material-ui/styles';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
@@ -37,6 +44,11 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
   const classes = useStyles();
   const { queryParameters, onChange, onClick } = props;
   const { userName, theme } = queryParameters;
+
+  const SIZE_MIN = 1;
+  const SIZE_MAX = 25;
+  const MARGIN_MIN = 0;
+  const MARGIN_MAX = 300;
 
   return (
     <form className={classes.root} autoComplete='on'>
@@ -83,7 +95,160 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
           </TextField>
         </Grid>
 
+        {/* TODO: Refactoring & extract the below elements as a component. */}
         {/* <AdvancedOptions /> */}
+        {/* See:
+        https://mui.com/components/accordion/#basic-accordion */}
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel1a-content'
+            id='advanced-options'
+          >
+            <Typography>Advanced Options</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Grid container spacing={1}>
+              <Grid item xs={12} sm={6} className={classes.grid}>
+                <TextField
+                  id='filter-by-title'
+                  name='filterByTitle'
+                  // value={""}
+                  label='Filter by title'
+                  placeholder='AC, RPS, CPlusPlus, Python, Rust, ...'
+                  variant='standard'
+                  onChange={onChange}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position='start'></InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} className={classes.grid}>
+                <TextField
+                  id='filter-by-rank'
+                  name='filterByRank'
+                  // value={""}
+                  label='Filter by rank'
+                  placeholder='S, AAA, AA, ...'
+                  variant='standard'
+                  onChange={onChange}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position='start'></InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={3} className={classes.grid}>
+                <TextField
+                  id='cabinet-row'
+                  name='cabinetRow'
+                  defaultValue={3}
+                  label='Row'
+                  type='number'
+                  InputProps={{
+                    inputProps: { min: SIZE_MIN, max: SIZE_MAX },
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  variant='standard'
+                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    e.target.value = Math.max(
+                      SIZE_MIN,
+                      Math.min(SIZE_MAX, parseInt(e.target.value)),
+                    )
+                      .toString()
+                      .slice(0, 30);
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={3} className={classes.grid}>
+                <TextField
+                  id='cabinet-column'
+                  name='cabinetColumn'
+                  defaultValue={7}
+                  label='Column'
+                  type='number'
+                  InputProps={{
+                    inputProps: { min: SIZE_MIN, max: SIZE_MAX },
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  variant='standard'
+                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    e.target.value = Math.max(
+                      SIZE_MIN,
+                      Math.min(SIZE_MAX, parseInt(e.target.value)),
+                    )
+                      .toString()
+                      .slice(0, 30);
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={3} className={classes.grid}>
+                <TextField
+                  id='margin-height'
+                  name='marginHeight'
+                  defaultValue={0}
+                  label='Margin Height'
+                  type='number'
+                  InputProps={{
+                    inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  variant='standard'
+                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    e.target.value = Math.max(
+                      MARGIN_MIN,
+                      Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                    )
+                      .toString()
+                      .slice(0, 30);
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={3} className={classes.grid}>
+                <TextField
+                  id='margin-width'
+                  name='marginWidth'
+                  defaultValue={0}
+                  label='Margin Width'
+                  type='number'
+                  InputProps={{
+                    inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  variant='standard'
+                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    e.target.value = Math.max(
+                      MARGIN_MIN,
+                      Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                    )
+                      .toString()
+                      .slice(0, 30);
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} className={classes.grid}>
+                <FormControlLabel
+                  control={<Switch />}
+                  label='Transparent background'
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} className={classes.grid}>
+                <FormControlLabel control={<Switch />} label='Hide frames' />
+              </Grid>
+            </Grid>
+          </AccordionDetails>
+        </Accordion>
 
         {/* <CreateTrophiesButton /> */}
         <Grid item xs={12} className={classes.grid}>
