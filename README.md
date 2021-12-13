@@ -35,7 +35,8 @@
 
 ## Features
 
-- TODO: Write here.
+- Generate trophy icons using the statistics API related to [AtCoder](https://atcoder.jp/).
+- Enable to add the generated trophies to your readme in HTML or Markdown format.
 
 ## Quick Start
 
