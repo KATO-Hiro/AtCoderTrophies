@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import ErrorAlert from '../../components/Alert/ErrorAlert';
+import { PreviewHeader } from '../../components/PreviewHeader/PreviewHeader';
 import Spinner from '../../components/Spinner/Spinner';
 import { TrophySVGIcons } from '../../components/TrophySVGIcons/TrophySVGIcons';
 import { PreviewProps } from '../../interfaces/PreviewProps';
 import useTrophySVGIcons from '../../utils/APIClient/apiClient';
-import { PreviewHeader } from '../../components/PreviewHeader/PreviewHeader';
 
 const Preview = (props: PreviewProps): JSX.Element => {
   const { url } = props;
