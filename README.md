@@ -456,7 +456,7 @@ You can turn the background transparent.
 `Default: no_bg=false`
 
 <p align="center">
-  <img width=660 src="">
+  <img width=660 src="https://user-images.githubusercontent.com/13990347/145216185-0e6def4c-6438-4350-be0a-9ef3c9a24cbb.png">
 </p>
 
 ```
@@ -472,7 +472,7 @@ You can hide the frames around the trophies.
 `Default: no_frame=false`
 
 <p align="center">
-  <img width=660 src="">
+  <img width=660 src="https://user-images.githubusercontent.com/13990347/145216231-948034ac-3944-4998-89b5-71f965474a2f.png">
 </p>
 
 ```
