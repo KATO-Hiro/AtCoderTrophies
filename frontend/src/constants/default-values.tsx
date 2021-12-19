@@ -1,4 +1,5 @@
 export const DEFAULT_PANEL_SIZE = 110;
+export const DEFAULT_THEME = 'default';
 export const DEFAULT_MAX_COLUMN = 7;
 export const DEFAULT_MAX_ROW = 3;
 export const DEFAULT_MARGIN_W = 0;
