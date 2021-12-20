@@ -45,7 +45,7 @@ export default function Home(): JSX.Element {
     noFrames,
   } = queryParameters;
   const [internalUrl, setInternalUrl] = useState(
-    `/api/v1/atcoder?username=${userName}&theme=${theme}`,
+    `/api/v1/atcoder?username=${userName}`,
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
