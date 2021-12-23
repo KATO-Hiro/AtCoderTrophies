@@ -193,6 +193,7 @@ List of available themes.
 | [apprentice](#apprentice)|
 | [buddhism](#buddhism) |
 | [chalk](#chalk) |
+| [darkdimmed](#darkdimmed) |
 | [darkhub](#darkhub) |
 | [discord](#discord) |
 | [dracula](#dracula) |
@@ -257,6 +258,16 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=buddhi
 
 ```md
 https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=chalk
+```
+
+#### darkdimmed
+
+<p align="center">
+  <img width="660" src="https://user-images.githubusercontent.com/13990347/146775285-b47e3ab2-098d-4512-9fd6-75f3fcad80e6.png">
+</p>
+
+```md
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darkdimmed
 ```
 
 #### darkhub
