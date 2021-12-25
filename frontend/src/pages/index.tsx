@@ -15,6 +15,7 @@ import {
 import ProductName from '../constants/product-name';
 import TrophyCabinet from '../parts/TrophyCabinet/TrophyCabinet';
 import UserSettings from '../parts/UserSettings/UserSettings';
+import removeWhitespace from '../utils/removeWhitespace';
 
 export default function Home(): JSX.Element {
   const initialQueryParameters = {
@@ -62,8 +63,10 @@ export default function Home(): JSX.Element {
   const handleClick = () => {
     let value = `/api/v1/atcoder?username=${userName}`;
     value += theme === DEFAULT_THEME ? '' : `&theme=${theme}`;
-    value += filterByTitle === '' ? '' : `&title=${filterByTitle}`;
-    value += filterByRank === '' ? '' : `&rank=${filterByRank}`;
+    value +=
+      filterByTitle === '' ? '' : `&title=${removeWhitespace(filterByTitle)}`;
+    value +=
+      filterByRank === '' ? '' : `&rank=${removeWhitespace(filterByRank)}`;
     value += cabinetRow == DEFAULT_MAX_ROW ? '' : `&row=${cabinetRow}`;
     value +=
       cabinetColumn == DEFAULT_MAX_COLUMN ? '' : `&column=${cabinetColumn}`;
