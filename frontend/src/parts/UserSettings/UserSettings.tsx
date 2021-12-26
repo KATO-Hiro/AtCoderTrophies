@@ -42,7 +42,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function UserSettings(props: UserSettingsProps): JSX.Element {
   const classes = useStyles();
-  const { queryParameters, onChange, onSwitchChange, onClick } = props;
+  const {
+    queryParameters,
+    inputRef,
+    inputError,
+    onChange,
+    onSwitchChange,
+    onClick,
+  } = props;
   const {
     userName,
     theme,
@@ -60,6 +67,10 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
   const SIZE_MAX = 25;
   const MARGIN_MIN = 0;
   const MARGIN_MAX = 300;
+
+  // See:
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+  const COMMA_SEPARATED = '^\\s*[a-zA-Z]+(?:,\\s*[a-zA-Z]+)*$';
 
   return (
     <form className={classes.root} autoComplete='on'>
@@ -109,7 +120,8 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
         {/* TODO: Refactoring & extract the below elements as a component. */}
         {/* <AdvancedOptions /> */}
         {/* See:
-        https://mui.com/components/accordion/#basic-accordion */}
+        https://mui.com/components/accordion/#basic-accordion
+        https://mui.com/api/text-field/ */}
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -129,13 +141,18 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
                   placeholder='AC, RPS, CPlusPlus, Python, Rust, ...'
                   variant='standard'
                   onChange={onChange}
-                  InputProps={{
+                  error={inputError}
+                  inputProps={{
                     startAdornment: (
                       <InputAdornment position='start'></InputAdornment>
                     ),
+                    pattern: COMMA_SEPARATED,
                   }}
+                  inputRef={inputRef}
+                  helperText={inputRef?.current?.validationMessage}
                 />
               </Grid>
+              {/* HACK: Enables validation of input values. */}
               <Grid item xs={12} sm={6} className={classes.grid}>
                 <TextField
                   id='filter-by-rank'
@@ -145,11 +162,15 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
                   placeholder='S, AAA, AA, ...'
                   variant='standard'
                   onChange={onChange}
-                  InputProps={{
+                  // error={inputError}
+                  inputProps={{
                     startAdornment: (
                       <InputAdornment position='start'></InputAdornment>
                     ),
+                    // pattern: COMMA_SEPARATED,
                   }}
+                  // inputRef={inputRef}
+                  // helperText={inputRef?.current?.validationMessage}
                 />
               </Grid>
               <Grid item xs={12} sm={3} className={classes.grid}>
@@ -286,7 +307,12 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
 
         {/* <CreateTrophiesButton /> */}
         <Grid item xs={12} className={classes.grid}>
-          <Button variant='contained' color='primary' onClick={onClick}>
+          <Button
+            variant='contained'
+            color='primary'
+            disabled={inputError}
+            onClick={onClick}
+          >
             Create
           </Button>
         </Grid>

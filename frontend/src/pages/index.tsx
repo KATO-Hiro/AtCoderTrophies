@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import Container from '@material-ui/core/Container';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import MiddleDivider from '../components/MiddleDivider/MiddleDivider';
 import {
@@ -48,8 +48,23 @@ export default function Home(): JSX.Element {
   const [internalUrl, setInternalUrl] = useState(
     `/api/v1/atcoder?username=${userName}`,
   );
+  // See:
+  // https://zenn.dev/enish/articles/5cc332d3eeb1a7
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputError, setInputError] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (inputRef.current) {
+      const ref = inputRef.current;
+      console.log(inputRef);
+
+      if (!ref.validity.valid) {
+        setInputError(true);
+      } else {
+        setInputError(false);
+      }
+    }
+
     const { name, value } = event.target;
     setQueryParameters({ ...queryParameters, [name]: value });
   };
@@ -86,6 +101,8 @@ export default function Home(): JSX.Element {
 
       <UserSettings
         queryParameters={queryParameters}
+        inputRef={inputRef}
+        inputError={inputError}
         onChange={handleChange}
         onSwitchChange={handleSwitchChange}
         onClick={handleClick}
