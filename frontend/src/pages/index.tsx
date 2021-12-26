@@ -56,7 +56,6 @@ export default function Home(): JSX.Element {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (inputRef.current) {
       const ref = inputRef.current;
-      console.log(inputRef);
 
       if (!ref.validity.valid) {
         setInputError(true);
