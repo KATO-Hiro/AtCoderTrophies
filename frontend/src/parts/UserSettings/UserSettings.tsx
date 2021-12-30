@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 
 import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
+import { rankRanges } from '../../constants/rank';
 
 // See:
 // https://material-ui.com/components/text-fields
@@ -78,8 +79,8 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6} className={classes.grid}>
           {/* <AtCoderUserId /> */}
-          {/* TODO: Add validation. */}
           <TextField
+            required
             id='atcoder-user-id'
             name='userName'
             value={userName}
@@ -122,188 +123,192 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
         {/* See:
         https://mui.com/components/accordion/#basic-accordion
         https://mui.com/api/text-field/ */}
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls='panel1a-content'
-            id='advanced-options'
-          >
-            <Typography>Advanced Options</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Grid container spacing={1}>
-              <Grid item xs={12} sm={6} className={classes.grid}>
-                <TextField
-                  id='filter-by-title'
-                  name='filterByTitle'
-                  value={filterByTitle}
-                  label='Filter by title'
-                  placeholder='AC, RPS, CPlusPlus, Python, Rust, ...'
-                  variant='standard'
-                  onChange={onChange}
-                  error={inputError}
-                  inputProps={{
-                    startAdornment: (
-                      <InputAdornment position='start'></InputAdornment>
-                    ),
-                    pattern: COMMA_SEPARATED,
-                  }}
-                  inputRef={inputRef}
-                  helperText={inputRef?.current?.validationMessage}
-                />
+        <Grid item xs={12} className={classes.grid}>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls='panel1a-content'
+              id='advanced-options'
+            >
+              <Typography>Advanced Options</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Grid container spacing={1}>
+                <Grid item xs={12} sm={6} className={classes.grid}>
+                  <TextField
+                    id='filter-by-title'
+                    name='filterByTitle'
+                    value={filterByTitle}
+                    label='Filter by title'
+                    placeholder='AC, RPS, CPlusPlus, Python, Rust, ...'
+                    variant='standard'
+                    onChange={onChange}
+                    error={inputError}
+                    inputProps={{
+                      startAdornment: (
+                        <InputAdornment position='start'></InputAdornment>
+                      ),
+                      pattern: COMMA_SEPARATED,
+                    }}
+                    inputRef={inputRef}
+                    helperText={inputRef?.current?.validationMessage}
+                  ></TextField>
+                </Grid>
+                <Grid item xs={12} sm={6} className={classes.grid}>
+                  <TextField
+                    id='filter-by-rank'
+                    name='filterByRank'
+                    select
+                    value={filterByRank}
+                    label='Filter by rank'
+                    variant='standard'
+                    onChange={onChange}
+                    inputProps={{
+                      startAdornment: (
+                        <InputAdornment position='start'></InputAdornment>
+                      ),
+                    }}
+                  >
+                    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
+                    {rankRanges().map((option: { [key: string]: string }) => (
+                      <MenuItem key={option.label} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.grid}>
+                  <TextField
+                    id='cabinet-row'
+                    name='cabinetRow'
+                    defaultValue={3}
+                    value={cabinetRow}
+                    label='Row'
+                    type='number'
+                    InputProps={{
+                      inputProps: { min: SIZE_MIN, max: SIZE_MAX },
+                    }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    variant='standard'
+                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      e.target.value = Math.max(
+                        SIZE_MIN,
+                        Math.min(SIZE_MAX, parseInt(e.target.value)),
+                      )
+                        .toString()
+                        .slice(0, 30);
+                    }}
+                    onChange={onChange}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.grid}>
+                  <TextField
+                    id='cabinet-column'
+                    name='cabinetColumn'
+                    defaultValue={7}
+                    value={cabinetColumn}
+                    label='Column'
+                    type='number'
+                    InputProps={{
+                      inputProps: { min: SIZE_MIN, max: SIZE_MAX },
+                    }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    variant='standard'
+                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      e.target.value = Math.max(
+                        SIZE_MIN,
+                        Math.min(SIZE_MAX, parseInt(e.target.value)),
+                      )
+                        .toString()
+                        .slice(0, 30);
+                    }}
+                    onChange={onChange}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.grid}>
+                  <TextField
+                    id='margin-height'
+                    name='marginHeight'
+                    defaultValue={0}
+                    value={marginHeight}
+                    label='Margin Height'
+                    type='number'
+                    InputProps={{
+                      inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
+                    }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    variant='standard'
+                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      e.target.value = Math.max(
+                        MARGIN_MIN,
+                        Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                      )
+                        .toString()
+                        .slice(0, 30);
+                    }}
+                    onChange={onChange}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.grid}>
+                  <TextField
+                    id='margin-width'
+                    name='marginWidth'
+                    defaultValue={0}
+                    value={marginWidth}
+                    label='Margin Width'
+                    type='number'
+                    InputProps={{
+                      inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
+                    }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    variant='standard'
+                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      e.target.value = Math.max(
+                        MARGIN_MIN,
+                        Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                      )
+                        .toString()
+                        .slice(0, 30);
+                    }}
+                    onChange={onChange}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6} className={classes.grid}>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        name='noBackground'
+                        checked={noBackground}
+                        onChange={onSwitchChange}
+                      />
+                    }
+                    label='Transparent background'
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6} className={classes.grid}>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        name='noFrames'
+                        checked={noFrames}
+                        onChange={onSwitchChange}
+                      />
+                    }
+                    label='Hide frames'
+                  />
+                </Grid>
               </Grid>
-              {/* HACK: Enables validation of input values. */}
-              <Grid item xs={12} sm={6} className={classes.grid}>
-                <TextField
-                  id='filter-by-rank'
-                  name='filterByRank'
-                  value={filterByRank}
-                  label='Filter by rank'
-                  placeholder='S, AAA, AA, ...'
-                  variant='standard'
-                  onChange={onChange}
-                  // error={inputError}
-                  inputProps={{
-                    startAdornment: (
-                      <InputAdornment position='start'></InputAdornment>
-                    ),
-                    // pattern: COMMA_SEPARATED,
-                  }}
-                  // inputRef={inputRef}
-                  // helperText={inputRef?.current?.validationMessage}
-                />
-              </Grid>
-              <Grid item xs={12} sm={3} className={classes.grid}>
-                <TextField
-                  id='cabinet-row'
-                  name='cabinetRow'
-                  defaultValue={3}
-                  value={cabinetRow}
-                  label='Row'
-                  type='number'
-                  InputProps={{
-                    inputProps: { min: SIZE_MIN, max: SIZE_MAX },
-                  }}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant='standard'
-                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    e.target.value = Math.max(
-                      SIZE_MIN,
-                      Math.min(SIZE_MAX, parseInt(e.target.value)),
-                    )
-                      .toString()
-                      .slice(0, 30);
-                  }}
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={3} className={classes.grid}>
-                <TextField
-                  id='cabinet-column'
-                  name='cabinetColumn'
-                  defaultValue={7}
-                  value={cabinetColumn}
-                  label='Column'
-                  type='number'
-                  InputProps={{
-                    inputProps: { min: SIZE_MIN, max: SIZE_MAX },
-                  }}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant='standard'
-                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    e.target.value = Math.max(
-                      SIZE_MIN,
-                      Math.min(SIZE_MAX, parseInt(e.target.value)),
-                    )
-                      .toString()
-                      .slice(0, 30);
-                  }}
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={3} className={classes.grid}>
-                <TextField
-                  id='margin-height'
-                  name='marginHeight'
-                  defaultValue={0}
-                  value={marginHeight}
-                  label='Margin Height'
-                  type='number'
-                  InputProps={{
-                    inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
-                  }}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant='standard'
-                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    e.target.value = Math.max(
-                      MARGIN_MIN,
-                      Math.min(MARGIN_MAX, parseInt(e.target.value)),
-                    )
-                      .toString()
-                      .slice(0, 30);
-                  }}
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={3} className={classes.grid}>
-                <TextField
-                  id='margin-width'
-                  name='marginWidth'
-                  defaultValue={0}
-                  value={marginWidth}
-                  label='Margin Width'
-                  type='number'
-                  InputProps={{
-                    inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
-                  }}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant='standard'
-                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    e.target.value = Math.max(
-                      MARGIN_MIN,
-                      Math.min(MARGIN_MAX, parseInt(e.target.value)),
-                    )
-                      .toString()
-                      .slice(0, 30);
-                  }}
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6} className={classes.grid}>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      name='noBackground'
-                      checked={noBackground}
-                      onChange={onSwitchChange}
-                    />
-                  }
-                  label='Transparent background'
-                />
-              </Grid>
-              <Grid item xs={12} sm={6} className={classes.grid}>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      name='noFrames'
-                      checked={noFrames}
-                      onChange={onSwitchChange}
-                    />
-                  }
-                  label='Hide frames'
-                />
-              </Grid>
-            </Grid>
-          </AccordionDetails>
-        </Accordion>
+            </AccordionDetails>
+          </Accordion>
+        </Grid>
 
         {/* <CreateTrophiesButton /> */}
         <Grid item xs={12} className={classes.grid}>
