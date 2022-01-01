@@ -25,7 +25,7 @@
 ***DEMO***
 
 <div align="center">
-  <video width= 300 src="https://user-images.githubusercontent.com/13990347/147813806-60ea79ed-1b26-4faf-bf5d-e91895bb8fe6.mp4" autoplay muted controls loop></video>
+  <video width= 300 src="https://user-images.githubusercontent.com/13990347/147845353-d154bb01-1050-47b6-87b6-b53780de0785.mp4" autoplay muted controls loop></video>
 </div>
 
 ## 主な機能
@@ -98,8 +98,8 @@
 
 * [title](#title---タイトルでフィルタリング)
 * [rank](#rank---トロフィーのランクでフィルタリング)
-* [row](#row-&-column---最大の行数・列数を指定する)
-* [column](#row-&-column---最大の行数・列数を指定する)
+* [row](#row-&-column---最大の行数-&-列数を指定する)
+* [column](#row-&-column---最大の行数-&-列数を指定する)
 * [theme](#theme---テーマを適用する)
 * [margin_w](#margin---余白)
 * [margin_h](#margin---余白)
@@ -148,7 +148,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&rank=AAA
 https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai&rank=AAA,AA,A
 ```
 
-### row & column - 最大の行数・列数を指定する
+### row & column - 最大の行数 & 列数を指定する
 
 トロフィーを表示する最大の行数と列数を指定することができます。なお、指定した行・列の範囲を超えた分については表示されません。
 
