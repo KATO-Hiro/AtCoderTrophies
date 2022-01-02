@@ -14,9 +14,9 @@ import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import { rankRanges } from '../../constants/rank';
 import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
-import { rankRanges } from '../../constants/rank';
 
 // See:
 // https://material-ui.com/components/text-fields
