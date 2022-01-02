@@ -13,6 +13,7 @@ import {
   DEFAULT_THEME,
 } from '../constants/default-values';
 import ProductName from '../constants/product-name';
+import * as gtag from '../lib/GoogleAnalytics/gtag';
 import TrophyCabinet from '../parts/TrophyCabinet/TrophyCabinet';
 import UserSettings from '../parts/UserSettings/UserSettings';
 import removeWhitespace from '../utils/removeWhitespace';
@@ -90,6 +91,12 @@ export default function Home(): JSX.Element {
     value +=
       noBackground === DEFAULT_NO_BACKGROUND ? '' : `&no_bg=${noBackground}`;
     value += noFrames === DEFAULT_NO_FRAME ? '' : `&no_frame=${noFrames}`;
+
+    gtag.event({
+      action: 'click',
+      category: 'other',
+      label: value,
+    });
 
     setInternalUrl(value);
   };

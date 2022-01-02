@@ -5,7 +5,9 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 
 import '../styles/globals.css';
+import GoogleAnalytics from '../components/GoogleAnalytics/GoogleAnalytics';
 import PRODUCT_NAME from '../constants/product-name';
+import { usePageView } from '../hooks/usePageView';
 import { MyAppProps } from '../interfaces/MyAppProps';
 import Footer from '../parts/Footer/Footer';
 import Header from '../parts/Header/Header';
@@ -22,6 +24,8 @@ function MyApp(props: MyAppProps): JSX.Element {
   /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
+  usePageView();
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -31,6 +35,7 @@ function MyApp(props: MyAppProps): JSX.Element {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <GoogleAnalytics />
         <Header />
         <Component {...pageProps} />
         <Footer />
