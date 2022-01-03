@@ -1,6 +1,6 @@
 fastapi==0.70.1
 pydantic==1.9.0
-requests==2.26.0
+requests==2.27.0
 types-requests==2.26.3
 typing-extensions==4.0.1
 urllib3==1.26.7
