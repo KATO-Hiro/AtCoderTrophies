@@ -3,6 +3,12 @@
 <p align="center">
   <img width="140" src="https://user-images.githubusercontent.com/13990347/143733378-4dafebc9-855c-4a8f-9019-c54edb330827.png" />
   <p align="center">🏆 Add dynamically generated AtCoder Stat Trophies to your readme.</p>
+
+  <p align="center">
+    <a href="https://github.com/KATO-Hiro/AtCoderTrophies/blob/main/docs/README_ja.md">
+      日本語のREADME
+    </a>
+  </p>
 </p>
 <p align="center">
   <a href="https://github.com/KATO-Hiro/AtCoderTrophies/issues">
