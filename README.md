@@ -491,7 +491,7 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&no_frame=tru
 
 ## Contribution Guide
 
-- TODO: Add link.
+[Document](https://github.com/KATO-Hiro/AtCoderTrophies/blob/main/docs/CONTRIBUTING.md)
 
 ## Special Thanks
 
