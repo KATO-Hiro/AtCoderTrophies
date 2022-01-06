@@ -25,12 +25,7 @@
 ***DEMO***
 
 <div align="center">
-
-  ![demo]()
-
-  <img width src="https://user-images.githubusercontent.com/13990347/144709620-3b7db39b-133a-42d8-af8c-c0ce808ed7cd.png" />
-</p>
-
+  <video width= 300 src="https://user-images.githubusercontent.com/13990347/147845353-d154bb01-1050-47b6-87b6-b53780de0785.mp4" autoplay muted controls loop></video>
 </div>
 
 ## Features
@@ -42,8 +37,12 @@
 
 Add the following code to your readme. When pasting the code into your profile's readme, change the `?username=` value to your AtCoder's username.
 
+<p align="center">
+  <img width src="https://user-images.githubusercontent.com/13990347/144709620-3b7db39b-133a-42d8-af8c-c0ce808ed7cd.png" />
+</p>
+
 ```md
-[![AtCoder Trophies](https://atcoder-trophies.vercel.app/api/v1/atcoder?username=chokudai)](https://github.com/KATO-Hiro/AtCoderTrophies)
+[![AtCoder Trophies](https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp)](https://github.com/KATO-Hiro/AtCoderTrophies)
 ```
 
 ### Use theme
