@@ -22,7 +22,7 @@
 
 </p>
 <p align="center">
-  </a>
+  <a>
     <a href="https://twitter.com/intent/tweet?text=Add%20dynamically%20generated%20AtCoder%20Stat%20Trophies%20to%20your%20readme.%0D%0A&url=https%3A%2F%2Fgithub.com%2FKATO-Hiro%2FAtCoderTrophies">
     <img alt="Twitter URL" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FKATO-Hiro%2FAtCoderTrophies">
   </a>
