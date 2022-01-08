@@ -6,12 +6,13 @@
 </p>
 <p align="center">
   <a href="https://github.com/KATO-Hiro/AtCoderTrophies/issues">
-    <img alt="GitHub Repo Issues" src="https://img.shields.io/github/issues/KATO-Hiro/AtCoderTrophies"/>
+    <img alt="GitHub Repo Issues" src="https://img.shields.io/github/issues/KATO-Hiro/AtCoderTrophies?style=plastic"/>
   </a>
   <a href="https://github.com/KATO-Hiro/AtCoderTrophies/stargazers">
-    <img alt="GitHub Repo Stars" src="https://img.shields.io/github/stars/KATO-Hiro/AtCoderTrophies">
+    <img alt="GitHub Repo Stars" src="https://img.shields.io/github/stars/KATO-Hiro/AtCoderTrophies?style=plastic">
+  </a>
   <a href="https://github.com/KATO-Hiro/AtCoderTrophies/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/KATO-Hiro/AtCoderTrophies"/>
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic" alt="License: MIT" />
   </a>
 
 </p>
