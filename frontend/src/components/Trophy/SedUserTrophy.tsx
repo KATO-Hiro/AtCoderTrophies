@@ -17,6 +17,6 @@ export default class SedUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `SedUser`;
-    this.filterTitles = ['Sed', 'sed'];
+    this.filterTitles = ['SedUser', 'Sed', 'sed'];
   }
 }

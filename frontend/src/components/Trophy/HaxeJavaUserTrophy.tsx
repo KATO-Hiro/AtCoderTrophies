@@ -17,6 +17,6 @@ export default class HaxeJavaUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `HaxeJavaUser`;
-    this.filterTitles = ['HaxeJava', 'haxejava'];
+    this.filterTitles = ['HaxeJavaUser', 'HaxeJava', 'haxejava', 'hxml', 'hx'];
   }
 }

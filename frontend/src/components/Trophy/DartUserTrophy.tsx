@@ -17,6 +17,6 @@ export default class DartUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `DartUser`;
-    this.filterTitles = ['Dart', 'dart'];
+    this.filterTitles = ['DartUser', 'Dart', 'dart'];
   }
 }

@@ -17,6 +17,6 @@ export default class DProgrammerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `DProgrammer`;
-    this.filterTitles = ['D', 'd'];
+    this.filterTitles = ['DProgrammer', 'D', 'd'];
   }
 }

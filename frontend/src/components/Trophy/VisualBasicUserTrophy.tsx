@@ -17,6 +17,12 @@ export default class VisualBasicUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `VisualBasicUser`;
-    this.filterTitles = ['VisualBasic', 'visualbasic', 'VB', 'vb'];
+    this.filterTitles = [
+      'VisualBasicUser',
+      'VisualBasic',
+      'visualbasic',
+      'VB',
+      'vb',
+    ];
   }
 }

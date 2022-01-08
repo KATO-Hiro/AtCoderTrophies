@@ -17,6 +17,6 @@ export default class ZshUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `ZshUser`;
-    this.filterTitles = ['Zsh', 'zsh'];
+    this.filterTitles = ['ZshUser', 'Zsh', 'zsh'];
   }
 }

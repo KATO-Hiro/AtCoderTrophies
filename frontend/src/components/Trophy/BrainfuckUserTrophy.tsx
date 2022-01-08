@@ -17,6 +17,6 @@ export default class BrainfuckUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `BrainfuckUser`;
-    this.filterTitles = ['Brainfuck', 'brainfuck'];
+    this.filterTitles = ['BrainfuckUser', 'Brainfuck', 'brainfuck', 'bf'];
   }
 }

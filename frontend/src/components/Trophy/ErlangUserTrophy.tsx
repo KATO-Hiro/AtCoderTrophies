@@ -17,6 +17,6 @@ export default class ErlangUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `ErlangUser`;
-    this.filterTitles = ['Erlang', 'erlang'];
+    this.filterTitles = ['ErlangUser', 'Erlang', 'erlang', 'erl', 'hrl'];
   }
 }

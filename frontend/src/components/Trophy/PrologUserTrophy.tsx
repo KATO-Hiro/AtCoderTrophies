@@ -17,6 +17,6 @@ export default class PrologUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `PrologUser`;
-    this.filterTitles = ['Prolog', 'prolog'];
+    this.filterTitles = ['PrologUser', 'Prolog', 'prolog', 'pro'];
   }
 }

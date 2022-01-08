@@ -17,6 +17,6 @@ export default class CrystalUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `CrystalUser`;
-    this.filterTitles = ['Crystal', 'crystal'];
+    this.filterTitles = ['CrystalUser', 'Crystal', 'crystal', 'Cr', 'cr'];
   }
 }

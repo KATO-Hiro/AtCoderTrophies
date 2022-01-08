@@ -17,6 +17,6 @@ export default class ElixirUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `ElixirUser`;
-    this.filterTitles = ['Elixir', 'elixir'];
+    this.filterTitles = ['ElixirUser', 'Elixir', 'elixir', 'exs', 'ex'];
   }
 }

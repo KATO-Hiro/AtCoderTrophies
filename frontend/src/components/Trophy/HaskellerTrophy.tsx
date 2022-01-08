@@ -17,6 +17,14 @@ export default class HaskellerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Haskeller`;
-    this.filterTitles = ['Haskell', 'haskell', 'Haskeller', 'haskeller'];
+    this.filterTitles = [
+      'Haskeller',
+      'Haskell',
+      'haskell',
+      'Haskeller',
+      'haskeller',
+      'lhs',
+      'hs',
+    ];
   }
 }

@@ -17,6 +17,6 @@ export default class PythonistaTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Pythonista`;
-    this.filterTitles = ['Python', 'Pythonista', 'pythonista', 'py'];
+    this.filterTitles = ['Pythonista', 'pythonista', 'Python', 'Py', 'py'];
   }
 }

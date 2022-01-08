@@ -17,6 +17,6 @@ export default class OCamelUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `OCamelUser`;
-    this.filterTitles = ['OCamel', 'ocamel'];
+    this.filterTitles = ['OCamelUser', 'OCamel', 'ocamel', 'mli', 'ml'];
   }
 }

@@ -17,6 +17,13 @@ export default class RustaceanTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Rustacean`;
-    this.filterTitles = ['Rust', 'rust', 'Rustacean', 'rustacean'];
+    this.filterTitles = [
+      'Rustacean',
+      'rustacean',
+      'Rust',
+      'rust',
+      'rlib',
+      'rs',
+    ];
   }
 }

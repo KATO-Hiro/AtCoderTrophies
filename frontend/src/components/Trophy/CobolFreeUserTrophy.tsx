@@ -17,6 +17,14 @@ export default class CobolFreeUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `COBOLFreeUser`;
-    this.filterTitles = ['COBOL', 'Cobol', 'cobol'];
+    this.filterTitles = [
+      'COBOLFreeUser',
+      'COBOL',
+      'Cobol',
+      'cobol',
+      'cbl',
+      'cob',
+      'cpy',
+    ];
   }
 }

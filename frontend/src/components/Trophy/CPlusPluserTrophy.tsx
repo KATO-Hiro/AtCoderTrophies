@@ -17,6 +17,17 @@ export default class CPlusPluserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `CPlusPluser`;
-    this.filterTitles = ['C++', 'CPlusPlus', 'Cplusplus', 'cplusplus'];
+    this.filterTitles = [
+      'CPlusPluser',
+      'CPlusPlus',
+      'Cplusplus',
+      'cplusplus',
+      'C++',
+      'Cpp',
+      'cpp',
+      'Cxx',
+      'cxx',
+      'cc',
+    ];
   }
 }

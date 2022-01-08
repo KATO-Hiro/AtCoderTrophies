@@ -17,6 +17,6 @@ export default class NimUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `NimUser`;
-    this.filterTitles = ['Nim', 'nim'];
+    this.filterTitles = ['NimUser', 'nimble', 'nims', 'Nim', 'nim'];
   }
 }

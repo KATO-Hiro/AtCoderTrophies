@@ -17,6 +17,6 @@ export default class RatedPointSumTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = 'RatedPointSum';
-    this.filterTitles = ['RatedPointSum', 'RPS'];
+    this.filterTitles = ['RatedPointSum', 'RPS', 'Rps', 'rps'];
   }
 }

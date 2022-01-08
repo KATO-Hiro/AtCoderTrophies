@@ -17,6 +17,6 @@ export default class DashUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `DashUser`;
-    this.filterTitles = ['Dash', 'dash'];
+    this.filterTitles = ['DashUser', 'Dash', 'dash'];
   }
 }

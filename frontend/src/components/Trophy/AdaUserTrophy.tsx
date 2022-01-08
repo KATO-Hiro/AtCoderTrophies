@@ -17,6 +17,6 @@ export default class AdaUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `AdaUser`;
-    this.filterTitles = ['Ada', 'ada'];
+    this.filterTitles = ['AdaUser', 'Ada', 'ada', 'adb', 'ads'];
   }
 }

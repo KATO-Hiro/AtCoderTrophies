@@ -17,6 +17,6 @@ export default class CythonUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `CythonUser`;
-    this.filterTitles = ['Cython', 'cython'];
+    this.filterTitles = ['CythonUser', 'Cython', 'cython', 'pyx', 'pxd', 'pxi'];
   }
 }

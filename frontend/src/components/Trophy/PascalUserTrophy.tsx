@@ -17,6 +17,15 @@ export default class PascalUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `PascalUser`;
-    this.filterTitles = ['Pascal', 'pascal'];
+    this.filterTitles = [
+      'PascalUser',
+      'Pascal',
+      'pascal',
+      'Pas',
+      'pas',
+      'PP',
+      'Pp',
+      'pp',
+    ];
   }
 }

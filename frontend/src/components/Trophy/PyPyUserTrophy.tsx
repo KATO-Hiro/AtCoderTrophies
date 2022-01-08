@@ -17,6 +17,6 @@ export default class PyPyUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `PyPyUser`;
-    this.filterTitles = ['PyPy', 'Pypy', 'pypy'];
+    this.filterTitles = ['PyPyUser', 'PyPy', 'Pypy', 'pypy'];
   }
 }

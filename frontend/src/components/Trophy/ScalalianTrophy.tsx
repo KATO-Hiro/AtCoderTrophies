@@ -17,6 +17,6 @@ export default class ScalalianTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Scalalian`;
-    this.filterTitles = ['Scalalian', 'scalalian', 'Scala', 'scala'];
+    this.filterTitles = ['Scalalian', 'scalalian', 'Scala', 'scala', 'sc'];
   }
 }

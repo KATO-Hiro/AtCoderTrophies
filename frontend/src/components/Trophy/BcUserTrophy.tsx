@@ -17,6 +17,6 @@ export default class BcUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `BcUser`;
-    this.filterTitles = ['bc'];
+    this.filterTitles = ['BcUser', 'BC', 'Bc', 'bc'];
   }
 }

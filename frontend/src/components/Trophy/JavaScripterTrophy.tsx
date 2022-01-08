@@ -18,10 +18,13 @@ export default class JavaScripterTrophy extends Trophy {
     super(score, rankConditions);
     this.title = `JavaScripter`;
     this.filterTitles = [
+      'JavaScripter',
       'JavaScript',
       'javascript',
       'JavaScripter',
       'javascripter',
+      'cjs',
+      'mjs',
       'JS',
       'js',
     ];

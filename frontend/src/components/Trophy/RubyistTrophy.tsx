@@ -17,6 +17,6 @@ export default class RubyistTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Rubyist`;
-    this.filterTitles = ['Ruby', 'ruby', 'rb', 'Rubyist', 'rubyist'];
+    this.filterTitles = ['Rubyist', 'rubyist', 'Ruby', 'ruby', 'rb'];
   }
 }
