@@ -17,6 +17,6 @@ export default class CeylonUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `CeylonUser`;
-    this.filterTitles = ['Ceylon', 'ceylon'];
+    this.filterTitles = ['CeylonUser', 'Ceylon', 'ceylon'];
   }
 }

@@ -17,6 +17,6 @@ export default class JuliaUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `JuliaUser`;
-    this.filterTitles = ['Julia', 'julia'];
+    this.filterTitles = ['JuliaUser', 'Julia', 'julia', 'Jl', 'jl'];
   }
 }

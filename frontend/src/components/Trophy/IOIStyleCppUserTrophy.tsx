@@ -18,12 +18,18 @@ export default class IOIStyleCppUserTrophy extends Trophy {
     super(score, rankConditions);
     this.title = `IOIStyleCppUser`;
     this.filterTitles = [
-      'C++',
+      'IOIStyleCppUser',
       'CPlusPlus',
       'Cplusplus',
       'cplusplus',
+      'C++',
+      'Cpp',
+      'cpp',
+      'Cxx',
+      'cxx',
       'IOI',
       'ioi',
+      'cc',
     ];
   }
 }

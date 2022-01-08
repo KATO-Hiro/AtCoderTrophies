@@ -17,6 +17,6 @@ export default class StandardMLUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `StandardMLUser`;
-    this.filterTitles = ['StandardML', 'standardml'];
+    this.filterTitles = ['StandardMLUser', 'StandardML', 'standardml', 'sml'];
   }
 }

@@ -17,6 +17,6 @@ export default class TypeScripterTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `TypeScripter`;
-    this.filterTitles = ['TypeScripter', 'typescripter', 'TS', 'ts'];
+    this.filterTitles = ['TypeScripter', 'typescripter', 'TS', 'tsx', 'ts'];
   }
 }

@@ -17,6 +17,6 @@ export default class LongestStreakCount extends Trophy {
 
     super(score, rankConditions);
     this.title = 'LongestStreak';
-    this.filterTitles = ['LongestStreak'];
+    this.filterTitles = ['LongestStreak', 'Streak', 'streak', 'LS', 'Ls'];
   }
 }

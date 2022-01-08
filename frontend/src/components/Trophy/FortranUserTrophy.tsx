@@ -17,6 +17,6 @@ export default class FortranUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `FortranUser`;
-    this.filterTitles = ['Fortran', 'fortran'];
+    this.filterTitles = ['FortranUser', 'Fortran', 'fortran', 'for', 'f'];
   }
 }

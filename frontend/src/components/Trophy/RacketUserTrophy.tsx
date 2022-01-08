@@ -17,6 +17,6 @@ export default class RacketUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `RacketUser`;
-    this.filterTitles = ['Racket', 'racket'];
+    this.filterTitles = ['RacketUser', 'Racket', 'racket', 'rkt'];
   }
 }

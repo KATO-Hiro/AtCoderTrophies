@@ -17,6 +17,6 @@ export default class SwiftUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `SwiftUser`;
-    this.filterTitles = ['Swift', 'swift'];
+    this.filterTitles = ['SwiftUser', 'SWIFT', 'Swift', 'swift'];
   }
 }

@@ -17,6 +17,6 @@ export default class SchemeUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `SchemeUser`;
-    this.filterTitles = ['Scheme', 'scheme'];
+    this.filterTitles = ['SchemeUser', 'Scheme', 'scheme', 'scm', 'ss'];
   }
 }

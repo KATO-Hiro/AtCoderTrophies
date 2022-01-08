@@ -18,11 +18,15 @@ export default class CSharperTrophy extends Trophy {
     super(score, rankConditions);
     this.title = `CSharper`;
     this.filterTitles = [
+      'CSharper',
       'CSharp',
       'cSharp',
       'CSharper',
       'cSharper',
+      'Csx',
+      'csx',
       'C#',
+      'Cs',
       'cs',
     ];
   }

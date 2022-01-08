@@ -17,6 +17,6 @@ export default class UnlambdaUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `UnlambdaUser`;
-    this.filterTitles = ['Unlambda', 'unlambda'];
+    this.filterTitles = ['UnlambdaUser', 'Unlambda', 'unlambda'];
   }
 }

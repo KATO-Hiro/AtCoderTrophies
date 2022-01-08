@@ -17,6 +17,6 @@ export default class PerlerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Perler`;
-    this.filterTitles = ['Perl', 'perl', 'Perler', 'perler'];
+    this.filterTitles = ['Perler', 'perler', 'Perl', 'perl', 'plx', 'pl', 'pm'];
   }
 }

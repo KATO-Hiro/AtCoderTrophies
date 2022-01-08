@@ -17,6 +17,6 @@ export default class GopherTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Gopher`;
-    this.filterTitles = ['Go', 'go', 'Gopher', 'gopher', 'Golang', 'golang'];
+    this.filterTitles = ['Gopher', 'gopher', 'Golang', 'golang', 'Go', 'go'];
   }
 }

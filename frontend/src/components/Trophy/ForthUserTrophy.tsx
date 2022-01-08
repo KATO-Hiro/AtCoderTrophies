@@ -17,6 +17,6 @@ export default class ForthUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `ForthUser`;
-    this.filterTitles = ['Forth', 'forth'];
+    this.filterTitles = ['ForthUser', 'Forth', 'forth', 'fth', 'fs'];
   }
 }

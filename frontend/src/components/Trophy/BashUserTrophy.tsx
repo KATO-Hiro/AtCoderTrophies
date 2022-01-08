@@ -17,6 +17,6 @@ export default class BashUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `BashUser`;
-    this.filterTitles = ['Bash', 'bash'];
+    this.filterTitles = ['BashUser', 'Bash', 'bash'];
   }
 }

@@ -17,6 +17,6 @@ export default class CProgrammerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `CProgrammer`;
-    this.filterTitles = ['C', 'c'];
+    this.filterTitles = ['CProgrammer', 'C', 'c'];
   }
 }

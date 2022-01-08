@@ -17,6 +17,6 @@ export default class TextUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `TextUser`;
-    this.filterTitles = ['Text', 'text', 'Txt', 'txt'];
+    this.filterTitles = ['TextUser', 'Text', 'text', 'Txt', 'txt'];
   }
 }

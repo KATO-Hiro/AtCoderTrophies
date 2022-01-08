@@ -17,6 +17,14 @@ export default class KotlinerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Kotliner`;
-    this.filterTitles = ['Kotlin', 'kotlin', 'Kotliner', 'kotliner'];
+    this.filterTitles = [
+      'Kotliner',
+      'kotliner',
+      'Kotlin',
+      'kotlin',
+      'ktm',
+      'kts',
+      'kt',
+    ];
   }
 }

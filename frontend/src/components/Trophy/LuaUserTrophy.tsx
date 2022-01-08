@@ -17,6 +17,6 @@ export default class LuaUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `LuaUser`;
-    this.filterTitles = ['Lua', 'lua'];
+    this.filterTitles = ['LuaUser', 'Lua', 'lua'];
   }
 }

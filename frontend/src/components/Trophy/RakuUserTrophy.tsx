@@ -17,6 +17,6 @@ export default class RakuUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `RakuUser`;
-    this.filterTitles = ['Raku', 'raku'];
+    this.filterTitles = ['RakuUser', 'Raku', 'raku'];
   }
 }

@@ -17,6 +17,6 @@ export default class OctaveUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `OctaveUser`;
-    this.filterTitles = ['Octave', 'octave'];
+    this.filterTitles = ['OctaveUser', 'Octave', 'octave'];
   }
 }

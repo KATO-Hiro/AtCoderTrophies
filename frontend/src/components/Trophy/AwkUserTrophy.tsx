@@ -17,6 +17,6 @@ export default class AwkUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `AwkUser`;
-    this.filterTitles = ['Awk', 'awk'];
+    this.filterTitles = ['AwkUser', 'Awk', 'awk'];
   }
 }
