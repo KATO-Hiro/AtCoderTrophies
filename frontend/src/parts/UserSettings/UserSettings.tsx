@@ -2,18 +2,18 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { createStyles, makeStyles } from '@material-ui/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
 import { rankRanges } from '../../constants/rank';
 import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
@@ -22,27 +22,7 @@ import { backgroundThemes } from '../../styles/background-themes';
 // https://material-ui.com/components/text-fields
 // https://material-ui.com/components/buttons/
 // https://material-ui.com/components/grid/
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '& .MuiTextField-root': {
-        // HACK: `TypeError: theme.spacing is not a function`
-        // See:
-        // https://next.material-ui.com/guides/migration-v4/
-        // margin: parseInt(theme.spacing(1), 10),
-        margin: '8px',
-        width: '100%',
-      },
-    },
-    grid: {
-      padding: '16px',
-      textAlign: 'center',
-    },
-  }),
-);
-
 function UserSettings(props: UserSettingsProps): JSX.Element {
-  const classes = useStyles();
   const {
     queryParameters,
     inputRef,
@@ -74,48 +54,61 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
   const COMMA_SEPARATED = '^\\s*[a-zA-Z]+(?:,\\s*[a-zA-Z]+)*$';
 
   return (
-    <form className={classes.root} autoComplete='on'>
+    <Box
+      component='form'
+      sx={{
+        '& .MuiTextField-root': {
+          m: '8px',
+          width: '100%',
+        },
+      }}
+      autoComplete='on'
+    >
       {/* TODO: Extract the below elements as a component. */}
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6} className={classes.grid}>
+        <Grid item xs={12} sm={6}>
           {/* <AtCoderUserId /> */}
-          <TextField
-            required
-            id='atcoder-user-id'
-            name='userName'
-            value={userName}
-            label='User ID'
-            placeholder='chokudai'
-            variant='standard'
-            onChange={onChange}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <AccountCircle />
-                </InputAdornment>
-              ),
-            }}
-          />
+          <StyledGrid>
+            <TextField
+              required
+              id='atcoder-user-id'
+              name='userName'
+              value={userName}
+              label='User ID'
+              placeholder='chokudai'
+              variant='standard'
+              onChange={onChange}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position='start'>
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </StyledGrid>
         </Grid>
 
         {/* <Theme /> */}
-        <Grid item xs={12} sm={6} className={classes.grid}>
-          <TextField
-            id='theme'
-            name='theme'
-            select
-            value={theme}
-            label='Theme'
-            variant='standard'
-            onChange={onChange}
-          >
-            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
-            {backgroundThemes().map((option: { [key: string]: string }) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
+        <Grid item xs={12} sm={6}>
+          <StyledGrid>
+            <TextField
+              id='theme'
+              name='theme'
+              select
+              value={theme}
+              label='Theme'
+              variant='standard'
+              onChange={onChange}
+            >
+              {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
+              {backgroundThemes().map((option: { [key: string]: string }) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </StyledGrid>
         </Grid>
 
         {/* TODO: Refactoring & extract the below elements as a component. */}
@@ -123,7 +116,7 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
         {/* See:
         https://mui.com/components/accordion/#basic-accordion
         https://mui.com/api/text-field/ */}
-        <Grid item xs={12} className={classes.grid}>
+        <Grid item xs={12}>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -134,176 +127,181 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
             </AccordionSummary>
             <AccordionDetails>
               <Grid container spacing={1}>
-                <Grid item xs={12} sm={6} className={classes.grid}>
-                  <TextField
-                    id='filter-by-title'
-                    name='filterByTitle'
-                    value={filterByTitle}
-                    label='Filter by title'
-                    placeholder='AC, RPS, CPlusPlus, Python, Rust, ...'
-                    variant='standard'
-                    onChange={onChange}
-                    error={inputError}
-                    inputProps={{
-                      startAdornment: (
-                        <InputAdornment position='start'></InputAdornment>
-                      ),
-                      pattern: COMMA_SEPARATED,
-                    }}
-                    inputRef={inputRef}
-                    helperText={inputRef?.current?.validationMessage}
-                  ></TextField>
+                <Grid item xs={12} sm={6}>
+                  <StyledGrid>
+                    <TextField
+                      id='filter-by-title'
+                      name='filterByTitle'
+                      value={filterByTitle}
+                      label='Filter by title'
+                      placeholder='AC, RPS, CPlusPlus, Python, Rust, ...'
+                      variant='standard'
+                      onChange={onChange}
+                      error={inputError}
+                      inputProps={{
+                        pattern: COMMA_SEPARATED,
+                      }}
+                      inputRef={inputRef}
+                      helperText={inputRef?.current?.validationMessage}
+                    ></TextField>
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={6} className={classes.grid}>
-                  <TextField
-                    id='filter-by-rank'
-                    name='filterByRank'
-                    select
-                    value={filterByRank}
-                    label='Filter by rank'
-                    variant='standard'
-                    onChange={onChange}
-                    inputProps={{
-                      startAdornment: (
-                        <InputAdornment position='start'></InputAdornment>
-                      ),
-                    }}
-                  >
-                    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
-                    {rankRanges().map((option: { [key: string]: string }) => (
-                      <MenuItem key={option.label} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
+                <Grid item xs={12} sm={6}>
+                  <StyledGrid>
+                    <TextField
+                      id='filter-by-rank'
+                      name='filterByRank'
+                      select
+                      value={filterByRank}
+                      label='Filter by rank'
+                      variant='standard'
+                      onChange={onChange}
+                      inputProps={{}}
+                    >
+                      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
+                      {rankRanges().map((option: { [key: string]: string }) => (
+                        <MenuItem key={option.label} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.grid}>
-                  <TextField
-                    id='cabinet-row'
-                    name='cabinetRow'
-                    defaultValue={3}
-                    value={cabinetRow}
-                    label='Row'
-                    type='number'
-                    InputProps={{
-                      inputProps: { min: SIZE_MIN, max: SIZE_MAX },
-                    }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant='standard'
-                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      e.target.value = Math.max(
-                        SIZE_MIN,
-                        Math.min(SIZE_MAX, parseInt(e.target.value)),
-                      )
-                        .toString()
-                        .slice(0, 30);
-                    }}
-                    onChange={onChange}
-                  />
+                <Grid item xs={12} sm={3}>
+                  <StyledGrid>
+                    <TextField
+                      id='cabinet-row'
+                      name='cabinetRow'
+                      value={cabinetRow}
+                      label='Row'
+                      type='number'
+                      InputProps={{
+                        inputProps: { min: SIZE_MIN, max: SIZE_MAX },
+                      }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      variant='standard'
+                      onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        e.target.value = Math.max(
+                          SIZE_MIN,
+                          Math.min(SIZE_MAX, parseInt(e.target.value)),
+                        )
+                          .toString()
+                          .slice(0, 30);
+                      }}
+                      onChange={onChange}
+                    />
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.grid}>
-                  <TextField
-                    id='cabinet-column'
-                    name='cabinetColumn'
-                    defaultValue={7}
-                    value={cabinetColumn}
-                    label='Column'
-                    type='number'
-                    InputProps={{
-                      inputProps: { min: SIZE_MIN, max: SIZE_MAX },
-                    }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant='standard'
-                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      e.target.value = Math.max(
-                        SIZE_MIN,
-                        Math.min(SIZE_MAX, parseInt(e.target.value)),
-                      )
-                        .toString()
-                        .slice(0, 30);
-                    }}
-                    onChange={onChange}
-                  />
+                <Grid item xs={12} sm={3}>
+                  <StyledGrid>
+                    <TextField
+                      id='cabinet-column'
+                      name='cabinetColumn'
+                      value={cabinetColumn}
+                      label='Column'
+                      type='number'
+                      InputProps={{
+                        inputProps: { min: SIZE_MIN, max: SIZE_MAX },
+                      }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      variant='standard'
+                      onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        e.target.value = Math.max(
+                          SIZE_MIN,
+                          Math.min(SIZE_MAX, parseInt(e.target.value)),
+                        )
+                          .toString()
+                          .slice(0, 30);
+                      }}
+                      onChange={onChange}
+                    />
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.grid}>
-                  <TextField
-                    id='margin-height'
-                    name='marginHeight'
-                    defaultValue={0}
-                    value={marginHeight}
-                    label='Margin Height'
-                    type='number'
-                    InputProps={{
-                      inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
-                    }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant='standard'
-                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      e.target.value = Math.max(
-                        MARGIN_MIN,
-                        Math.min(MARGIN_MAX, parseInt(e.target.value)),
-                      )
-                        .toString()
-                        .slice(0, 30);
-                    }}
-                    onChange={onChange}
-                  />
+                <Grid item xs={12} sm={3}>
+                  <StyledGrid>
+                    <TextField
+                      id='margin-height'
+                      name='marginHeight'
+                      value={marginHeight}
+                      label='Margin Height'
+                      type='number'
+                      InputProps={{
+                        inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
+                      }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      variant='standard'
+                      onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        e.target.value = Math.max(
+                          MARGIN_MIN,
+                          Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                        )
+                          .toString()
+                          .slice(0, 30);
+                      }}
+                      onChange={onChange}
+                    />
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.grid}>
-                  <TextField
-                    id='margin-width'
-                    name='marginWidth'
-                    defaultValue={0}
-                    value={marginWidth}
-                    label='Margin Width'
-                    type='number'
-                    InputProps={{
-                      inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
-                    }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant='standard'
-                    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      e.target.value = Math.max(
-                        MARGIN_MIN,
-                        Math.min(MARGIN_MAX, parseInt(e.target.value)),
-                      )
-                        .toString()
-                        .slice(0, 30);
-                    }}
-                    onChange={onChange}
-                  />
+                <Grid item xs={12} sm={3}>
+                  <StyledGrid>
+                    <TextField
+                      id='margin-width'
+                      name='marginWidth'
+                      value={marginWidth}
+                      label='Margin Width'
+                      type='number'
+                      InputProps={{
+                        inputProps: { min: MARGIN_MIN, max: MARGIN_MAX },
+                      }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      variant='standard'
+                      onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        e.target.value = Math.max(
+                          MARGIN_MIN,
+                          Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                        )
+                          .toString()
+                          .slice(0, 30);
+                      }}
+                      onChange={onChange}
+                    />
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={6} className={classes.grid}>
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        name='noBackground'
-                        checked={noBackground}
-                        onChange={onSwitchChange}
-                      />
-                    }
-                    label='Transparent background'
-                  />
+                <Grid item xs={12} sm={6}>
+                  <StyledGrid>
+                    <FormControlLabel
+                      control={
+                        <Switch
+                          name='noBackground'
+                          checked={noBackground}
+                          onChange={onSwitchChange}
+                        />
+                      }
+                      label='Transparent background'
+                    />
+                  </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={6} className={classes.grid}>
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        name='noFrames'
-                        checked={noFrames}
-                        onChange={onSwitchChange}
-                      />
-                    }
-                    label='Hide frames'
-                  />
+                <Grid item xs={12} sm={6}>
+                  <StyledGrid>
+                    <FormControlLabel
+                      control={
+                        <Switch
+                          name='noFrames'
+                          checked={noFrames}
+                          onChange={onSwitchChange}
+                        />
+                      }
+                      label='Hide frames'
+                    />
+                  </StyledGrid>
                 </Grid>
               </Grid>
             </AccordionDetails>
@@ -311,18 +309,20 @@ function UserSettings(props: UserSettingsProps): JSX.Element {
         </Grid>
 
         {/* <CreateTrophiesButton /> */}
-        <Grid item xs={12} className={classes.grid}>
-          <Button
-            variant='contained'
-            color='primary'
-            disabled={inputError}
-            onClick={onClick}
-          >
-            Create
-          </Button>
+        <Grid item xs={12}>
+          <StyledGrid>
+            <Button
+              variant='contained'
+              color='primary'
+              disabled={inputError}
+              onClick={onClick}
+            >
+              Create
+            </Button>
+          </StyledGrid>
         </Grid>
       </Grid>
-    </form>
+    </Box>
   );
 }
 
