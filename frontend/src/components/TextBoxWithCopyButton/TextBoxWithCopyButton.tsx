@@ -6,28 +6,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import InputLabel from '@material-ui/core/InputLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { createStyles, makeStyles } from '@material-ui/styles';
 import copy from 'copy-text-to-clipboard';
 import { useState } from 'react';
 
+import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
 import { TextBoxWithCopyButtonProps } from '../../interfaces/TextBoxWithCopyButtonProps';
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      // HACK: `TypeError: theme.spacing is not a function`
-      // See:
-      // https://next.material-ui.com/guides/migration-v4/
-      // margin: parseInt(theme.spacing(1), 10),
-      margin: '8px',
-      width: '100%',
-    },
-    grid: {
-      padding: '16px',
-      textAlign: 'center',
-    },
-  }),
-);
 
 // See:
 // https://qiita.com/kou_pg_0131/items/211f04f59371c752bd88
@@ -35,7 +18,6 @@ const useStyles = makeStyles(() =>
 const TextBoxWithCopyButton = (
   props: TextBoxWithCopyButtonProps,
 ): JSX.Element => {
-  const classes = useStyles();
   const { label, value } = props;
   const [openTip, setOpenTip] = useState<boolean>(false);
 
@@ -51,33 +33,43 @@ const TextBoxWithCopyButton = (
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={12} className={classes.grid}>
-          <FormControl variant='standard' className={classes.root}>
-            <InputLabel>{label}</InputLabel>
-            <Input
-              type='text'
-              value={value}
-              endAdornment={
-                <InputAdornment position='end'>
-                  <Tooltip
-                    arrow
-                    open={openTip}
-                    onClose={handleCloseTip}
-                    disableHoverListener
-                    placement='top'
-                    title='Copied'
-                  >
-                    <IconButton
-                      disabled={value === ''}
-                      onClick={handleClickButton}
+        <Grid item xs={12} sm={6}>
+          <StyledGrid>
+            <FormControl
+              variant='standard'
+              sx={{
+                '& .MuiInput-root': {
+                  m: '8px',
+                  width: '90ch',
+                },
+              }}
+            >
+              <InputLabel>{label}</InputLabel>
+              <Input
+                type='text'
+                value={value}
+                endAdornment={
+                  <InputAdornment position='end'>
+                    <Tooltip
+                      arrow
+                      open={openTip}
+                      onClose={handleCloseTip}
+                      disableHoverListener
+                      placement='top'
+                      title='Copied'
                     >
-                      <AssignmentIcon />
-                    </IconButton>
-                  </Tooltip>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
+                      <IconButton
+                        disabled={value === ''}
+                        onClick={handleClickButton}
+                      >
+                        <AssignmentIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </StyledGrid>
         </Grid>
       </Grid>
     </>
