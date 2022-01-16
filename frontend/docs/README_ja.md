@@ -525,9 +525,9 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&no_frame=tru
 
 ### アクセス解析ツール
 
-本サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
+本サイトでは、Google によるアクセス解析ツール「Google アナリティクス」を利用しています。
 
-同ツールでは、トラフィックデータの収集のためにCookieを使用しております。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。 利用規約、および、プライバシーポリシーに関する説明は、[外部リンク](https://policies.google.com/technologies/partner-sites?hl=ja)をご覧ください。
+同ツールでは、トラフィックデータの収集のために Cookie を使用しております。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。 利用規約、および、プライバシーポリシーに関する説明は、[外部リンク](https://policies.google.com/technologies/partner-sites?hl=ja)をご覧ください。
 
 また、収集されたデータは、本サイトのサービスを改善する目的以外で利用することはありません。
 
