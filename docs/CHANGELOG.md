@@ -1,5 +1,9 @@
 # Change Log
 
+## 2022-01-16
+
+- [#780](https://github.com/KATO-Hiro/AtCoderTrophies/pull/780) - :books: Add privacy policy.
+
 ## 2022-01-15
 
 - [#778](https://github.com/KATO-Hiro/AtCoderTrophies/pull/778) - :books: Update docs for dev environment.
