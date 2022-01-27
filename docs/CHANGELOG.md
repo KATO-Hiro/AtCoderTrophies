@@ -1,5 +1,9 @@
 # Change Log
 
+## 2022-01-23
+
+- [#804](https://github.com/KATO-Hiro/AtCoderTrophies/pull/804), [#807](https://github.com/KATO-Hiro/AtCoderTrophies/pull/807) - :books: Update CHANGELOG.
+
 ## 2022-01-22
 
 - [#803](https://github.com/KATO-Hiro/AtCoderTrophies/pull/803) - :books: Update CHANGELOG.
