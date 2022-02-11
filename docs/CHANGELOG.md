@@ -1,5 +1,10 @@
 # Change Log
 
+## 2022-02-11
+
+- [#892](https://github.com/KATO-Hiro/AtCoderTrophies/pull/892) - :books: Update CHANGELOG.
+- [#889](https://github.com/KATO-Hiro/AtCoderTrophies/pull/889), [#890](https://github.com/KATO-Hiro/AtCoderTrophies/pull/890) - ⬆️ Bump dependencies.
+
 ## 2022-02-10
 
 - [#887](https://github.com/KATO-Hiro/AtCoderTrophies/pull/887) - :wrench: Use actions/setup-node@v2.
