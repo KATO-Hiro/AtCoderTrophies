@@ -2,7 +2,7 @@
 
 ## 2022-02-11
 
-- [#885](https://github.com/KATO-Hiro/AtCoderTrophies/pull/885) - :books: Update CHANGELOG.
+- [#892](https://github.com/KATO-Hiro/AtCoderTrophies/pull/892) - :books: Update CHANGELOG.
 - [#889](https://github.com/KATO-Hiro/AtCoderTrophies/pull/889), [#890](https://github.com/KATO-Hiro/AtCoderTrophies/pull/890) - ⬆️ Bump dependencies.
 
 ## 2022-02-10
