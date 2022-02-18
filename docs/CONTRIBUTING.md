@@ -10,7 +10,7 @@
 
 ### Backend
 
-- [FastAPI](https://fastapi.tiangolo.com) 0.73.x
+- [FastAPI](https://fastapi.tiangolo.com) 0.74.x
 
 ### Frontend
 
