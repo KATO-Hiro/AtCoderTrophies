@@ -1,5 +1,9 @@
 # Change Log
 
+## 2022-02-16
+
+- [#908](https://github.com/KATO-Hiro/AtCoderTrophies/pull/908), [#909](https://github.com/KATO-Hiro/AtCoderTrophies/pull/909), [#910](https://github.com/KATO-Hiro/AtCoderTrophies/pull/910), [#911](https://github.com/KATO-Hiro/AtCoderTrophies/pull/911) - ⬆️ Bump dependencies.
+
 ## 2022-02-15
 
 - [#901](https://github.com/KATO-Hiro/AtCoderTrophies/pull/901), [#902](https://github.com/KATO-Hiro/AtCoderTrophies/pull/902), [#903](https://github.com/KATO-Hiro/AtCoderTrophies/pull/903), [#904](https://github.com/KATO-Hiro/AtCoderTrophies/pull/904), [#905](https://github.com/KATO-Hiro/AtCoderTrophies/pull/905), [#906](https://github.com/KATO-Hiro/AtCoderTrophies/pull/906) - ⬆️ Bump dependencies.
