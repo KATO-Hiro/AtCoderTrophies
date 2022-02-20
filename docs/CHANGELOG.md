@@ -1,5 +1,10 @@
 # Change Log
 
+## 2022-02-18
+
+- [#923](https://github.com/KATO-Hiro/AtCoderTrophies/pull/923) - :books: Update docs for dev environment.
+- [#917](https://github.com/KATO-Hiro/AtCoderTrophies/pull/917), [#918](https://github.com/KATO-Hiro/AtCoderTrophies/pull/918), [#919](https://github.com/KATO-Hiro/AtCoderTrophies/pull/919) - ⬆️ Bump dependencies.
+
 ## 2022-02-17
 
 - [#914](https://github.com/KATO-Hiro/AtCoderTrophies/pull/914), [#915](https://github.com/KATO-Hiro/AtCoderTrophies/pull/915), [#916](https://github.com/KATO-Hiro/AtCoderTrophies/pull/916) - ⬆️ Bump dependencies.
