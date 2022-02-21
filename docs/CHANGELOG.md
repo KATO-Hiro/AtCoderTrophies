@@ -1,5 +1,9 @@
 # Change Log
 
+## 2022-02-20
+
+- [#928](https://github.com/KATO-Hiro/AtCoderTrophies/pull/928), [#930](https://github.com/KATO-Hiro/AtCoderTrophies/pull/930) - :books: Update CHANGELOG.
+
 ## 2022-02-19
 
 - [#927](https://github.com/KATO-Hiro/AtCoderTrophies/pull/927) - :books: Update docs for dev environment.
