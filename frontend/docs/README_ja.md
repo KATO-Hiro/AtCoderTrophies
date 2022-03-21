@@ -221,21 +221,24 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&row=2&column
       <td align="center">darkhub</td>
     </tr>
     <tr>
+      <td align="center">darklover</td>
       <td align="center">discord</td>
       <td align="center">dracula</td>
       <td align="center">flat</td>
       <td align="center">gitdimmed</td>
       <td align="center">gruvbox</td>
       <td align="center">juicyfresh</td>
-      <td align="center">matrix</td>
     </tr>
     <tr>
+      <td align="center">matrix</td>
       <td align="center">monokai</td>
       <td align="center">nord</td>
       <td align="center">oldie</td>
       <td align="center">onedark</td>
       <td align="center">onestar</td>
       <td align="center">radical</td>
+    </tr>
+    <tr>
       <td align="center">tokyonight</td>
     </tr>
   </table>
@@ -309,6 +312,16 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darkdi
 
 ```
 https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darkhub
+```
+
+#### darklover
+
+<p align="center">
+  <img width="660" src="https://user-images.githubusercontent.com/13990347/159242921-f2535a27-421f-4e89-9146-860dac970372.png">
+</p>
+
+```md
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darklover
 ```
 
 #### discord

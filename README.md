@@ -201,6 +201,7 @@ List of available themes.
 | [chalk](#chalk) |
 | [darkdimmed](#darkdimmed) |
 | [darkhub](#darkhub) |
+| [darklover](#darklover) |
 | [discord](#discord) |
 | [dracula](#dracula) |
 | [flat](#flat) |
@@ -284,6 +285,16 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darkdi
 
 ```md
 https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darkhub
+```
+
+#### darklover
+
+<p align="center">
+  <img width="660" src="https://user-images.githubusercontent.com/13990347/159242921-f2535a27-421f-4e89-9146-860dac970372.png">
+</p>
+
+```md
+https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&theme=darklover
 ```
 
 #### discord
