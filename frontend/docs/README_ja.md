@@ -240,6 +240,12 @@ https://atcoder-trophies.vercel.app/api/v1/atcoder?username=semiexp&row=2&column
     </tr>
     <tr>
       <td align="center">tokyonight</td>
+      <td align="center">-</td>
+      <td align="center">-</td>
+      <td align="center">-</td>
+      <td align="center">-</td>
+      <td align="center">-</td>
+      <td align="center">-</td>
     </tr>
   </table>
 </div>
