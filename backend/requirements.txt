@@ -1,5 +1,5 @@
 fastapi==0.78.0
-pydantic==1.9.0
+pydantic==1.9.1
 requests==2.27.1
 types-requests==2.27.27
 typing-extensions==4.2.0
