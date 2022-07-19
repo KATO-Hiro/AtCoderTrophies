@@ -2,7 +2,7 @@ autopep8==1.6.0
 black==22.6.0
 flake8==4.0.1
 ipython==8.4.0
-mypy==0.961
+mypy==0.971
 mypy-extensions==0.4.3
 pytest==7.1.2
 pytest-vcr==1.0.2
