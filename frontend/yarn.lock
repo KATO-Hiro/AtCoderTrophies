@@ -3601,9 +3601,9 @@ regexpp@^3.2.0:
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
 
 rehype-document@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/rehype-document/-/rehype-document-6.0.1.tgz#0dcb1e91f8c6f45ded0a56f57f74447243e97eba"
-  integrity sha512-Uz36ekagn5MilQNqNCjmoQBqGHPwr8P39v3N09l38FGaBh5pPEhRQnQb8sG065Mhncs0wEcBSNLN+sOkjFhabQ==
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/rehype-document/-/rehype-document-6.1.0.tgz#7a0f10efebe70f54f53c53a788ce8f61dac02b39"
+  integrity sha512-znEODHIhSjfBlvFO6z9k/6z7lJor1hqqpYy15W5vj/VLxcWsCL22hBdDSai5tYOymmGOInDLvepmS+6MIIXjFg==
   dependencies:
     "@types/hast" "^2.0.0"
     hastscript "^7.0.0"
