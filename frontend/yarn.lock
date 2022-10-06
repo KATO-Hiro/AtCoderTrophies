@@ -636,9 +636,9 @@
     prop-types "^15.8.1"
 
 "@mui/styles@^5.2.3":
-  version "5.10.7"
-  resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.10.7.tgz#73807e93cda7aa15682a19b8246d6f5b570ffde2"
-  integrity sha512-veBd1ldZL3OEl2+V1J+zSfGPKzag8tONqLVITnvt31PVejztzrwDDllUG+Mo86tF5709zsfFo6Va7qK4+MK05g==
+  version "5.10.8"
+  resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.10.8.tgz#19421237e1580326fe2025adb6edf84730fee77d"
+  integrity sha512-aQGfz4Av12Bf0C8sJC0a7UoTbusD0IUKo4zNjkB5ERmhIFrbgN1G8XDIVvTgrgwdKbstbFlHDFfXkDcYe9elSQ==
   dependencies:
     "@babel/runtime" "^7.19.0"
     "@emotion/hash" "^0.9.0"
@@ -836,9 +836,9 @@
     "@types/ms" "*"
 
 "@types/dompurify@^2.3.1":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-2.3.3.tgz#c24c92f698f77ed9cc9d9fa7888f90cf2bfaa23f"
-  integrity sha512-nnVQSgRVuZ/843oAfhA25eRSNzUFcBPk/LOiw5gm8mD9/X7CNcbRkQu/OsjCewO8+VIYfPxUnXvPEVGenw14+w==
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-2.3.4.tgz#94e997e30338ea24d4c8d08beca91ce4dd17a1b4"
+  integrity sha512-EXzDatIb5EspL2eb/xPGmaC8pePcTHrkDCONjeisusLFrVfl38Pjea/R0YJGu3k9ZQadSvMqW0WXPI2hEo2Ajg==
   dependencies:
     "@types/trusted-types" "*"
 
@@ -1490,9 +1490,9 @@ dom-helpers@^5.0.1:
     csstype "^3.0.2"
 
 dompurify@^2.3.3:
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.10.tgz#901f7390ffe16a91a5a556b94043314cd4850385"
-  integrity sha512-o7Fg/AgC7p/XpKjf/+RC3Ok6k4St5F7Q6q6+Nnm3p2zGWioAY6dh0CbbuwOhH2UcSzKsdniE/YnE2/92JcsA+g==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.0.tgz#c9c88390f024c2823332615c9e20a453cf3825dd"
+  integrity sha512-Be9tbQMZds4a3C6xTmz68NlMfeONA//4dOavl/1rNw50E+/QO0KVpbcU0PcaW0nsQxurXls9ZocqFxk8R2mWEA==
 
 duplexer2@^0.1.2:
   version "0.1.4"
