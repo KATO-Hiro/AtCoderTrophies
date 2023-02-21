@@ -1,7 +1,7 @@
 fastapi==0.78.0
 pydantic==1.10.5
 requests==2.28.2
-types-requests==2.28.11.13
+types-requests==2.28.11.14
 typing-extensions==4.5.0
 urllib3==1.26.14
 uvicorn==0.20.0
