@@ -3,5 +3,5 @@ pydantic==1.10.8
 requests==2.31.0
 types-requests==2.31.0.1
 typing-extensions==4.6.3
-urllib3==1.26.15
+urllib3==2.0.2
 uvicorn==0.22.0
