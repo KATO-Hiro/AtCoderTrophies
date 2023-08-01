@@ -4,4 +4,4 @@ requests==2.31.0
 types-requests==2.31.0.2
 typing-extensions==4.7.1
 urllib3==1.26.15
-uvicorn==0.23.1
+uvicorn==0.23.2
