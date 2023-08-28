@@ -1,4 +1,4 @@
-autopep8==2.0.3
+autopep8==2.0.4
 black==23.7.0
 flake8==6.1.0
 ipython==8.14.0
