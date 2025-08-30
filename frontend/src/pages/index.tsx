@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import Container from '@material-ui/core/Container';
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import MiddleDivider from '../components/MiddleDivider/MiddleDivider';
 import {
-  DEFAULT_MAX_COLUMN,
-  DEFAULT_MAX_ROW,
-  DEFAULT_NO_FRAME,
-  DEFAULT_NO_BACKGROUND,
   DEFAULT_MARGIN_H,
   DEFAULT_MARGIN_W,
+  DEFAULT_MAX_COLUMN,
+  DEFAULT_MAX_ROW,
+  DEFAULT_NO_BACKGROUND,
+  DEFAULT_NO_FRAME,
   DEFAULT_THEME,
 } from '../constants/default-values';
 import ProductName from '../constants/product-name';
