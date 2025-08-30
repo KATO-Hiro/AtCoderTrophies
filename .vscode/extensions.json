@@ -1,0 +1,22 @@
+{
+    "recommendations": [
+        // General
+        "christian-kohler.path-intellisense",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "vscode-icons-team.vscode-icons",
+        // Tool integration
+        "hverlin.mise-vscode",
+        // Backend: Python
+        "charliermarsh.ruff",
+        "ms-python.python",
+        "ms-python.mypy-type-checker",
+        // Frontend: Node.js / TypeScript
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "ms-vscode.vscode-eslint",
+        "ms-vscode.vscode-typescript-next",
+        "vitest.explorer"
+    ]
+}
