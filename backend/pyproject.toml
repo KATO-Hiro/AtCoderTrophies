@@ -2,7 +2,6 @@
 name = "atcoder-trophies-backend"
 version = "0.2.0"
 description = "AtCoder Trophies Backend API server built with FastAPI"
-readme = "README.md"
 requires-python = ">=3.9"
 
 dependencies = [
