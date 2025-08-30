@@ -284,6 +284,37 @@ yarn add @mui/material@latest @mui/icons-material@latest @mui/lab@latest
 import { Button } from '@mui/material';
 ```
 
+### 完了条件
+
+- Material-UI v4 パッケージの完全削除
+- @mui/* パッケージへの統一
+- ビルド成功とアプリケーション正常動作
+
+### 実行結果（2025-08-30）
+
+✅ **完了済み**
+
+1. **パッケージ管理**
+   - Material-UI v4 パッケージ削除完了
+   - @mui/material@5.18.0, @mui/icons-material@5.18.0, @mui/lab@5.0.0-alpha.177 インストール完了
+
+2. **インポート文修正**
+   - 全TypeScriptファイルのインポートパス一括変換完了
+   - `@material-ui/core` → `@mui/material`
+   - `@material-ui/icons` → `@mui/icons-material`
+   - `@material-ui/lab` → `@mui/lab`
+
+3. **ビルド検証**
+   - ESLint import/order 警告を自動修正
+   - `yarn build` 成功（12.97秒）
+   - 型安全性警告は残るが、ビルドには影響なし
+
+**パフォーマンス**:
+
+- ビルド時間: 12.97秒
+- バンドルサイズ: メインページ 207 kB (First Load JS)
+- 静的ページ生成: 4/4 成功
+
 ---
 
 ## ステップ 3: Backend FastAPI と依存関係のアップデート
