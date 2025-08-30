@@ -5,12 +5,6 @@
       "runtime": "python3.9"
     }
   },
-  "builds": [
-    {
-      "src": "/app/main.py",
-      "use": "@vercel/python"
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
