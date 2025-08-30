@@ -1,5 +1,10 @@
 {
   "cleanUrls": true,
+  "functions": {
+    "app/main.py": {
+      "runtime": "python3.9"
+    }
+  },
   "builds": [
     {
       "src": "/app/main.py",
