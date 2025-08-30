@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import Container from '@material-ui/core/Container';
+import Container from '@mui/material/Container';
 import { useRef, useState } from 'react';
 
 import MiddleDivider from '../components/MiddleDivider/MiddleDivider';

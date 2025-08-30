@@ -1,6 +1,6 @@
-import Box from '@material-ui/core/Box';
-import Zoom from '@material-ui/core/Zoom';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Box from '@mui/material/Box';
+import Zoom from '@mui/material/Zoom';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { ReactElement, MouseEvent } from 'react';
 
 // See:
