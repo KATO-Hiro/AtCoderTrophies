@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-set -eux
+set -euo pipefail
+
+# Update pip
+python -m pip install --upgrade pip setuptools wheel
 
 # Install uv
-pip install uv
+python -m pip install uv
 
 # Install dependencies
 uv sync
