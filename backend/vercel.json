@@ -1,10 +1,11 @@
 {
   "cleanUrls": true,
-  "functions": {
-    "api/main.py": {
-      "maxDuration": 60
+  "builds": [
+    {
+      "src": "/api/main.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
