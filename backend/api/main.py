@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -172,4 +171,6 @@ async def read_atcoder_problems_statistics_api(user_name: str):
 
 
 if __name__ == "__main__":
+    import uvicorn
+
     uvicorn.run("api.main:app", host="0.0.0.0", reload=True, port=8000)
