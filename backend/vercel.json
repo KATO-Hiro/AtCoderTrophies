@@ -2,14 +2,14 @@
   "cleanUrls": true,
   "functions": {
     "api/main.py": {
-      "runtime": "@vercel/python@5.0.0",
+      "runtime": "python3.12",
       "maxDuration": 60
      }
    },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/main.py"
+      "destination": "/api/main"
     }
   ]
 }
