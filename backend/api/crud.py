@@ -1,18 +1,18 @@
 from fastapi import HTTPException, status
 
-from app.constants import (
+from api.constants import (
     get_accepted_count_api_url,
     get_accepted_count_for_each_language_api_url,
     get_longest_streak_api_url,
     get_rated_point_sum_api_url,
 )
-from app.schemas import (
+from api.schemas import (
     AcceptedCount,
     LongestStreak,
     RatedPointSum,
     StatisticsByLanguage,
 )
-from app.services import fetch_api, to_json
+from api.services import fetch_api, to_json
 
 
 def read_accepted_count_by_user_name(user_name: str) -> AcceptedCount | None:

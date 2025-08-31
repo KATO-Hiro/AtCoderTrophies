@@ -1,14 +1,14 @@
 {
   "cleanUrls": true,
   "functions": {
-    "app/main.py": {
-      "runtime": "python@5.0.0"
+    "api/main.py": {
+      "runtime": "python3.12"
     }
   },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/app/main.py"
+      "destination": "/api/main"
     }
   ]
 }

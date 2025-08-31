@@ -2,14 +2,14 @@ import pytest
 from fastapi import HTTPException, status
 from fastapi.testclient import TestClient
 
-from app import crud
-from app.crud import (
+from api import crud
+from api.crud import (
     read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
     read_longest_streak_by_user_name,
     read_rated_point_sum_by_user_name,
 )
-from app.schemas import AcceptedCount, LongestStreak, RatedPointSum
+from api.schemas import AcceptedCount, LongestStreak, RatedPointSum
 
 
 @pytest.mark.skip(reason="A simple function and broken dependencies of anyio")
@@ -61,7 +61,10 @@ def test_read_longest_streak_by_user_name(vcr_config: dict, user_name) -> None:
     _contain_keys(longest_streak)
 
 
-def _contain_keys(json_object, keys=["count", "rank"]) -> None:
+def _contain_keys(json_object, keys=None) -> None:
+    if keys is None:
+        keys = ["count", "rank"]
+
     for key in keys:
         assert key in dict(json_object).keys()
 
