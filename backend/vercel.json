@@ -1,5 +1,4 @@
 {
-  "$comment": "Vercel configuration for FastAPI deployment. References: https://vercel.com/docs/projects/project-configuration, https://vercel.com/docs/functions/runtimes/python",
   "cleanUrls": true,
   "functions": {
     "app/main.py": {
