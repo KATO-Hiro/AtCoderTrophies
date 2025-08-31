@@ -16,10 +16,10 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.9
+      - name: Set up Python 3.12
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.12"
 
       - name: Install uv
         uses: astral-sh/setup-uv@v2
@@ -37,12 +37,12 @@ jobs:
         run: |
           uv sync --extra dev
 
-      - name: Run format check with Ruff
+      - name: Run ruff format check
         working-directory: backend
         run: |
           uv run ruff format --check app/
 
-      - name: Run lint with Ruff
+      - name: Run ruff lint
         working-directory: backend
         run: |
           uv run ruff check app/

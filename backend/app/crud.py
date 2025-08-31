@@ -1,5 +1,3 @@
-from typing import Optional
-
 from fastapi import HTTPException, status
 
 from app.constants import (
@@ -17,7 +15,7 @@ from app.schemas import (
 from app.services import fetch_api, to_json
 
 
-def read_accepted_count_by_user_name(user_name: str) -> Optional[AcceptedCount]:
+def read_accepted_count_by_user_name(user_name: str) -> AcceptedCount | None:
     url: str = get_accepted_count_api_url(user_name)
     response = fetch_api(url)
 
@@ -40,7 +38,7 @@ def read_accepted_count_by_language_using_user_name(
     return response.json()
 
 
-def read_rated_point_sum_by_user_name(user_name: str) -> Optional[RatedPointSum]:
+def read_rated_point_sum_by_user_name(user_name: str) -> RatedPointSum | None:
     url: str = get_rated_point_sum_api_url(user_name)
     response = fetch_api(url)
 
@@ -50,7 +48,7 @@ def read_rated_point_sum_by_user_name(user_name: str) -> Optional[RatedPointSum]
     return to_json(response)
 
 
-def read_longest_streak_by_user_name(user_name: str) -> Optional[LongestStreak]:
+def read_longest_streak_by_user_name(user_name: str) -> LongestStreak | None:
     url: str = get_longest_streak_api_url(user_name)
     response = fetch_api(url)
 

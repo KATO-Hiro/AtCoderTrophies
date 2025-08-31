@@ -1,17 +1,17 @@
 [project]
 name = "atcoder-trophies-backend"
-version = "0.2.0"
+version = "0.3.0"
 description = "AtCoder Trophies Backend API server built with FastAPI"
-requires-python = ">=3.9"
+requires-python = ">=3.12, <3.13"
 
 dependencies = [
-    "fastapi==0.78.0",
+    "fastapi>=0.99.0,<0.100.0",
     "pydantic>=1.10.13,<2.0.0",
-    "requests==2.31.0",
-    "types-requests==2.31.0.2",
-    "typing-extensions==4.7.1",
-    "urllib3==1.26.15",
-    "uvicorn==0.23.2",
+    "requests>=2.31.0",
+    "types-requests>=2.31.0.2",
+    "typing-extensions>=4.7.1",
+    "urllib3>=1.26.15",
+    "uvicorn[standard]>=0.24.0",
 ]
 
 [project.optional-dependencies]
@@ -20,17 +20,18 @@ dev = [
     "ruff>=0.1.0",
 
     # Type checker
-    "mypy==1.5.1",
-    "mypy-extensions==1.0.0",
+    "mypy>=1.7.0",
+    "mypy-extensions>=1.0.0",
 
     # Test tools
-    "pytest==7.4.0",
-    "pytest-vcr==1.0.2",
-    "pytest-watch==4.2.0",
-    "vcrpy==5.1.0",
+    "pytest>=7.4.0",
+    "pytest-vcr>=1.0.2",
+    "pytest-watch>=4.2.0",
+    "vcrpy>=5.1.0",
+    "httpx>=0.24.0",       # Required for FastAPI TestClient
 
     # Development env
-    "ipython==8.14.0",
+    "ipython>=8.14.0",
 ]
 
 [build-system]
@@ -42,7 +43,7 @@ packages = ["app"]
 
 [tool.ruff]
 line-length = 127
-target-version = "py39"
+target-version = "py312"
 
 [tool.ruff.lint]
 # Rules correspond to flake8 + additional optimizations
@@ -65,7 +66,7 @@ quote-style = "double"
 indent-style = "space"
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

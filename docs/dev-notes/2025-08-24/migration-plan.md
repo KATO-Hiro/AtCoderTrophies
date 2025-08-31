@@ -384,9 +384,6 @@ uv add "urllib3>=2.0.0"
 uv add "uvicorn[standard]>=0.24.0"
 
 # 開発依存関係の更新
-uv add --dev "autopep8>=2.0.0"
-uv add --dev "black>=23.0.0"
-uv add --dev "flake8>=6.0.0"
 uv add --dev "mypy>=1.7.0"
 uv add --dev "pytest>=7.4.0"
 uv add --dev "pytest-vcr>=1.0.2"
@@ -409,7 +406,7 @@ class UserSchema(BaseModel):
 
 4. **Python バージョンアップデート**
    - `.tool-versions`: `python 3.12.x`
-   - `pyproject.toml`: `requires-python = ">=3.12"`
+   - `pyproject.toml`: `requires-python = "3.12"`
 
 ### 移行手順
 
@@ -460,6 +457,26 @@ class UserSchema(BaseModel):
     cd backend
     uv sync
 ```
+
+### 実行結果（ステップ3）と得られた教訓（2025-08-31）
+
+- 実行概要:
+  - Python を `3.9` から `3.12` 系へ引き上げ、`pyproject.toml` と `.python-version` を更新してプロジェクトを 3.12 に合わせた。
+  - FastAPI を `0.99.x` 系に更新（`fastapi>=0.99.0,<0.100.0`）し、Pydantic は当面 `1.x` 系を維持（`pydantic>=1.10.13,<2.0.0`）して互換性を保った。
+  - CI（GitHub Actions）の実行ランタイムを Python 3.12 に更新し、`uv` ベースの依存同期、`ruff`/`mypy`/`pytest` を実行するワークフローへ切り替えた。
+  - Vercel の設定を modern な `functions` 方式へ更新し、デプロイ時に `python3.12` ランタイムを指定した（プロジェクトルートのパス指定に注意）。
+
+- テストと検証:
+  - `uv sync --extra dev` により Python 3.12 環境で依存を同期。
+  - 単体テスト実行結果: `7 passed, 1 skipped, 1 xfailed`（ローカルでの検証済み）。
+  - `ruff` によるコード整形・型注釈の自動修正を実行し、Python 3.12 の union 記法 (`X | None`) に合わせて一部型注釈を更新した。
+
+- 得られた教訓・注意点:
+  1. ランタイム更新は依存関係の微妙な相互作用を露呈する（例: pydantic と Python の typing 実装差）。早期に依存の互換性（特に pydantic）を確認することが重要。
+  2. Vercel はパッチ版（3.12.x の具体的なパッチ）を保証しないため、ランタイムに依存した不具合は依存バージョン固定で回避する必要がある（本対応では `pydantic<2.0.0` を維持）。
+  3. CI とローカル環境の Python バージョンを揃えること（`.python-version` / `pyproject.toml` の整合）はトラブルを大きく減らす。
+  4. `ruff` / `mypy` などのツールで新しい Python 記法（`X | None` など）への自動修正が便利だが、手動確認も並行して行うこと。
+  5. Pydantic v2 への移行は本イテレーションでは行わず未解決の課題として残す。移行時は `pydantic v2` の Breaking Changes（`.model_dump()` 等）を精査し、段階的にコード修正を行う計画が必要。
 
 ### 完了条件
 

@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import BaseModel
 
 
@@ -18,7 +16,7 @@ class AcceptedCount(StatisticsBase):
 
 
 class AcceptedCountByLanguage(BaseModel):
-    languages: list[Optional[StatisticsByLanguage]] = []
+    languages: list[StatisticsByLanguage | None] = []
 
     class Config:
         schema_extra = {

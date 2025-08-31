@@ -1,5 +1,3 @@
-from typing import Optional
-
 import pytest
 from fastapi import HTTPException, status
 from fastapi.testclient import TestClient
@@ -29,7 +27,7 @@ def user_name() -> str:
 
 @pytest.mark.vcr()
 def test_read_accepted_count_by_user_name(vcr_config: dict, user_name: str) -> None:
-    accepted_count: Optional[AcceptedCount] = read_accepted_count_by_user_name(user_name)
+    accepted_count: AcceptedCount | None = read_accepted_count_by_user_name(user_name)
     assert accepted_count
 
     _contain_keys(accepted_count)
@@ -49,7 +47,7 @@ def test_read_accepted_count_by_language_using_user_name(vcr_config: dict, user_
 
 @pytest.mark.vcr()
 def test_read_rated_point_sum_by_user_name(vcr_config: dict, user_name) -> None:
-    rated_point_sum: Optional[RatedPointSum] = read_rated_point_sum_by_user_name(user_name)
+    rated_point_sum: RatedPointSum | None = read_rated_point_sum_by_user_name(user_name)
     assert rated_point_sum
 
     _contain_keys(rated_point_sum)
@@ -57,7 +55,7 @@ def test_read_rated_point_sum_by_user_name(vcr_config: dict, user_name) -> None:
 
 @pytest.mark.vcr()
 def test_read_longest_streak_by_user_name(vcr_config: dict, user_name) -> None:
-    longest_streak: Optional[LongestStreak] = read_longest_streak_by_user_name(user_name)
+    longest_streak: LongestStreak | None = read_longest_streak_by_user_name(user_name)
     assert longest_streak
 
     _contain_keys(longest_streak)
