@@ -1,14 +1,14 @@
 {
   "cleanUrls": true,
-  "functions": {
-    "api/main.py": {
-      "runtime": "python@5.0.0"
-    }
-  },
-  "rewrites": [
+  "routes": [
     {
       "source": "/(.*)",
       "destination": "/api/main"
     }
-  ]
+  ],
+  "functions": {
+    "api/main.py": {
+      "maxDuration": 60
+    }
+  }
 }
