@@ -487,6 +487,38 @@ class UserSchema(BaseModel):
 
 ---
 
+### Vercel デプロイ時のトラブルシューティング（Python3.12 移行での注意点）
+
+以下は Python3.12 への移行と Vercel デプロイで実際に直面したエラー・トラブルと対処方法の要約です。特に monorepo 環境や Functions 設定まわりで重要な点をまとめています。
+
+- Serverless Function の配置ルール
+  - 関数は `api/` ディレクトリ配下に配置する必要があります。配置ミスは `UNMATCHED_FUNCTION_PATTERN` になる（参考: <https://vercel.com/docs/errors/error-list#unmatched-function-pattern）。>
+
+- `vercel.json` の設定
+  - `cleanUrls=true` の場合、`rewrites` の `destination` は拡張子なし（例: `/api/main`）にする。
+
+- Vercel の Python ランタイムと uv の扱い
+  - 2025-08-末時点で Vercel の Python ランタイムは `uv` をデフォルトでサポートしていません。`uv` 固有のランタイム管理（uv sync 等）を期待するとビルドが失敗する可能性が高いです。
+  - 対処: backend/pyproject.toml のうち本番環境で必要なライブラリのみを `requirements.txt` 記載。Install ステップは、不本意ですが、Vercel のフローに任せています。
+
+- monorepo と Root Directory の設定
+  - Vercel は monorepo をサポートするが、Dashboard の Project Settings で **Root Directory** を正しく `backend` に指定しないと `vercel.json` / `requirements.txt` を見つけられず Install ステップが実行されません。
+
+- Framework Preset と Build/Install 設定
+  - FastAPI は Vercel のプリセットにないため Framework Preset は `Other` を選びます。
+  - Install / Build コマンドの上書きは不要です。
+
+簡潔チェックリスト（デプロイ前）:
+
+- `backend/requirements.txt` が存在し、`uvicorn` 等を含む依存が列挙されている
+- `api/main.py` が `app = FastAPI(...)` をトップレベルエクスポートしている
+- Project Settings の Root Directory が `backend` に設定されている
+
+参考リンク:
+
+- Vercel: Unmatched function pattern error
+  - <https://vercel.com/docs/errors/error-list#unmatched-function-pattern>
+
 ## ステップ 4: Next.js 段階的アップデート
 
 ### フェーズ 4.1: Next.js 13.x への移行
