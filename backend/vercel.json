@@ -1,14 +1,9 @@
 {
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/api/main"
     }
-  ],
-  "functions": {
-    "api/main.py": {
-      "maxDuration": 60
-    }
-  }
+  ]
 }
