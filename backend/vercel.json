@@ -1,14 +1,15 @@
 {
   "cleanUrls": true,
-   "functions": {
+  "functions": {
     "api/main.py": {
+      "runtime": "python",
       "maxDuration": 60
      }
    },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "api/main.py"
+      "destination": "/api/main.py"
     }
   ]
 }
