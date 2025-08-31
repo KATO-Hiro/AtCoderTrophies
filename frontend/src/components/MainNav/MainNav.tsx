@@ -1,9 +1,9 @@
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Stack from '@material-ui/core/Stack';
-import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Stack from '@mui/material/Stack';
+import Toolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
 
 import externalLinks from '../../constants/external-links';

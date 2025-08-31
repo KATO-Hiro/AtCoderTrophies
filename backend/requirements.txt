@@ -1,7 +1,9 @@
-fastapi==0.78.0
-pydantic==1.10.9
+fastapi==0.99.1
+pydantic==1.10.22
 requests==2.31.0
+starlette==0.27.0
 types-requests==2.31.0.2
+types-urllib3==1.26.25.14
 typing-extensions==4.7.1
 urllib3==1.26.15
-uvicorn==0.23.2
+uvicorn==0.35.0

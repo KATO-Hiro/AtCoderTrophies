@@ -1,7 +1,6 @@
-.devcontainer.json
-.dockerignore
 .gitignore
-devel-requirements.txt
-Dockerfile
+.vercel
 LICENSE
 README.md
+venv
+__pycache__

@@ -1,16 +1,14 @@
 from json import JSONDecodeError
-from typing import Optional
 
 from fastapi import status
-
 from requests.exceptions import ConnectTimeout  # type: ignore
 from requests.models import Response  # type: ignore
 
 
-def fetch_api(url: str) -> Optional[Response]:
+def fetch_api(url: str) -> Response | None:
     import requests  # type: ignore
-    from urllib3.util import Retry
     from requests.adapters import HTTPAdapter  # type: ignore
+    from urllib3.util import Retry
 
     # See:
     # https://2.python-requests.org/en/master/user/advanced/

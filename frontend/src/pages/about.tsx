@@ -1,4 +1,4 @@
-import Container from '@material-ui/core/Container';
+import Container from '@mui/material/Container';
 import { GetStaticProps } from 'next';
 
 import '/node_modules/github-markdown-css/github-markdown-light.css';

@@ -1,0 +1,45 @@
+{
+    // Editor settings
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    // File associations
+    "files.associations": {
+        "*.md": "markdown"
+    },
+    // Terminal settings
+    "terminal.integrated.env.osx": {
+        "PATH": "/opt/homebrew/bin:${env:PATH}"
+    },
+    // mise integration
+    "terminal.integrated.defaultProfile.osx": "fish",
+    "terminal.integrated.shellIntegration.enabled": true,
+    // Python settings
+    "python.defaultInterpreterPath": "./backend/.venv/bin/python",
+    "python.analysis.extraPaths": [
+        "./backend"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        }
+    },
+    "ruff.path": [
+        "./backend/.venv/bin/ruff"
+    ],
+    // Node.js settings
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "${env:HOME}/.local/share/mise/shims/node"
+    },
+}

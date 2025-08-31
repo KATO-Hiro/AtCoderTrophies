@@ -1,10 +1,10 @@
-import AppBar from '@material-ui/core/AppBar';
-import Container from '@material-ui/core/Container';
-import Fab from '@material-ui/core/Fab';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { experimentalStyled as styled } from '@material-ui/core/styles';
-import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
+import AppBar from '@mui/material/AppBar';
+import Container from '@mui/material/Container';
+import Fab from '@mui/material/Fab';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import KeyboardArrowUp from '@mui/icons-material/KeyboardArrowUp';
 
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 import ListItemLink from '../../components/ListItemLink/ListItemLink';

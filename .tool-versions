@@ -1,0 +1,5 @@
+# AtCoderTrophies development env - mise tool versions
+nodejs 20.11.0
+yarn   1.22.22
+python 3.12
+uv     0.8.4
