@@ -11,16 +11,26 @@ import { forwardRef } from 'react';
 // See:
 // https://github.com/mui-org/material-ui/blob/0620bb0c47c9aa52a863d8ccca5ce7352274bc65/examples/nextjs-with-typescript/src/components/Link.tsx
 // Add support for the sx prop for consistency with the other branches.
-const Anchor = styled('a')({});
+const Anchor = styled('a')({}) as any;
 
 /* eslint-disable react/require-default-props */
 // TODO: Extract interface as a separate file.
-interface NextLinkComposedProps
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
-    Omit<NextLinkProps, 'href' | 'as'> {
+interface NextLinkComposedProps {
   to: NextLinkProps['href'];
   linkAs?: NextLinkProps['as'];
   href?: NextLinkProps['href'];
+  replace?: NextLinkProps['replace'];
+  scroll?: NextLinkProps['scroll'];
+  shallow?: NextLinkProps['shallow'];
+  passHref?: NextLinkProps['passHref'];
+  prefetch?: NextLinkProps['prefetch'];
+  locale?: NextLinkProps['locale'];
+  className?: string;
+  children?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onMouseEnter?: React.MouseEventHandler<HTMLAnchorElement>;
+  onTouchStart?: React.TouchEventHandler<HTMLAnchorElement>;
+  onFocus?: React.FocusEventHandler<HTMLAnchorElement>;
 }
 
 // HACK: This solution is not good.
@@ -53,7 +63,7 @@ export const NextLinkComposed = forwardRef<
       passHref={passHref}
       locale={locale}
     >
-      <Anchor ref={ref} {...other} />
+      <Anchor ref={ref} href={to as string} {...other} />
     </NextLink>
   );
 });
