@@ -519,6 +519,44 @@ class UserSchema(BaseModel):
 - Vercel: Unmatched function pattern error
   - <https://vercel.com/docs/errors/error-list#unmatched-function-pattern>
 
+## ステップ 3.5: GitHub Actions アップデート
+
+### setup-uv v2→v6 アップグレード (完了)
+
+**実施日**: 2025-09-01
+
+**変更内容**:
+
+- `astral-sh/setup-uv@v2` → `astral-sh/setup-uv@v6` に更新
+- `actions/setup-python` と手動キャッシュ設定を削除
+- uv 内蔵の Python 管理とキャッシュ機能を活用
+
+**主要な機能追加**:
+
+- `python-version`: Python バージョン指定 (`UV_PYTHON` 環境変数設定)
+- `enable-cache`: 内蔵キャッシュ機能の有効化
+- `working-directory`: 作業ディレクトリ指定
+- `activate-environment`: 仮想環境の自動有効化
+- チルダ展開、マニフェストファイル、問題マッチャーなど
+
+**メリット**:
+
+- ✅ 設定の簡素化: 3つのステップが1つに統合
+- ✅ キャッシュ最適化: uv 内蔵キャッシュでより効率的
+- ✅ Python 管理統一: uv が Python とパッケージを一括管理
+- ✅ 破壊的変更なし: 完全な後方互換性
+
+**最終設定**:
+
+```yaml
+- name: Install uv with Python 3.12
+  uses: astral-sh/setup-uv@v6
+  with:
+    python-version: "3.12"
+    enable-cache: true
+    working-directory: backend
+```
+
 ## ステップ 4: Next.js 段階的アップデート
 
 ### フェーズ 4.1: Next.js 13.x への移行
