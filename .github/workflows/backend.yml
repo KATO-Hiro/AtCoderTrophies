@@ -16,21 +16,12 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v5
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+      - name: Install uv with Python 3.12
+        uses: astral-sh/setup-uv@v6
         with:
           python-version: "3.12"
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v2
-
-      - name: Set up uv cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/uv
-          key: ${{ runner.os }}-uv-${{ hashFiles('backend/pyproject.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-uv-
+          enable-cache: true
+          working-directory: backend
 
       - name: Install dependencies
         working-directory: backend
