@@ -6,7 +6,7 @@ requires-python = ">=3.12, <3.13"
 
 dependencies = [
     "fastapi>=0.99.0,<0.100.0",
-    "pydantic>=1.10.13,<2.0.0",
+    "pydantic>=1.10.13,<3.0.0",
     "requests>=2.31.0",
     "types-requests>=2.31.0.2",
     "typing-extensions>=4.7.1",
