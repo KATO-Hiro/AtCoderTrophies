@@ -1,10 +1,10 @@
+import KeyboardArrowUp from '@mui/icons-material/KeyboardArrowUp';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import KeyboardArrowUp from '@mui/icons-material/KeyboardArrowUp';
 
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 import ListItemLink from '../../components/ListItemLink/ListItemLink';
