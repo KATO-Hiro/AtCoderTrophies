@@ -1,18 +1,19 @@
+from collections.abc import Generator
+from typing import Any
+from unittest.mock import MagicMock, patch
+
 import pytest
-from fastapi import HTTPException, status
+from fastapi import status
 from fastapi.testclient import TestClient
 
-from api import crud
 from api.crud import (
     read_accepted_count_by_language_using_user_name,
     read_accepted_count_by_user_name,
     read_longest_streak_by_user_name,
     read_rated_point_sum_by_user_name,
 )
-from api.schemas import AcceptedCount, LongestStreak, RatedPointSum
 
 
-@pytest.mark.skip(reason="A simple function and broken dependencies of anyio")
 def test_root(client: TestClient) -> None:
     response = client.get("/")
 
@@ -25,92 +26,80 @@ def user_name() -> str:
     return "chokudai"
 
 
-@pytest.mark.vcr()
-def test_read_accepted_count_by_user_name(vcr_config: dict, user_name: str) -> None:
-    accepted_count: AcceptedCount | None = read_accepted_count_by_user_name(user_name)
-    assert accepted_count
-
-    _contain_keys(accepted_count)
-
-
-@pytest.mark.vcr()
-def test_read_accepted_count_by_language_using_user_name(vcr_config: dict, user_name) -> None:
-    accepted_count_list = read_accepted_count_by_language_using_user_name(user_name)
-    assert accepted_count_list
-
-    keys = ["language", "count", "rank"]
-
-    for key in keys:
-        assert key in dict(accepted_count_list[0]).keys()
-        assert key in dict(accepted_count_list[-1]).keys()
+@pytest.fixture
+def mock_failed_api_response() -> Generator[MagicMock, None, None]:
+    """Fixture for simulating API failure"""
+    with patch("api.crud._get_response", return_value=None) as mock:
+        yield mock
 
 
-@pytest.mark.vcr()
-def test_read_rated_point_sum_by_user_name(vcr_config: dict, user_name) -> None:
-    rated_point_sum: RatedPointSum | None = read_rated_point_sum_by_user_name(user_name)
-    assert rated_point_sum
+class TestAcceptedCount:
+    @pytest.mark.vcr()
+    def test_contain_keys(self, vcr_config: dict, user_name: str) -> None:
+        accepted_count: dict[str, Any] | None = read_accepted_count_by_user_name(user_name)
+        assert accepted_count
 
-    _contain_keys(rated_point_sum)
+        _contain_keys(accepted_count)
+
+    def test_not_available(self, user_name: str, mock_failed_api_response: MagicMock) -> None:
+        accepted_count: dict[str, Any] | None = read_accepted_count_by_user_name(user_name)
+        assert accepted_count is None
+
+        mock_failed_api_response.assert_called_once()
 
 
-@pytest.mark.vcr()
-def test_read_longest_streak_by_user_name(vcr_config: dict, user_name) -> None:
-    longest_streak: LongestStreak | None = read_longest_streak_by_user_name(user_name)
-    assert longest_streak
+class TestAcceptedCountByLanguage:
+    @pytest.mark.vcr()
+    def test_contain_keys(self, vcr_config: dict, user_name: str) -> None:
+        accepted_count_list = read_accepted_count_by_language_using_user_name(user_name)
+        assert accepted_count_list
 
-    _contain_keys(longest_streak)
+        keys = ["language", "count", "rank"]
+
+        for key in keys:
+            assert key in dict(accepted_count_list[0]).keys()
+            assert key in dict(accepted_count_list[-1]).keys()
+
+    def test_not_available(self, user_name: str, mock_failed_api_response: MagicMock) -> None:
+        accepted_count_list = read_accepted_count_by_language_using_user_name(user_name)
+        assert accepted_count_list is None
+
+        mock_failed_api_response.assert_called_once()
 
 
-def _contain_keys(json_object, keys=None) -> None:
+class TestRatedPointSum:
+    @pytest.mark.vcr()
+    def test_contain_keys(self, vcr_config: dict, user_name: str) -> None:
+        rated_point_sum: dict[str, Any] | None = read_rated_point_sum_by_user_name(user_name)
+        assert rated_point_sum
+
+        _contain_keys(rated_point_sum)
+
+    def test_not_available(self, user_name: str, mock_failed_api_response: MagicMock) -> None:
+        rated_point_sum: dict[str, Any] | None = read_rated_point_sum_by_user_name(user_name)
+        assert rated_point_sum is None
+
+        mock_failed_api_response.assert_called_once()
+
+
+class TestLongestStreak:
+    @pytest.mark.vcr()
+    def test_contain_keys(self, vcr_config: dict, user_name: str) -> None:
+        longest_streak: dict[str, Any] | None = read_longest_streak_by_user_name(user_name)
+        assert longest_streak
+
+        _contain_keys(longest_streak)
+
+    def test_not_available(self, user_name: str, mock_failed_api_response: MagicMock) -> None:
+        longest_streak: dict[str, Any] | None = read_longest_streak_by_user_name(user_name)
+        assert longest_streak is None
+
+        mock_failed_api_response.assert_called_once()
+
+
+def _contain_keys(json_object: dict[str, Any], keys: list[str] | None = None) -> None:
     if keys is None:
         keys = ["count", "rank"]
 
     for key in keys:
         assert key in dict(json_object).keys()
-
-
-def test_failed_to_read_accepted_count_by_user_name(monkeypatch) -> None:
-    _catch_http_error(
-        monkeypatch,
-        func_with_module_name=crud.read_accepted_count_by_user_name,
-        method_name="read_accepted_count_by_user_name",
-    )
-
-
-@pytest.mark.xfail()
-def test_failed_to_read_accepted_count_by_language_using_user_name(monkeypatch) -> None:
-    _catch_http_error(
-        monkeypatch,
-        func_with_module_name=crud.read_accepted_count_by_language_using_user_name,
-        method_name="read_accepted_count_by_language_using_user_name",
-    )
-
-
-def test_failed_to_read_rated_point_sum_by_user_name(monkeypatch) -> None:
-    _catch_http_error(
-        monkeypatch,
-        func_with_module_name=crud.read_rated_point_sum_by_user_name,
-        method_name="read_rated_point_sum_by_user_name",
-    )
-
-
-def test_failed_to_read_longest_streak_by_user_name(monkeypatch) -> None:
-    _catch_http_error(
-        monkeypatch,
-        func_with_module_name=crud.read_longest_streak_by_user_name,
-        method_name="read_longest_streak_by_user_name",
-    )
-
-
-def _catch_http_error(monkeypatch, func_with_module_name, method_name: str):
-    monkeypatch.setattr(
-        crud,
-        method_name,
-        lambda user_name: (_ for _ in (user_name)).throw(HTTPException(status.HTTP_404_NOT_FOUND)),
-    )
-
-    # See:
-    # https://doc.pytest.org/en/latest/how-to/assert.html#assertions-about-expected-exceptions
-    with pytest.raises(HTTPException) as excinfo:
-        func_with_module_name("dummy_user_name")
-        assert "not found" in str(excinfo.value)  # Might not detecting an error?
