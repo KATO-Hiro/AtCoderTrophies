@@ -33,6 +33,13 @@ def mock_failed_api_response() -> Generator[MagicMock, None, None]:
         yield mock
 
 
+@pytest.fixture
+def mock_failed_fetch_api() -> Generator[MagicMock, None, None]:
+    """Fixture for simulating fetch_api failure"""
+    with patch("api.crud.fetch_api", return_value=None) as mock:
+        yield mock
+
+
 class TestAcceptedCount:
     @pytest.mark.vcr()
     def test_contain_keys(self, vcr_config: dict, user_name: str) -> None:
@@ -60,11 +67,11 @@ class TestAcceptedCountByLanguage:
             assert key in dict(accepted_count_list[0]).keys()
             assert key in dict(accepted_count_list[-1]).keys()
 
-    def test_not_available(self, user_name: str, mock_failed_api_response: MagicMock) -> None:
+    def test_not_available(self, user_name: str, mock_failed_fetch_api: MagicMock) -> None:
         accepted_count_list = read_accepted_count_by_language_using_user_name(user_name)
         assert accepted_count_list is None
 
-        mock_failed_api_response.assert_called_once()
+        mock_failed_fetch_api.assert_called_once()
 
 
 class TestRatedPointSum:
