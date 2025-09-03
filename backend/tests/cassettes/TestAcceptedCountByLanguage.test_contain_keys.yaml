@@ -11,30 +11,32 @@ interactions:
       content-type:
       - Application/json
     method: GET
-    uri: https://kenkoooo.com/atcoder/atcoder-api/v3/user/streak_rank?user=chokudai
+    uri: https://kenkoooo.com/atcoder/atcoder-api/v3/user/language_rank?user=chokudai
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAKtWSs4vzStRsjLRUSpKzMtWsjIyMTYyqgUAAa+lhRgAAAA=
+        H4sIAAAAAAAAAG3PsQrCMBSF4Xe5js2Q9Ka9SVY3JxE3cbhKqaCkoIlYpO/uFFNj94+fcw5vuLHv
+        I/cdOFiDgPMQfQCnBNzZX8GhJGom8etWGRI2iZItXVXNirVJsLZEqrAbfnLGKJPV0rYF3Y7hMviM
+        vwOMVqbEu3gaF25Ra+SffISFqLZIhdx3r5nEJK0y0/EDSPQGblIBAAA=
     headers:
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Length:
-      - '44'
+      - '155'
       Content-Type:
       - application/json
       Date:
-      - Sat, 28 Aug 2021 06:39:00 GMT
+      - Wed, 03 Sep 2025 08:05:51 GMT
       x-amz-apigw-id:
-      - Ew8AwELstjMFnEg=
+      - QUOCoGvZNjMEdgQ=
       x-amzn-Remapped-content-length:
-      - '24'
+      - '338'
       x-amzn-Remapped-date:
-      - Sat, 28 Aug 2021 06:39:00 GMT
+      - Wed, 03 Sep 2025 08:05:50 GMT
       x-amzn-RequestId:
-      - 14880cfc-9534-456b-a9b5-14697af00394
+      - e30c4d3f-e084-4e53-a6ac-dc41c1946fd9
     status:
       code: 200
       message: OK
