@@ -2,22 +2,27 @@
 
 ## Environment
 
-### Editor and Infrastructure (Highly recommended)
+### Common
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop) 20+
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Visual Studio Code Remote - Containers](https://code.visualstudio.com/docs/remote/containers)
+- [mise](https://github.com/jdx/mise)
 
 ### Backend
 
-- [FastAPI](https://fastapi.tiangolo.com) 0.76.x
+- [uv](https://github.com/astral-sh/uv) - 0.8.x
+- [Python](https://www.python.org/) - v3.12.x (For Python runtime in Vercel)
+- [FastAPI](https://fastapi.tiangolo.com) 0.116.x
+- [GNU make](https://formulae.brew.sh/formula/make)
 
 ### Frontend
 
-- [Node.js](https://nodejs.org) 16.13.x
-- [Next.js](https://nextjs.org/) 12.1.x
+- [Node.js](https://nodejs.org) 20.x
+- [Next.js](https://nextjs.org/) 12.3.x
 - [React](https://reactjs.org/) 17.0.x
-- [TypeScript](https://www.typescriptlang.org/) 4.3.x
+- [TypeScript](https://www.typescriptlang.org/) 5.0.x
+
+### Editor and Infrastructure (Optional)
+
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 ### Hosting
 
@@ -37,18 +42,34 @@ cd AtCoderTrophies
 git clone git@github.com:KATO-Hiro/AtCoderTrophies.git
 ```
 
+## Local Run - Common
+
+### Install mise
+
+```terminal
+// macOS and Linux
+curl https://mise.run | sh
+```
+
 ## Local Run - Backend
+
+### Install uv
+
+```terminal
+# For backend
+mise install uv@latest
+```
 
 ### Run
 
-Run a local server in a container ([More details](https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers)).
+```terminal
+cd backend
 
-1. Launch [VS Code](https://code.visualstudio.com/) on your PC.
-2. Use Command Palette to run `Remote - Containers`.
-   - Mac: `Cmd + Shift + P`
-   - Windows: `Ctrl + Shift + P`
-3. Run **Remote-Containers: Open Folder in Container...** from the Command Palette and select the `backend` folder.
-4. VS Code will then start up both containers (`backend` and `frontend`), connect this window to service `backend`, and install extensions.
+make install
+
+# Run server in local
+make dev
+```
 
 Open localhost from your browser.
 
@@ -57,34 +78,36 @@ Open localhost from your browser.
 ### Test with pytest
 
 ```terminal
-pytest . --vcr-record=none
+make test
 ```
 
 ### Format
 
-GitHub Action will check if the code base is formatted by `black`. Please make sure that your change is formatted before sending a pull request. You can format the code base like the following:
+GitHub Action will check if the code base is formatted by `ruff`. Please make sure that your change is formatted before sending a pull request. You can format the code base like the following:
 
 ```terminal
-# Run Black
-black .
+make fmt
+
+make lint
 ```
 
 ## Local Run - Frontend
 
+### Install Node.js
+
+```terminal
+# For frontend
+mise install node@20
+```
+
 ### Run
 
-Run a local server in a container ([More details](https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers)).
+```terminal
+cd frontend
 
-1. Launch [VS Code](https://code.visualstudio.com/) on your PC.
-  If you are already running the services, start up a new window using **File > New Window**.
-2. Use Command Palette to run `Remote - Containers`.
-   - Mac: `Cmd + Shift + P`
-   - Windows: `Ctrl + Shift + P`
-3. Run **Remote-Containers: Open Folder in Container...** from the Command Palette and select the `frontend` folder.
-4. VS Code will then start up both containers (`frontend` and `backend`), connect this window to service `frontend`, and install extensions.
-  If the services are already running, VS Code will then connect to `frontend` and install extensions.
-
-You can now interact with both containers at once from separate windows.
+yarn install
+yarn dev
+```
 
 Open localhost from your browser.
 
