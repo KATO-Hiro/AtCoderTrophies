@@ -31,18 +31,17 @@ jobs:
       - name: Run ruff format check
         working-directory: backend
         run: |
-          uv run ruff format --check api/
+          uv run ruff format --check api/ tests/
 
       - name: Run ruff lint
         working-directory: backend
         run: |
-          uv run ruff check api/
+          uv run ruff check api/ tests/
 
-      # FIXME: Fix type errors
-      # - name: Run type check with mypy
-      #   working-directory: backend
-      #   run: |
-      #     uv run mypy api/
+      - name: Run type check with mypy
+        working-directory: backend
+        run: |
+          uv run mypy api/ tests/
 
       - name: Test with pytest
         working-directory: backend
