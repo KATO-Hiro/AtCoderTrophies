@@ -613,6 +613,26 @@ class UserSchema(BaseModel):
 - `StatisticsByLanguage | None`のリストでは辞書の直接appendは警告を生成する
 - テストが通っても実際のAPIで型検証エラーが発生する可能性があるため、実環境テストが重要
 
+**コードリファクタリングとVercel対応（2025-09-03 追加）**:
+
+✅ **不要な一時変数の除去**
+
+- **問題**: `accepted_count_obj = AcceptedCount(**accepted_count)` のような一時変数が機能的に不要
+- **改善**: インライン化により `AcceptedCount(**read_accepted_count_by_user_name(user_name))` に簡素化
+- **効果**: コード行数10行削減、メモリ効率向上、可読性向上
+
+✅ **Vercel対応のrequirements.txt形式変換**
+
+- **問題**: uvの詳細形式（ハッシュ付き）でVercelデプロイ時に `cannot be installed when requiring hashes` エラー
+- **解決**: `uv export --no-hashes --no-emit-project | grep -E '^[a-zA-Z0-9_-]+==' | sort` でシンプル形式に変換
+- **結果**: 239行 → 36行（85%削減）、`annotated-types==0.7.0` 形式に統一
+
+**最終的な成果**:
+
+- FastAPI 0.116.1 + Pydantic 2.11.7 + Python 3.12 で完全動作
+- 全APIエンドポイント正常動作確認済み（Status Code 200、警告なし）
+- Vercelデプロイ対応完了
+
 ## ステップ 4: Next.js 段階的アップデート
 
 ### フェーズ 4.1: Next.js 13.x への移行
