@@ -14,6 +14,7 @@ from api.schemas import (
     AtCoderProblemsStatisticsAPI,
     LongestStreak,
     RatedPointSum,
+    StatisticsByLanguage,
 )
 
 app = FastAPI(title=PRODUCT_NAME)
@@ -67,12 +68,12 @@ async def read_accepted_count_by_language(user_name: str):
     """
 
     results = read_accepted_count_by_language_using_user_name(user_name)
-
-    # HACK: The following code is expected to be written more simply.
     accepted_count_by_language = AcceptedCountByLanguage()
 
     for result in results:
-        accepted_count_by_language.languages.append(result)
+        # Convert dict to StatisticsByLanguage object for Pydantic v2
+        stats = StatisticsByLanguage(**result)
+        accepted_count_by_language.languages.append(stats)
 
     return accepted_count_by_language
 
@@ -120,7 +121,7 @@ async def read_longest_streak(user_name: str):
 @app.get(
     API_V1 + "/problems_stat_api/{user_name}",
     tags=["statistics"],
-    # response_model=AtCoderProblemsStatisticsAPI, HACK: Enable to show schemas in OpenAPI.
+    response_model=AtCoderProblemsStatisticsAPI,
     status_code=status.HTTP_200_OK,
     summary="Read AtCoder Problems Statistics API for user",
 )
@@ -147,25 +148,21 @@ async def read_atcoder_problems_statistics_api(user_name: str):
         - **rank**: rank based on the longest streak (0-indexed).
     """
 
-    stat_api = AtCoderProblemsStatisticsAPI()
-
-    accepted_count = read_accepted_count_by_user_name(user_name)
-    stat_api.accepted_count = AcceptedCount(**accepted_count)
-
+    # Prepare language stats
     accepted_count_by_language = AcceptedCountByLanguage()
     results = read_accepted_count_by_language_using_user_name(user_name)
 
-    # HACK: The following code is expected to be written more simply.
     for result in results:
-        accepted_count_by_language.languages.append(result)
+        # Convert dict to StatisticsByLanguage object for Pydantic v2
+        stats_for_language = StatisticsByLanguage(**result)
+        accepted_count_by_language.languages.append(stats_for_language)
 
-    stat_api.accepted_count_by_language = accepted_count_by_language
-
-    rated_point_sum = read_rated_point_sum_by_user_name(user_name)
-    stat_api.rated_point_sum = RatedPointSum(**rated_point_sum)
-
-    longest_streak = read_longest_streak_by_user_name(user_name)
-    stat_api.longest_streak = LongestStreak(**longest_streak)
+    stat_api = AtCoderProblemsStatisticsAPI(
+        accepted_count=AcceptedCount(**read_accepted_count_by_user_name(user_name)),
+        accepted_count_by_language=accepted_count_by_language,
+        rated_point_sum=RatedPointSum(**read_rated_point_sum_by_user_name(user_name)),
+        longest_streak=LongestStreak(**read_longest_streak_by_user_name(user_name)),
+    )
 
     return stat_api
 
