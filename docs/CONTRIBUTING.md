@@ -104,7 +104,7 @@ mise install node@20
 
 ```terminal
 # Install pnpm via mise (recommended)
-mise install pnpm@latest
+mise install pnpm@9.15.9
 ```
 
 ### Run

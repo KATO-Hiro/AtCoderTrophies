@@ -1,5 +1,5 @@
 # AtCoderTrophies development env - mise tool versions
 nodejs 20.11.0
-pnpm   10.15.1
+pnpm   9.15.9
 python 3.12
 uv     0.8.4

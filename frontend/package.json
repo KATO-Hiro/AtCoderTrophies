@@ -38,10 +38,11 @@
     "rehype-sanitize": "^5.0.1",
     "rehype-stringify": "^9.0.2",
     "rehype-video": "^1.1.1",
-    "remark-parse": "^10.0.1",
+    "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
     "swr": "^2.1.5",
-    "to-vfile": "^7.2.3"
+    "to-vfile": "^7.2.3",
+    "unified": "10.1.2"
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.0",
@@ -67,7 +68,7 @@
   },
   "engines": {
     "node": ">=20.11.0",
-    "pnpm": ">=10.0.0"
+    "pnpm": ">=9.15.9"
   },
-  "packageManager": "pnpm@10.15.1"
+  "packageManager": "pnpm@9.15.9"
 }
