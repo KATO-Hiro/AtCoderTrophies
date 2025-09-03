@@ -100,13 +100,20 @@ make lint
 mise install node@20
 ```
 
+### Install pnpm
+
+```terminal
+# Install pnpm via mise (recommended)
+mise install pnpm@latest
+```
+
 ### Run
 
 ```terminal
 cd frontend
 
-yarn install
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 Open localhost from your browser.
@@ -119,5 +126,5 @@ Open localhost from your browser.
 GitHub Action will check if the code base is formatted by `prettier`. Please make sure that your change is formatted before sending a pull request. You can format the code base like the following:
 
 ```terminal
-yarn lint:fix
+pnpm lint:fix
 ```

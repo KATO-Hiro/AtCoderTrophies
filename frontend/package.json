@@ -41,8 +41,7 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "swr": "^2.1.5",
-    "to-vfile": "^7.2.3",
-    "yarn": "^1.22.17"
+    "to-vfile": "^7.2.3"
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.0",
@@ -68,7 +67,7 @@
   },
   "engines": {
     "node": ">=20.11.0",
-    "yarn": ">=1.22.0"
+    "pnpm": ">=10.0.0"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "pnpm@10.15.1"
 }
