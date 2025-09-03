@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status
+from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.constants import API_V1, PRODUCT_NAME, TWO_HOURS_IN_SECONDS
@@ -25,7 +25,7 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], max_age=TWO_HOURS_IN_SEC
 
 
 @app.get("/")
-async def root():
+async def root() -> dict[str, str]:
     return {"message": "Hello, AtCoder Trophies!"}
 
 
@@ -36,7 +36,7 @@ async def root():
     status_code=status.HTTP_200_OK,
     summary="Read unique ac count for user",
 )
-async def read_accepted_count(user_name: str):
+async def read_accepted_count(user_name: str) -> AcceptedCount:
     """
     Read unique accepted (ac) count for user.
 
@@ -44,9 +44,18 @@ async def read_accepted_count(user_name: str):
     - **rank**: rank based on accepted count (0-indexed).
     """
 
-    results = read_accepted_count_by_user_name(user_name)
+    try:
+        results = read_accepted_count_by_user_name(user_name)
 
-    return AcceptedCount(**results)
+        if results is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, detail=f"Not found {user_name}.")
+
+        return AcceptedCount(**results)
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise
+
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error") from e
 
 
 @app.get(
@@ -56,7 +65,7 @@ async def read_accepted_count(user_name: str):
     status_code=status.HTTP_200_OK,
     summary="Read ac count of each language for user",
 )
-async def read_accepted_count_by_language(user_name: str):
+async def read_accepted_count_by_language(user_name: str) -> AcceptedCountByLanguage:
     """
     Read ac count of each language for user.
 
@@ -67,15 +76,25 @@ async def read_accepted_count_by_language(user_name: str):
     - **rank**: rank based on accepted count (1-indexed).
     """
 
-    results = read_accepted_count_by_language_using_user_name(user_name)
-    accepted_count_by_language = AcceptedCountByLanguage()
+    try:
+        results = read_accepted_count_by_language_using_user_name(user_name)
 
-    for result in results:
-        # Convert dict to StatisticsByLanguage object for Pydantic v2
-        stats = StatisticsByLanguage(**result)
-        accepted_count_by_language.languages.append(stats)
+        if results is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, detail=f"Not found {user_name}.")
 
-    return accepted_count_by_language
+        accepted_count_by_language = AcceptedCountByLanguage()
+
+        for result in results:
+            # Convert dict to StatisticsByLanguage object for Pydantic v2
+            stats = StatisticsByLanguage(**result)
+            accepted_count_by_language.languages.append(stats)
+
+        return accepted_count_by_language
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise
+
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error") from e
 
 
 @app.get(
@@ -85,7 +104,7 @@ async def read_accepted_count_by_language(user_name: str):
     status_code=status.HTTP_200_OK,
     summary="Read rated point sum for user",
 )
-async def read_rated_point_sum(user_name: str):
+async def read_rated_point_sum(user_name: str) -> RatedPointSum:
     """
     Read rated point sum (RPS) for user.
 
@@ -93,9 +112,18 @@ async def read_rated_point_sum(user_name: str):
     - **rank**: rank based on RPS (0-indexed).
     """
 
-    results = read_rated_point_sum_by_user_name(user_name)
+    try:
+        results = read_rated_point_sum_by_user_name(user_name)
 
-    return RatedPointSum(**results)
+        if results is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, detail=f"{user_name} was not found.")
+
+        return RatedPointSum(**results)
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise
+
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error") from e
 
 
 @app.get(
@@ -105,7 +133,7 @@ async def read_rated_point_sum(user_name: str):
     status_code=status.HTTP_200_OK,
     summary="Read the longest streak for user",
 )
-async def read_longest_streak(user_name: str):
+async def read_longest_streak(user_name: str) -> LongestStreak:
     """
     Read the longest streak (JST) for user.
 
@@ -113,9 +141,18 @@ async def read_longest_streak(user_name: str):
     - **rank**: rank based on the longest streak (0-indexed).
     """
 
-    results = read_longest_streak_by_user_name(user_name)
+    try:
+        results = read_longest_streak_by_user_name(user_name)
 
-    return LongestStreak(**results)
+        if results is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, detail=f"Not found {user_name}.")
+
+        return LongestStreak(**results)
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise
+
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error") from e
 
 
 @app.get(
@@ -125,7 +162,7 @@ async def read_longest_streak(user_name: str):
     status_code=status.HTTP_200_OK,
     summary="Read AtCoder Problems Statistics API for user",
 )
-async def read_atcoder_problems_statistics_api(user_name: str):
+async def read_atcoder_problems_statistics_api(user_name: str) -> AtCoderProblemsStatisticsAPI:
     """
     Read AtCoder Problems Statistics API for user.
 
@@ -148,23 +185,43 @@ async def read_atcoder_problems_statistics_api(user_name: str):
         - **rank**: rank based on the longest streak (0-indexed).
     """
 
-    # Prepare language stats
-    accepted_count_by_language = AcceptedCountByLanguage()
-    results = read_accepted_count_by_language_using_user_name(user_name)
+    try:
+        # Prepare accepted count language stats
+        accepted_count_by_language = AcceptedCountByLanguage()
+        results = read_accepted_count_by_language_using_user_name(user_name)
 
-    for result in results:
-        # Convert dict to StatisticsByLanguage object for Pydantic v2
-        stats_for_language = StatisticsByLanguage(**result)
-        accepted_count_by_language.languages.append(stats_for_language)
+        if results is not None:
+            for result in results:
+                # Convert dict to StatisticsByLanguage object for Pydantic v2
+                stats_for_language = StatisticsByLanguage(**result)
+                accepted_count_by_language.languages.append(stats_for_language)
 
-    stat_api = AtCoderProblemsStatisticsAPI(
-        accepted_count=AcceptedCount(**read_accepted_count_by_user_name(user_name)),
-        accepted_count_by_language=accepted_count_by_language,
-        rated_point_sum=RatedPointSum(**read_rated_point_sum_by_user_name(user_name)),
-        longest_streak=LongestStreak(**read_longest_streak_by_user_name(user_name)),
-    )
+        # Fetch each stats, using defaults if None
+        accepted_counts = read_accepted_count_by_user_name(user_name)
+        rated_point_sums = read_rated_point_sum_by_user_name(user_name)
+        longest_streaks = read_longest_streak_by_user_name(user_name)
 
-    return stat_api
+        NOT_AVAILABLE = -999_999_999
+
+        stat_api = AtCoderProblemsStatisticsAPI(
+            accepted_count=AcceptedCount(**accepted_counts)
+            if accepted_counts is not None
+            else AcceptedCount(count=NOT_AVAILABLE, rank=NOT_AVAILABLE),
+            accepted_count_by_language=accepted_count_by_language,
+            rated_point_sum=RatedPointSum(**rated_point_sums)
+            if rated_point_sums is not None
+            else RatedPointSum(count=NOT_AVAILABLE, rank=NOT_AVAILABLE),
+            longest_streak=LongestStreak(**longest_streaks)
+            if longest_streaks is not None
+            else LongestStreak(count=NOT_AVAILABLE, rank=NOT_AVAILABLE),
+        )
+
+        return stat_api
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise
+
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error") from e
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAKtWSs4vzStRsjK0MLc0MNBRKkrMy1ayMjIwMakFANt5R9ocAAAA
+        H4sIAAAAAAAAAKtWSs4vzStRsjIysDA1N9VRKkrMy1ayMjUxtKgFALQWfoccAAAA
     headers:
       Connection:
       - keep-alive
@@ -26,15 +26,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 28 Aug 2021 06:37:50 GMT
+      - Wed, 03 Sep 2025 08:05:51 GMT
       x-amz-apigw-id:
-      - Ew71zEyTtjMFZkQ=
+      - QUOC-F20tjMEtew=
       x-amzn-Remapped-content-length:
       - '28'
       x-amzn-Remapped-date:
-      - Sat, 28 Aug 2021 06:37:50 GMT
+      - Wed, 03 Sep 2025 08:05:51 GMT
       x-amzn-RequestId:
-      - ec0db510-6669-475d-b599-ed17c7947ef8
+      - 2ae50c47-056b-469f-a60f-5a8da623b8ce
     status:
       code: 200
       message: OK

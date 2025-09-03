@@ -1,4 +1,5 @@
 from json import JSONDecodeError
+from typing import Any
 
 from fastapi import status
 from requests.exceptions import ConnectTimeout  # type: ignore
@@ -51,9 +52,9 @@ def fetch_api(url: str) -> Response | None:
         return response
 
 
-def to_json(response: Response):
+def to_json(response: Response) -> dict[str, Any] | None:
     try:
-        results = response.json()
+        results: dict[str, Any] = response.json()
     except JSONDecodeError:
         # TODO: Output log.
         print("Failed to convert to json.")

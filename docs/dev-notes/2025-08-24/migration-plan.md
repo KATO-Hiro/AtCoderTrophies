@@ -633,6 +633,68 @@ class UserSchema(BaseModel):
 - 全APIエンドポイント正常動作確認済み（Status Code 200、警告なし）
 - Vercelデプロイ対応完了
 
+### 型チェックとテストのリファクタリング
+
+**実行内容**:
+
+- mypyによる厳格な型チェック導入
+- 例外処理の重複解消とアーキテクチャ改善
+- テストコードの型安全性向上
+
+**主な修正項目**:
+
+1. **API層の戻り値型注釈追加**:
+
+   ```python
+   # Before
+   async def read_accepted_count(user_name: str):
+
+   # After
+   async def read_accepted_count(user_name: str) -> AcceptedCount:
+   ```
+
+2. **例外処理の責任分離**:
+   - CRUD層: 純粋なデータアクセス、Noneを返す
+   - API層: 統一的なエラーハンドリング、try-catch実装
+
+3. **テストコードの型注釈強化**:
+
+   ```python
+   # Before
+   def mock_failed_api_response() -> Any:
+
+   # After
+   def mock_failed_api_response() -> Generator[MagicMock, None, None]:
+   ```
+
+4. **戻り値型の不一致修正**:
+   - `read_accepted_count_by_language_using_user_name`: `list[dict[str, Any]]`
+   - 他の関数: `dict[str, Any]`
+
+**得られた教訓**:
+
+1. **型安全性の重要性**:
+   - `Any`型は型チェックを無効化するため、可能な限り具体的な型を指定
+   - Generator関数には`Generator[YieldType, SendType, ReturnType]`を使用
+
+2. **責任の分離**:
+   - データアクセス層とAPI層で例外処理を重複させない
+   - 各層の責任を明確に分離することでテスタビリティが向上
+
+3. **pytest fixtureの理解**:
+   - `yield`はセットアップ→テスト実行→ティアダウンの仕組み
+   - モックオブジェクト自体をテスト関数に渡すことで検証が可能
+
+4. **APIエンドポイントの型特性**:
+   - 単一オブジェクト返却 vs リスト返却の違いを型レベルで明確化
+   - エンドポイントごとの戻り値の性質を正確に型で表現
+
+**最終結果**:
+
+- `uv run mypy api/ tests/`: Success (型エラー0件)
+- `uv run ruff check api/ tests/`: No issues found
+- 型安全でありながら保守性の高いコードベースを実現
+
 ## ステップ 4: Next.js 段階的アップデート
 
 ### フェーズ 4.1: Next.js 13.x への移行

@@ -2,5 +2,6 @@
 .vercel
 LICENSE
 README.md
+scripts/test_command.py
 venv
 __pycache__

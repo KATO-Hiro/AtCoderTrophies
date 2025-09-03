@@ -19,6 +19,7 @@ pluggy==1.6.0
 pydantic-core==2.33.2
 pydantic==2.11.7
 pytest==7.4.0
+pytest-cov==5.0.0
 python-dotenv==1.1.1
 pyyaml==6.0.2
 requests==2.31.0

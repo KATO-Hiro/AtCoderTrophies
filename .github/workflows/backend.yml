@@ -26,25 +26,24 @@ jobs:
       - name: Install dependencies
         working-directory: backend
         run: |
-          uv sync --extra dev
+          make install
 
-      - name: Run ruff format check
+      - name: Run format check
         working-directory: backend
         run: |
-          uv run ruff format --check api/
+          make fmt
 
-      - name: Run ruff lint
+      - name: Run lint
         working-directory: backend
         run: |
-          uv run ruff check api/
+          make lint
 
-      # FIXME: Fix type errors
-      # - name: Run type check with mypy
-      #   working-directory: backend
-      #   run: |
-      #     uv run mypy api/
-
-      - name: Test with pytest
+      - name: Run type check
         working-directory: backend
         run: |
-          uv run pytest tests/ --vcr-record=none
+          make check
+
+      - name: Run tests
+        working-directory: backend
+        run: |
+          make test
