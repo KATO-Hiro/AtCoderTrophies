@@ -28,7 +28,7 @@ types-requests==2.31.0.2
 types-urllib3==1.26.25.14
 typing-extensions==4.15.0
 typing-inspection==0.4.1
-urllib3==1.26.20
+urllib3==2.5.0
 uvicorn==0.35.0
 uvloop==0.21.0 ; platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'
 watchfiles==1.1.0

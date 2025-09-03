@@ -10,7 +10,7 @@ dependencies = [
     "requests>=2.31.0",
     "types-requests>=2.31.0.2",
     "typing-extensions>=4.7.1",
-    "urllib3>=1.26.15,<2.0.0",
+    "urllib3>=1.26.15,<3.0.0",
     "uvicorn[standard]>=0.24.0",
 ]
 
