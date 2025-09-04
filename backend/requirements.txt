@@ -18,7 +18,7 @@ pathspec==0.12.1
 pluggy==1.6.0
 pydantic-core==2.33.2
 pydantic==2.11.7
-pytest==7.4.0
+pytest==8.4.1
 pytest-cov==6.2.1
 python-dotenv==1.1.1
 pyyaml==6.0.2
