@@ -1079,18 +1079,6 @@ export default defineConfig({
 
 ---
 
-## 作成日
-
-2025年8月24日
-
-## 作成者
-
-GitHub Copilot との議論に基づく
-
-## 参考
-
-<https://github.com/azu/postem/blob/master/modernization-plan.md>
-
 ### actions/setup-node v4 から v5 へのアップデート
 
 **破壊的変更点:**
@@ -1105,7 +1093,6 @@ GitHub Copilot との議論に基づく
 - **キャッシュ設定**: `cache: 'pnpm'` を指定することで影響を回避可能。
 - **Node.js バージョン**: 本プロジェクトではNode.js v20を使用しており、影響なし。
 - **初回キャッシュ再生成**: アップデート後、初回実行時にキャッシュが再生成されるため、インストール時間が一時的に増加。
-- **設定ファイルの変更**: `node-version` を `node` に変更することで、将来的な互換性を確保可能。
 
 **推奨対応:**
 
@@ -1115,7 +1102,7 @@ GitHub Copilot との議論に基づく
 - name: Use Node.js 20.x
   uses: actions/setup-node@v5
   with:
-    node: '20.x'  # 推奨: node-version を node に変更
+    node-version: '20.x'
     cache: 'pnpm'  # キャッシュを有効化
     cache-dependency-path: frontend/pnpm-lock.yaml
 ```
@@ -1125,3 +1112,41 @@ GitHub Copilot との議論に基づく
 - **破壊的影響**: 最小限（キャッシュ設定の明示化が必要）。
 - **対応の容易さ**: 高（設定ファイルの微修正のみ）。
 - **アップデート推奨度**: 高（v5 の改善点を活用可能）。
+
+### uv export コマンドの解説
+
+以下は、`uv export` コマンドを使用して `requirements.txt` を生成する手順の要約です：
+
+1. **`uv export --format requirements-txt --no-hashes`**
+   - `pyproject.toml` に基づいて依存関係をエクスポートします。
+   - `--format requirements-txt`: 出力形式を `requirements.txt` に指定。
+   - `--no-hashes`: パッケージのハッシュ情報を含めない。
+
+2. **`awk -F';' '{print $1}'`**
+   - セミコロン (`;`) 以降の条件（環境マーカー）を削除します。
+   - 例: `fastapi==0.78.0; python_version >= "3.7"` → `fastapi==0.78.0`
+
+3. **`sed 's/[[:space:]]*$//'`**
+   - 行末の余分な空白文字を削除します。
+   - 例: `fastapi==0.78.0` → `fastapi==0.78.0`
+
+4. **`grep -E '^[A-Za-z0-9_.-]+==[^=]+'`**
+   - `ライブラリ名==バージョン` の形式に一致する行だけを抽出します。
+   - 例: `fastapi==0.78.0` は一致、`invalid-line` は除外。
+
+5. **`> requirements.txt`**
+   - 最終的な結果を `requirements.txt` ファイルに保存します。
+
+このコマンドを使用することで、Vercel 互換のシンプルな `requirements.txt` を生成できます。
+
+## 作成日
+
+2025年8月24日
+
+## 作成者
+
+GitHub Copilot との議論に基づく
+
+## 参考
+
+<https://github.com/azu/postem/blob/master/modernization-plan.md>
