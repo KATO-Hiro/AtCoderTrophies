@@ -24,7 +24,7 @@ dev = [
     "mypy-extensions>=1.1.0",
 
     # Test tools
-    "pytest>=8.4.1",
+    "pytest>=8.4.2",
     "pytest-cov>=6.2.1",
     "pytest-recording>=0.13.4",
     "pytest-watch>=4.2.0",

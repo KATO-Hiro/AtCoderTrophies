@@ -4,8 +4,8 @@
 install: ## Install dependencies
 	@uv sync --extra dev
 
-freeze: ## Export dependencies to requirements.txt
-	@uv pip freeze > requirements.txt
+export-clean: ## Export dependencies to requirements.txt
+	@uv run bash scripts/update_requirements.sh
 
 dev: ## Run server in local
 	@uv run python api/main.py
