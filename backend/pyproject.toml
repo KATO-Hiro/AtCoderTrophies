@@ -1,6 +1,6 @@
 [project]
 name = "atcoder-trophies-backend"
-version = "0.3.2"
+version = "0.3.3"
 description = "AtCoder Trophies Backend API server built with FastAPI"
 requires-python = ">=3.12, <3.13"
 
@@ -26,10 +26,10 @@ dev = [
     # Test tools
     "pytest>=8.4.1",
     "pytest-cov>=6.2.1",
-    "pytest-vcr>=1.0.2",
+    "pytest-recording>=0.13.4",
     "pytest-watch>=4.2.0",
     "vcrpy>=5.1.0",
-    "httpx>=0.24.0",       # Required for FastAPI TestClient
+    "httpx>=0.24.0",            # Required for FastAPI TestClient
 
     # Development env
     "ipython>=8.14.0",

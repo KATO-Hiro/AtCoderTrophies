@@ -1,3 +1,4 @@
+import os
 import typing
 
 import pytest
@@ -19,13 +20,18 @@ def client() -> typing.Generator:
 def vcr_config() -> dict:
     """Overwrite headers and query parameters where key can be leaked.
     See:
-    https://pytest-vcr.readthedocs.io/en/latest/
+    https://github.com/kiwicom/pytest-recording
     https://vcrpy.readthedocs.io/en/latest/usage.html#pytest-integration
     """
 
+    if os.getenv("GITHUB_ACTIONS"):
+        record_mode = "none"
+    else:
+        record_mode = "once"
+
     # Replace the Authorization request header with None in cassettes
     return {
-        "record_mode": "once",
+        "record_mode": record_mode,
         "decode_compressed_response": False,
         "filter_headers": [
             ("authorization", None),
