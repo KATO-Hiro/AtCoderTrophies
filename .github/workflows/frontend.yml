@@ -27,7 +27,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node: ${{ matrix.node-version }}
           cache: "pnpm"
           cache-dependency-path: frontend/pnpm-lock.yaml
 
