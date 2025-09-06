@@ -30,7 +30,6 @@
     "prop-types": "^15.8.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-hook-form": "^7.12.2",
     "rehype-document": "^6.0.1",
     "rehype-format": "^4.0.1",
     "rehype-highlight": "^6.0.0",
@@ -40,7 +39,7 @@
     "rehype-video": "^1.1.1",
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
-    "swr": "^2.1.5",
+    "swr": "^2.3.6",
     "to-vfile": "^7.2.3",
     "unified": "10.1.2"
   },
