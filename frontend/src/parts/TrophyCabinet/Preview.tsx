@@ -22,11 +22,11 @@ const Preview = (props: PreviewProps): ReactElement => {
     );
   }
 
-  if (isError) {
+  if (isError || !trophies) {
     return (
       <>
         <PreviewHeader />
-        <ErrorAlert message='Not found user.' />
+        <ErrorAlert message="Not found user." />
       </>
     );
   }
