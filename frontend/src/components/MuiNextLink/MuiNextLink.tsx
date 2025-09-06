@@ -22,7 +22,6 @@ interface NextLinkComposedProps {
   replace?: NextLinkProps['replace'];
   scroll?: NextLinkProps['scroll'];
   shallow?: NextLinkProps['shallow'];
-  passHref?: NextLinkProps['passHref'];
   prefetch?: NextLinkProps['prefetch'];
   locale?: NextLinkProps['locale'];
   className?: string;
@@ -45,10 +44,10 @@ export const NextLinkComposed = forwardRef<
     href,
     replace,
     scroll,
-    passHref,
     shallow,
     prefetch,
     locale,
+    children,
     ...other
   } = props;
 
@@ -60,10 +59,11 @@ export const NextLinkComposed = forwardRef<
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      passHref={passHref}
       locale={locale}
+      ref={ref}
+      {...other}
     >
-      <Anchor ref={ref} href={to as string} {...other} />
+      {children}
     </NextLink>
   );
 });
@@ -129,14 +129,14 @@ const MuiNextLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   }
 
   return (
-    <MuiLink
-      component={NextLinkComposed}
-      linkAs={linkAs}
+    <NextLinkComposed
       className={className}
-      ref={ref}
+      ref={ref as any}
       to={href}
       {...other}
-    />
+    >
+      <MuiLink component='span' {...other} />
+    </NextLinkComposed>
   );
 });
 

@@ -1,6 +1,7 @@
 import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
+import { Roboto } from 'next/font/google';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
@@ -13,6 +14,13 @@ import Footer from '../parts/Footer/Footer';
 import Header from '../parts/Header/Header';
 import theme from '../styles/theme';
 import createEmotionCache from '../utils/createEmotionCache';
+
+// Configure Roboto font with Google Fonts optimization
+const roboto = Roboto({
+  weight: ['300', '400', '500'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 // See:
 // https://www.ansonlowzf.com/create-a-website-with-material-ui-v5-nextjs/
@@ -32,14 +40,16 @@ function MyApp(props: MyAppProps): JSX.Element {
         <title>{PRODUCT_NAME}</title>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <GoogleAnalytics />
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </ThemeProvider>
+      <main className={roboto.className}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <GoogleAnalytics />
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </ThemeProvider>
+      </main>
     </CacheProvider>
   );
 }
