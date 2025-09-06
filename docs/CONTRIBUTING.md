@@ -16,8 +16,8 @@
 ### Frontend
 
 - [Node.js](https://nodejs.org) 20.x
-- [Next.js](https://nextjs.org/) 12.3.x
-- [React](https://reactjs.org/) 17.0.x
+- [Next.js](https://nextjs.org/) 14.x
+- [React](https://reactjs.org/) 18.x
 - [TypeScript](https://www.typescriptlang.org/) 5.0.x
 
 ### Editor and Infrastructure (Optional)
