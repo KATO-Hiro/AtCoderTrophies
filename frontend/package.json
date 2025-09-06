@@ -20,7 +20,7 @@
     "@mui/styles": "^5.2.3",
     "@types/prop-types": "^15.7.15",
     "add": "^2.0.6",
-    "axios": "^1.1.2",
+    "axios": "^1.11.0",
     "clsx": "^2.1.1",
     "copy-text-to-clipboard": "^3.0.1",
     "dompurify": "^3.2.6",
