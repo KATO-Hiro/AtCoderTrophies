@@ -7,11 +7,13 @@ const nextConfig = {
     config.resolve.alias['~'] = resolve(__dirname, 'src');
     return config;
   },
+  experimental: {
+    turbo: {
+      // Enable Turbopack for development
+    },
+  },
+  // Replace next-transpile-modules with transpilePackages for Next.js 13+
+  transpilePackages: ['copy-text-to-clipboard'],
 };
 
-// See:
-// https://github.com/martpie/next-transpile-modules
-const transpileModules = require('next-transpile-modules');
-const withTM = transpileModules(['copy-text-to-clipboard']);
-
-module.exports = withTM(nextConfig);
+module.exports = nextConfig;
