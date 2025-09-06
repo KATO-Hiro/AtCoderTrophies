@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+// TODO: Fix Emotion style integration type issues
 import createEmotionServer from '@emotion/server/create-instance';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ReactElement } from 'react';
-import { Children } from 'react';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { Children, ReactElement } from 'react';
 
 import PRODUCT_NAME, {
   PRODUCT_DESCRIPTION,
@@ -107,7 +109,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: any) =>
+      enhanceApp: (App: React.ComponentType<any>) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;
         },
