@@ -37,7 +37,7 @@
     "rehype-raw": "^6.1.1",
     "rehype-sanitize": "^5.0.1",
     "rehype-stringify": "^9.0.2",
-    "rehype-video": "^1.1.1",
+    "rehype-video": "^2.3.0",
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
     "swr": "^2.1.5",
