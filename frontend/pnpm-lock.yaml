@@ -34,20 +34,17 @@ importers:
       '@types/prop-types':
         specifier: ^15.7.15
         version: 15.7.15
-      add:
-        specifier: ^2.0.6
-        version: 2.0.6
       axios:
-        specifier: ^1.1.2
+        specifier: ^1.11.0
         version: 1.11.0
       clsx:
-        specifier: ^2.0.0
+        specifier: ^2.1.1
         version: 2.1.1
       copy-text-to-clipboard:
         specifier: ^3.0.1
         version: 3.2.0
       dompurify:
-        specifier: ^3.0.0
+        specifier: ^3.2.6
         version: 3.2.6
       github-markdown-css:
         specifier: ^5.1.0
@@ -67,9 +64,6 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
-      react-hook-form:
-        specifier: ^7.12.2
-        version: 7.62.0(react@18.3.1)
       rehype-document:
         specifier: ^6.0.1
         version: 6.1.0
@@ -86,7 +80,7 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
       rehype-stringify:
-        specifier: ^9.0.2
+        specifier: ^9.0.4
         version: 9.0.4
       rehype-video:
         specifier: ^1.1.1
@@ -98,7 +92,7 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0
       swr:
-        specifier: ^2.1.5
+        specifier: ^2.3.6
         version: 2.3.6(react@18.3.1)
       to-vfile:
         specifier: ^7.2.3
@@ -1227,12 +1221,6 @@ packages:
       }
     engines: { node: '>=0.4.0' }
     hasBin: true
-
-  add@2.0.6:
-    resolution:
-      {
-        integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==,
-      }
 
   ajv@6.12.6:
     resolution:
@@ -3481,15 +3469,6 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-hook-form@7.62.0:
-    resolution:
-      {
-        integrity: sha512-7KWFejc98xqG/F4bAxpL41NB3o1nnvQO1RWZT3TqRZYL8RryQETGfEdVnJN2fy1crCiBLLjkRBVK05j24FxJGA==,
-      }
-    engines: { node: '>=18.0.0' }
-    peerDependencies:
-      react: ^16.8.0 || ^17 || ^18 || ^19
-
   react-is@16.13.1:
     resolution:
       {
@@ -5012,8 +4991,6 @@ snapshots:
       acorn: 8.15.0
 
   acorn@8.15.0: {}
-
-  add@2.0.6: {}
 
   ajv@6.12.6:
     dependencies:
@@ -6625,10 +6602,6 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-
-  react-hook-form@7.62.0(react@18.3.1):
-    dependencies:
-      react: 18.3.1
 
   react-is@16.13.1: {}
 
