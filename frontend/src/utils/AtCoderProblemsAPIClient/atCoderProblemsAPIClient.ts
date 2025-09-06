@@ -39,8 +39,9 @@ export default class AtCoderProblemsAPIClient {
       this.existsUserName = false;
     } else {
       const NON_EXISTENT = -999999999;
-      const isNotFoundUser = atCoderProblemsStatAPI.accepted_count.count === NON_EXISTENT ||
-                           atCoderProblemsStatAPI.accepted_count.rank === NON_EXISTENT;
+      const isNotFoundUser =
+        atCoderProblemsStatAPI.accepted_count.count === NON_EXISTENT ||
+        atCoderProblemsStatAPI.accepted_count.rank === NON_EXISTENT;
 
       if (isNotFoundUser) {
         this.existsUserName = false;
