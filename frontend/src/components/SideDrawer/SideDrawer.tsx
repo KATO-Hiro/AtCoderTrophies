@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
+import { ReactElement } from 'react';
 import { useState } from 'react';
 
 import externalLinks from '../../constants/external-links';
@@ -17,7 +18,7 @@ import MuiNextLink from '../MuiNextLink/MuiNextLink';
 // See:
 // https://material-ui.com/components/drawers/
 // https://www.ansonlowzf.com/build-header-component-with-nextjs-material-ui-v5/
-const SideDrawer = (): JSX.Element => {
+const SideDrawer = (): ReactElement => {
   const [state, setState] = useState({
     right: false,
   });

@@ -8,6 +8,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import copy from 'copy-text-to-clipboard';
+import { ReactElement } from 'react';
 import { useState } from 'react';
 
 import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
@@ -18,7 +19,7 @@ import { TextBoxWithCopyButtonProps } from '../../interfaces/TextBoxWithCopyButt
 // https://github.com/sindresorhus/copy-text-to-clipboard
 const TextBoxWithCopyButton = (
   props: TextBoxWithCopyButtonProps,
-): JSX.Element => {
+): ReactElement => {
   const { label, value } = props;
   const [openTip, setOpenTip] = useState<boolean>(false);
 

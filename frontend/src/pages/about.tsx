@@ -1,5 +1,6 @@
 import Container from '@mui/material/Container';
 import { GetStaticProps } from 'next';
+import { ReactElement } from 'react';
 
 import 'github-markdown-css/github-markdown-light.css';
 
@@ -13,7 +14,7 @@ function AboutPage({
     date: string;
     contentHtml: string;
   };
-}): JSX.Element {
+}): ReactElement {
   return (
     <Container maxWidth='md'>
       <h1>About</h1>

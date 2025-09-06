@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
 import Copyright from '../../components/Copyright/Copyright';
 
-const Footer = (): JSX.Element => (
+const Footer = (): ReactElement => (
   <>
     <Copyright />
   </>

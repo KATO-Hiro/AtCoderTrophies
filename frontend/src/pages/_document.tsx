@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ReactElement } from 'react';
 import { Children } from 'react';
 
 import PRODUCT_NAME, {
@@ -15,7 +16,7 @@ import createEmotionCache from '../utils/createEmotionCache';
 // https://www.ansonlowzf.com/create-a-website-with-material-ui-v5-nextjs/
 // https://github.com/mui-org/material-ui/blob/0620bb0c47c9aa52a863d8ccca5ce7352274bc65/examples/nextjs-with-typescript/src/pages/_document.tsx
 export default class MyDocument extends Document {
-  render(): JSX.Element {
+  render(): ReactElement {
     return (
       <Html lang='ja'>
         <Head>

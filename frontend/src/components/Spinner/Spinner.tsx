@@ -1,9 +1,10 @@
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import { ReactElement } from 'react';
 
 // See:
 // https://mui.com/components/progress/
-const Spinner = (): JSX.Element => {
+const Spinner = (): ReactElement => {
   return (
     <>
       <Box

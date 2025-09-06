@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Roboto } from 'next/font/google';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import { ReactElement } from 'react';
 
 import '../styles/globals.css';
 import GoogleAnalytics from '../components/GoogleAnalytics/GoogleAnalytics';
@@ -28,7 +29,7 @@ const roboto = Roboto({
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-function MyApp(props: MyAppProps): JSX.Element {
+function MyApp(props: MyAppProps): ReactElement {
   /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 

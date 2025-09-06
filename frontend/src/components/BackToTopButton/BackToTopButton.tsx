@@ -10,7 +10,7 @@ interface Props {
   children: ReactElement;
 }
 
-const BackToTopButton = ({ children }: Props): JSX.Element => {
+const BackToTopButton = ({ children }: Props): ReactElement => {
   const trigger = useScrollTrigger();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {

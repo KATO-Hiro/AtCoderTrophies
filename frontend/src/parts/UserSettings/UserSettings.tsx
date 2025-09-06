@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { ReactElement } from 'react';
 
 import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
 import { rankRanges } from '../../constants/rank';
@@ -22,7 +23,7 @@ import { backgroundThemes } from '../../styles/background-themes';
 // https://material-ui.com/components/text-fields
 // https://material-ui.com/components/buttons/
 // https://material-ui.com/components/grid/
-function UserSettings(props: UserSettingsProps): JSX.Element {
+function UserSettings(props: UserSettingsProps): ReactElement {
   const {
     queryParameters,
     inputRef,

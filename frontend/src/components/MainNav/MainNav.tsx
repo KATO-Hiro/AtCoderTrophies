@@ -4,6 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
+import { ReactElement } from 'react';
 import { useState } from 'react';
 
 import externalLinks from '../../constants/external-links';
@@ -13,7 +14,7 @@ import MuiNextLink from '../MuiNextLink/MuiNextLink';
 // See:
 // https://www.ansonlowzf.com/build-header-component-with-nextjs-material-ui-v5/
 // https://material-ui.com/api/menu-item/
-const MainNav = (): JSX.Element => {
+const MainNav = (): ReactElement => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
