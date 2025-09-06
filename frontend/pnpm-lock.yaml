@@ -34,9 +34,6 @@ importers:
       '@types/prop-types':
         specifier: ^15.7.15
         version: 15.7.15
-      add:
-        specifier: ^2.0.6
-        version: 2.0.6
       axios:
         specifier: ^1.11.0
         version: 1.11.0
@@ -1224,12 +1221,6 @@ packages:
       }
     engines: { node: '>=0.4.0' }
     hasBin: true
-
-  add@2.0.6:
-    resolution:
-      {
-        integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==,
-      }
 
   ajv@6.12.6:
     resolution:
@@ -5000,8 +4991,6 @@ snapshots:
       acorn: 8.15.0
 
   acorn@8.15.0: {}
-
-  add@2.0.6: {}
 
   ajv@6.12.6:
     dependencies:
