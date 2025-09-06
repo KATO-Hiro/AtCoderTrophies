@@ -38,6 +38,15 @@ export default class AtCoderProblemsAPIClient {
     if (atCoderProblemsStatAPI === null) {
       this.existsUserName = false;
     } else {
+      const NON_EXISTENT = -999999999;
+      const isNotFoundUser = atCoderProblemsStatAPI.accepted_count.count === NON_EXISTENT ||
+                           atCoderProblemsStatAPI.accepted_count.rank === NON_EXISTENT;
+
+      if (isNotFoundUser) {
+        this.existsUserName = false;
+        return;
+      }
+
       this.readAcceptedCountAPI(atCoderProblemsStatAPI.accepted_count);
       this.readAcceptedCountByLanguageAPI(
         atCoderProblemsStatAPI.accepted_count_by_language.languages,
