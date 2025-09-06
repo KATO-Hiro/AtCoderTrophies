@@ -977,3 +977,47 @@ pnpm dev
 - 削除前にコード検索（import/require）と `pnpm why` を必ず実行すること。これにより誤削除や意図しない副作用を回避できる。
 
 ---
+
+## TypeScript 更新と lint / build エラーの要約と教訓
+
+### 目的
+
+TypeScript を 5.x 系（最終的に 5.9）へ更新した際に発生した主要なエラーとその対応、チームとして得た教訓を短くまとめる（将来の移行時の参考用）。
+
+### 発生した主なエラー/問題点（抜粋）
+
+- `JSX` 名前空間 / `JSX.Element` に関する型解決エラー（`@types/react` のバージョン整合性に起因）
+- `RefObject` の null 扱い（`RefObject<HTMLInputElement>` → `RefObject<HTMLInputElement | null>` が必要）
+- `noUnusedLocals` / `noUnusedParameters` による未使用変数エラー
+- enum やランク比較の厳密化による不一致（文字列比較に変更）
+- `any` / `no-unsafe-argument` に起因する型エラー（外部ライブラリと Next/MUI/Emotion の組合せが複雑）
+- ビルド前後での lint ルール強化により、以前は黙認していた潜在的問題がビルド阻害に変化
+
+### 実施した対応（実用的な変更）
+
+- `package.json` の TypeScript と `@types/*` を実際に使われているコンパイラ実行版（5.9.2）に合わせて更新
+- `JSX.Element` を `ReactElement` に置換し、必要な `import { ReactElement } from 'react'` を追加
+- `RefObject<T>` を nullable に修正し、null安全なガードを追加
+- 未使用引数は `_` プレフィックスへ変更、未使用変数は削除または用途を明確化
+- enum 比較を文字列ベースに修正（例: `rank.slice(0,1) === RANK.S.toString()` など）
+- SWR や API クライアントの戻り値に明確な型を付与して `any` を減らす
+- MUI + Next + Emotion の型互換が難しいファイル（`src/components/MuiNextLink/MuiNextLink.tsx`、`src/components/SideDrawer/SideDrawer.tsx`、`src/pages/_document.tsx`）については、短期的にファイルスコープの ESLint suppress コメントを追加してビルドを復旧（注: 一時的措置）
+
+### 教訓（チーム向け短縮版）
+
+1. 段階的に上げる: TypeScript のメジャー/マイナー更新は段階的に行い、各段階でビルドと E2E（ページ表示）を確認する。5.5→5.9 のように中間バージョンを踏むのが安全。
+2. 型依存の整合性確認: `typescript` 本体、`@types/react`、`@types/react-dom`、`@types/node` 等は同時に揃えて更新する。片方だけ上げると `JSX` 名前空間などの解決エラーが出る。
+3. 侵襲的な suppress は最小化: 一時的な ESLint 無効化はやむを得ないが、該当ファイル一覧と期限を必ずドキュメント化し、技術負債として管理する（今回のファイルを `TODO: fix types` リストに追加）。
+4. API と型の防御的設計: Backend 側の不正レスポンス（例: 200 + 無効値）をフロントで検出する防御的チェックは、型だけでなくランタイムガードでも補う。
+5. CI を速やかに回す: ローカルで通っても CI で型や lint が落ちるケースがあるため、変更ごとに CI をトリガする小さな PR で安全性を担保する。
+
+### 短期的な ToDo（優先順位付き）
+
+1. `TODO: fix types` リスト作成 — 一時 suppress を使ったファイルを一覧化（優先度高）
+2. `src/components/MuiNextLink/MuiNextLink.tsx` の型狭め作業: Next.js の `Link` と MUI `Link` のプロップ交差点を明示的にラップする関数を作成
+3. `src/pages/_document.tsx` の Emotion SSR 型安全化: 既存の型アサーションを減らし、公式サンプルに沿った型定義に差し替え
+4. CI ワークフローに TypeScript コンパイルチェックを必須化（既に有効なら警告の閾値を stricter に）
+
+---
+
+追記: 本追記は `TypeScript` の厳格化による短期コスト（型修正・一時 suppress）と長期的利得（型安全性・バグ早期発見）のバランスを示すための簡潔なまとめです。必要ならこれをベースに PR 用のチェックリストや Issue テンプレートを作成します。
