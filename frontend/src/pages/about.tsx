@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 import { GetStaticProps } from 'next';
 
-import '/node_modules/github-markdown-css/github-markdown-light.css';
+import 'github-markdown-css/github-markdown-light.css';
 
 import { getMarkdownData } from '../lib/Markdown/markdown';
 
