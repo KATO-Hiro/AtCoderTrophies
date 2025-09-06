@@ -26,7 +26,7 @@ const Preview = (props: PreviewProps): ReactElement => {
     return (
       <>
         <PreviewHeader />
-        <ErrorAlert message="Not found user." />
+        <ErrorAlert message='Not found user.' />
       </>
     );
   }
