@@ -17,7 +17,7 @@
     "@mui/icons-material": "~5.18.0",
     "@mui/lab": "5.0.0-alpha.177",
     "@mui/material": "~5.18.0",
-    "@mui/styles": "^5.2.3",
+    "@mui/styles": "^6.4.8",
     "@types/prop-types": "^15.7.15",
     "axios": "^1.11.0",
     "clsx": "^2.1.1",
