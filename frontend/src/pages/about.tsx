@@ -27,7 +27,7 @@ function AboutPage({
 
 export default AboutPage;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
   // Add the "await" keyword like this:
   // params.id as string
   const readmeInJapanese = 'README_ja';
