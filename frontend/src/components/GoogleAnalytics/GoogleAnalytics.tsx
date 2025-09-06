@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { ReactElement } from 'react';
 
 import {
   existsGaTrackingId,
@@ -9,7 +10,7 @@ import {
 // https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/pages/_app.js
 // https://mariestarck.com/add-google-analytics-to-your-next-js-application-in-5-easy-steps/
 // https://panda-program.com/posts/nextjs-google-analytics
-const GoogleAnalytics = (): JSX.Element => (
+const GoogleAnalytics = (): ReactElement => (
   <>
     {existsGaTrackingId && (
       <>

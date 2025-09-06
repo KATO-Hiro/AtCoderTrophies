@@ -328,7 +328,9 @@ export default class TrophyList {
   }
 
   private get isAllSRank(): number {
-    return this.trophies.every((trophy) => trophy.rank.slice(0, 1) === RANK.S)
+    return this.trophies.every(
+      (trophy) => trophy.rank.slice(0, 1) === RANK.S.toString(),
+    )
       ? 1
       : 0;
   }

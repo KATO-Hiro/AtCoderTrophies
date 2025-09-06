@@ -1,4 +1,5 @@
-const TwitterShareButton = (): JSX.Element => (
+import { ReactElement } from 'react';
+const TwitterShareButton = (): ReactElement => (
   <>
     <></>
   </>

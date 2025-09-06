@@ -75,7 +75,7 @@ export default class AtCoderProblemsAPIClient {
 
       // eslint-disable-next-line no-restricted-syntax
       for (const aLanguage of Object.values(languages)) {
-        const { language, count, rank } = aLanguage;
+        const { language, count } = aLanguage;
 
         this.acceptedCountByLanguageList.update(language, count);
       }

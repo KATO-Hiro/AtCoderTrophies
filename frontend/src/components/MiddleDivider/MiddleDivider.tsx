@@ -1,7 +1,7 @@
 import Divider from '@mui/material/Divider';
+import { ReactElement } from 'react';
 
-// See:
-function MiddleDivider(): JSX.Element {
+function MiddleDivider(): ReactElement {
   return <Divider variant='middle' />;
 }
 

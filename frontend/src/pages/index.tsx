@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import Container from '@mui/material/Container';
+import { ReactElement } from 'react';
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { useRef, useState } from 'react';
 
 import MiddleDivider from '../components/MiddleDivider/MiddleDivider';
@@ -18,7 +19,7 @@ import TrophyCabinet from '../parts/TrophyCabinet/TrophyCabinet';
 import UserSettings from '../parts/UserSettings/UserSettings';
 import removeWhitespace from '../utils/removeWhitespace';
 
-export default function Home(): JSX.Element {
+export default function Home(): ReactElement {
   const initialQueryParameters = {
     userName: 'chokudai',
     theme: DEFAULT_THEME,

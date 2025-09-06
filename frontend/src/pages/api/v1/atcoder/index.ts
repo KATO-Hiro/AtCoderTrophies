@@ -2,15 +2,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import TrophyFrame from '../../../../components/TrophyFrame/TrophyFrame';
 import UserInfo from '../../../../components/UserInfo/UserInfo';
 import {
-  DEFAULT_PANEL_SIZE,
   DEFAULT_MARGIN_H,
   DEFAULT_MARGIN_W,
   DEFAULT_MAX_COLUMN,
   DEFAULT_MAX_ROW,
   DEFAULT_NO_BACKGROUND,
   DEFAULT_NO_FRAME,
-  ONE_HOUR_IN_SECONDS,
+  DEFAULT_PANEL_SIZE,
   ONE_DAY_IN_SECONDS,
+  ONE_HOUR_IN_SECONDS,
 } from '../../../../constants/default-values';
 import { COLORS } from '../../../../styles/background-themes';
 import AtCoderProblemsAPIClient from '../../../../utils/AtCoderProblemsAPIClient/atCoderProblemsAPIClient';
@@ -18,7 +18,7 @@ import AtCoderProblemsAPIClient from '../../../../utils/AtCoderProblemsAPIClient
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
-): Promise<any> {
+): Promise<void> {
   const {
     username: userName,
     theme: themeColor,

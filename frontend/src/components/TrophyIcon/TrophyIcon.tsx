@@ -54,7 +54,7 @@ const getTrophyIcon = (theme: Theme, rank = RANK.UNKNOWN): string => {
       <stop offset="50%" stop-color="${theme.SECRET_RANK_2}"/>
       <stop offset="100%" stop-color="${theme.SECRET_RANK_3}"/>
     `;
-  } else if (rank.slice(0, 1) === RANK.S) {
+  } else if (rank.slice(0, 1) === RANK.S.toString()) {
     color = theme.S_RANK_BASE;
     rankColor = theme.S_RANK_TEXT;
     backgroundIcon = leafIcon(theme.LAUREL);
@@ -63,7 +63,7 @@ const getTrophyIcon = (theme: Theme, rank = RANK.UNKNOWN): string => {
       <stop offset="70%" stop-color="${color}"/>
       <stop offset="100%" stop-color="${theme.S_RANK_SHADOW}"/>
     `;
-  } else if (rank.slice(0, 1) === RANK.A) {
+  } else if (rank.slice(0, 1) === RANK.A.toString()) {
     color = theme.A_RANK_BASE;
     rankColor = theme.A_RANK_TEXT;
     backgroundIcon = leafIcon(theme.LAUREL);
