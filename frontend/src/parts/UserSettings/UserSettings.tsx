@@ -67,7 +67,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
     >
       {/* TODO: Extract the below elements as a component. */}
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           {/* <AtCoderUserId /> */}
           <StyledGrid>
             <TextField
@@ -91,7 +91,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
         </Grid>
 
         {/* <Theme /> */}
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <StyledGrid>
             <TextField
               id='theme'
@@ -117,7 +117,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
         {/* See:
         https://mui.com/components/accordion/#basic-accordion
         https://mui.com/api/text-field/ */}
-        <Grid item xs={12}>
+        <Grid size={12}>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -128,7 +128,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
             </AccordionSummary>
             <AccordionDetails>
               <Grid container spacing={1}>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <StyledGrid>
                     <TextField
                       id='filter-by-title'
@@ -147,7 +147,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     ></TextField>
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <StyledGrid>
                     <TextField
                       id='filter-by-rank'
@@ -168,7 +168,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     </TextField>
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
                       id='cabinet-row'
@@ -195,7 +195,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     />
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
                       id='cabinet-column'
@@ -222,7 +222,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     />
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
                       id='margin-height'
@@ -249,7 +249,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     />
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
                       id='margin-width'
@@ -276,7 +276,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     />
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <StyledGrid>
                     <FormControlLabel
                       control={
@@ -290,7 +290,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                     />
                   </StyledGrid>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <StyledGrid>
                     <FormControlLabel
                       control={
@@ -310,7 +310,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
         </Grid>
 
         {/* <CreateTrophiesButton /> */}
-        <Grid item xs={12}>
+        <Grid size={12}>
           <StyledGrid>
             <Button
               variant='contained'
