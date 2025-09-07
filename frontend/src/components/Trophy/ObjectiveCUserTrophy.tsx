@@ -17,13 +17,6 @@ export default class ObjectiveCUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `ObjectiveCUser`;
-    this.filterTitles = [
-      'ObjectiveCUser',
-      'ObjectiveC',
-      'objectivec',
-      'mm',
-      'M',
-      'm',
-    ];
+    this.filterTitles = ['ObjectiveCUser', 'ObjectiveC', 'objectivec', 'mm', 'M', 'm'];
   }
 }

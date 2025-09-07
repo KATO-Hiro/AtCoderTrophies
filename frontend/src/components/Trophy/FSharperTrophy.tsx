@@ -17,14 +17,6 @@ export default class FSharperTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `FSharper`;
-    this.filterTitles = [
-      'FSharper',
-      'FSharp',
-      'fsharp',
-      'fsscript',
-      'fsi',
-      'fsx',
-      'fs',
-    ];
+    this.filterTitles = ['FSharper', 'FSharp', 'fsharp', 'fsscript', 'fsi', 'fsx', 'fs'];
   }
 }

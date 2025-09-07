@@ -1,7 +1,7 @@
-import { Theme } from '../../interfaces/Theme';
-import Trophy from '../Trophy/Trophy';
+import type { Theme } from '../../interfaces/Theme';
+import type Trophy from '../Trophy/Trophy';
 import TrophyList from '../TrophyList/TrophyList';
-import UserInfo from '../UserInfo/UserInfo';
+import type UserInfo from '../UserInfo/UserInfo';
 
 export default class TrophyFrame {
   private width = 0;
@@ -19,8 +19,7 @@ export default class TrophyFrame {
     private noBackground: boolean,
     private noFrame: boolean,
   ) {
-    this.width =
-      panelSize * this.maxColumn + this.marginWidth * (this.maxColumn - 1);
+    this.width = panelSize * this.maxColumn + this.marginWidth * (this.maxColumn - 1);
   }
 
   render(userInfo: UserInfo, theme: Theme): string {
@@ -72,21 +71,10 @@ export default class TrophyFrame {
     const reducer = (svg: string, trophy: Trophy, index: number) => {
       const currentColumn = index % this.maxColumn;
       const currentRow = Math.floor(index / this.maxColumn);
-      const x =
-        this.panelSize * currentColumn + this.marginWidth * currentColumn;
+      const x = this.panelSize * currentColumn + this.marginWidth * currentColumn;
       const y = this.panelSize * currentRow + this.marginHeight * currentRow;
 
-      return (
-        svg +
-        trophy.render(
-          theme,
-          x,
-          y,
-          this.panelSize,
-          this.noBackground,
-          this.noFrame,
-        )
-      );
+      return svg + trophy.render(theme, x, y, this.panelSize, this.noBackground, this.noFrame);
     };
 
     return trophyList.getArray().reduce(reducer, '');

@@ -1,4 +1,4 @@
-import { GoogleAnalyticsEvent } from '../../interfaces/GoogleAnalyticsEvent';
+import type { GoogleAnalyticsEvent } from '../../interfaces/GoogleAnalyticsEvent';
 
 // See:
 // https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/lib/gtag.js
@@ -17,12 +17,7 @@ export const pageview = (url: string): void => {
 
 // log specific events happening.
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({
-  action,
-  category,
-  label,
-  value = '',
-}: GoogleAnalyticsEvent): void => {
+export const event = ({ action, category, label, value = '' }: GoogleAnalyticsEvent): void => {
   if (!existsGaTrackingId) {
     return;
   }

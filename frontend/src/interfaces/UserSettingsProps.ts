@@ -1,6 +1,6 @@
-import { RefObject } from 'react';
+import type { RefObject } from 'react';
 
-import { QueryParametersProps } from './QueryParametersProps';
+import type { QueryParametersProps } from './QueryParametersProps';
 
 export type UserSettingsProps = {
   queryParameters: QueryParametersProps;

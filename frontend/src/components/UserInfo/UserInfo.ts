@@ -1,4 +1,4 @@
-import AtCoderProblemsAPIClient from '../../utils/AtCoderProblemsAPIClient/atCoderProblemsAPIClient';
+import type AtCoderProblemsAPIClient from '../../utils/AtCoderProblemsAPIClient/atCoderProblemsAPIClient';
 
 export default class UserInfo {
   public readonly atCoderProblemsAPIClient;

@@ -1,7 +1,6 @@
 import Container from '@mui/material/Container';
-import { ReactElement } from 'react';
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import { useRef, useState } from 'react';
+import { type ReactElement, useRef, useState } from 'react';
 
 import MiddleDivider from '../components/MiddleDivider/MiddleDivider';
 import {
@@ -32,9 +31,7 @@ export default function Home(): ReactElement {
     noBackground: DEFAULT_NO_BACKGROUND,
     noFrames: DEFAULT_NO_FRAME,
   };
-  const [queryParameters, setQueryParameters] = useState(
-    initialQueryParameters,
-  );
+  const [queryParameters, setQueryParameters] = useState(initialQueryParameters);
   const {
     userName,
     theme,
@@ -47,9 +44,7 @@ export default function Home(): ReactElement {
     noBackground,
     noFrames,
   } = queryParameters;
-  const [internalUrl, setInternalUrl] = useState(
-    `/api/v1/atcoder?username=${userName}`,
-  );
+  const [internalUrl, setInternalUrl] = useState(`/api/v1/atcoder?username=${userName}`);
   // See:
   // https://zenn.dev/enish/articles/5cc332d3eeb1a7
   const inputRef = useRef<HTMLInputElement>(null);
@@ -79,18 +74,13 @@ export default function Home(): ReactElement {
   const handleClick = () => {
     let value = `/api/v1/atcoder?username=${userName}`;
     value += theme === DEFAULT_THEME ? '' : `&theme=${theme}`;
-    value +=
-      filterByTitle === '' ? '' : `&title=${removeWhitespace(filterByTitle)}`;
-    value +=
-      filterByRank === '' ? '' : `&rank=${removeWhitespace(filterByRank)}`;
-    value += cabinetRow == DEFAULT_MAX_ROW ? '' : `&row=${cabinetRow}`;
-    value +=
-      cabinetColumn == DEFAULT_MAX_COLUMN ? '' : `&column=${cabinetColumn}`;
-    value +=
-      marginHeight == DEFAULT_MARGIN_H ? '' : `&margin_h=${marginHeight}`;
-    value += marginWidth == DEFAULT_MARGIN_W ? '' : `&margin_w=${marginWidth}`;
-    value +=
-      noBackground === DEFAULT_NO_BACKGROUND ? '' : `&no_bg=${noBackground}`;
+    value += filterByTitle === '' ? '' : `&title=${removeWhitespace(filterByTitle)}`;
+    value += filterByRank === '' ? '' : `&rank=${removeWhitespace(filterByRank)}`;
+    value += cabinetRow === DEFAULT_MAX_ROW ? '' : `&row=${cabinetRow}`;
+    value += cabinetColumn === DEFAULT_MAX_COLUMN ? '' : `&column=${cabinetColumn}`;
+    value += marginHeight === DEFAULT_MARGIN_H ? '' : `&margin_h=${marginHeight}`;
+    value += marginWidth === DEFAULT_MARGIN_W ? '' : `&margin_w=${marginWidth}`;
+    value += noBackground === DEFAULT_NO_BACKGROUND ? '' : `&no_bg=${noBackground}`;
     value += noFrames === DEFAULT_NO_FRAME ? '' : `&no_frame=${noFrames}`;
 
     gtag.event({

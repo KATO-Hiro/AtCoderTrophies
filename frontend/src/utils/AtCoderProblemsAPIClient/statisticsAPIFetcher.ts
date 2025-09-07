@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { ATCODER_PROBLEMS_STAT_API_URL } from '../../constants/product-name';
-import { AtCoderProblemsStatAPI } from '../../interfaces/AtCoderProblemsStatAPI';
+import type { AtCoderProblemsStatAPI } from '../../interfaces/AtCoderProblemsStatAPI';
 
 export default async function fetchAtCoderProblemsStatisticsAPI(
   userName: string,

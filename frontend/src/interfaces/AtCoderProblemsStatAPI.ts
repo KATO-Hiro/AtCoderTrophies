@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import { AcceptedCountAPI } from './AcceptedCountAPI';
-import { AcceptedCountByLanguageAPI } from './AcceptedCountByLanguageAPI';
-import { LongestStreakAPI } from './LongestStreakAPI';
-import { RatedPointSumAPI } from './RatedPointSumAPI';
+import type { AcceptedCountAPI } from './AcceptedCountAPI';
+import type { AcceptedCountByLanguageAPI } from './AcceptedCountByLanguageAPI';
+import type { LongestStreakAPI } from './LongestStreakAPI';
+import type { RatedPointSumAPI } from './RatedPointSumAPI';
 
 export type AtCoderProblemsStatAPI = {
   accepted_count: AcceptedCountAPI;

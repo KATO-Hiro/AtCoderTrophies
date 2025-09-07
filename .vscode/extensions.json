@@ -12,10 +12,9 @@
         "ms-python.python",
         "ms-python.mypy-type-checker",
         // Frontend: Node.js / TypeScript
+        "biomejs.biome",
         "bradlc.vscode-tailwindcss",
-        "esbenp.prettier-vscode",
         "formulahendry.auto-rename-tag",
-        "ms-vscode.vscode-eslint",
         "ms-vscode.vscode-typescript-next",
         "vitest.explorer"
     ]

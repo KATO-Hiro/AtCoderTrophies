@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container';
-import { GetStaticProps } from 'next';
-import { ReactElement } from 'react';
+import type { GetStaticProps } from 'next';
+import type { ReactElement } from 'react';
 
 import 'github-markdown-css/github-markdown-light.css';
 
@@ -19,6 +19,7 @@ function AboutPage({
     <Container maxWidth='md'>
       <h1>About</h1>
       <article className='markdown-body'>
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: Markdown content is processed server-side and trusted */}
         <div dangerouslySetInnerHTML={{ __html: markdownData.contentHtml }} />
       </article>
     </Container>

@@ -3,13 +3,8 @@ import useSWR from 'swr';
 
 // TODO: Enable to reuse.
 async function fetcher(url: string): Promise<string | null> {
-  try {
-    const response = await axios.get(url);
-    return response.data as string;
-  } catch (error) {
-    // Re-throw for SWR to handle
-    throw error;
-  }
+  const response = await axios.get(url);
+  return response.data as string;
 }
 
 interface TrophySVGIconsResult {

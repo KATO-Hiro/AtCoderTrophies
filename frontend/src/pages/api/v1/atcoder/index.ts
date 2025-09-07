@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import TrophyFrame from '../../../../components/TrophyFrame/TrophyFrame';
 import UserInfo from '../../../../components/UserInfo/UserInfo';
 import {
@@ -15,10 +15,7 @@ import {
 import { COLORS } from '../../../../styles/background-themes';
 import AtCoderProblemsAPIClient from '../../../../utils/AtCoderProblemsAPIClient/atCoderProblemsAPIClient';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-): Promise<void> {
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   const {
     username: userName,
     theme: themeColor,
@@ -33,34 +30,23 @@ export default async function handler(
   } = req.query;
 
   // Enable to change the following parameters using user info.
-  const maxColumn =
-    column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
+  const maxColumn = column === undefined || column === '' ? DEFAULT_MAX_COLUMN : column;
   const maxRow = row === undefined || row === '' ? DEFAULT_MAX_ROW : row;
   const theme = Object.keys(COLORS).includes(themeColor as string)
     ? COLORS[themeColor as string]
     : COLORS.default;
   const paddingWidth =
-    marginWidth === undefined || marginWidth === ''
-      ? DEFAULT_MARGIN_W
-      : marginWidth;
+    marginWidth === undefined || marginWidth === '' ? DEFAULT_MARGIN_W : marginWidth;
   const paddingHeight =
-    marginHeight === undefined || marginHeight === ''
-      ? DEFAULT_MARGIN_H
-      : marginHeight;
+    marginHeight === undefined || marginHeight === '' ? DEFAULT_MARGIN_H : marginHeight;
   const noBackground =
-    no_bg === undefined || no_bg === '' || no_bg === 'false'
-      ? DEFAULT_NO_BACKGROUND
-      : no_bg;
+    no_bg === undefined || no_bg === '' || no_bg === 'false' ? DEFAULT_NO_BACKGROUND : no_bg;
   const noFrame =
-    no_frame === undefined || no_frame === '' || no_frame === 'false'
-      ? DEFAULT_NO_FRAME
-      : no_frame;
+    no_frame === undefined || no_frame === '' || no_frame === 'false' ? DEFAULT_NO_FRAME : no_frame;
   const titleList = title as string;
-  const titles: Array<string> =
-    title === undefined || title === '' ? [] : titleList.split(',');
+  const titles: Array<string> = title === undefined || title === '' ? [] : titleList.split(',');
   const rankList = rank as string;
-  const ranks: Array<string> =
-    rank === undefined || rank === '' ? [] : rankList.split(',');
+  const ranks: Array<string> = rank === undefined || rank === '' ? [] : rankList.split(',');
 
   // No username.
   if (userName === '') {
@@ -69,9 +55,7 @@ export default async function handler(
     return;
   }
 
-  const atCoderProblemsAPIClient = new AtCoderProblemsAPIClient(
-    userName as string,
-  );
+  const atCoderProblemsAPIClient = new AtCoderProblemsAPIClient(userName as string);
   await atCoderProblemsAPIClient.readAPI();
 
   // username is not exist.

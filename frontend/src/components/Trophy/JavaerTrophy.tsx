@@ -17,14 +17,6 @@ export default class JavaerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Javaer`;
-    this.filterTitles = [
-      'Javaer',
-      'Java',
-      'java',
-      'Javaer',
-      'javaer',
-      'Jar',
-      'jar',
-    ];
+    this.filterTitles = ['Javaer', 'Java', 'java', 'Javaer', 'javaer', 'Jar', 'jar'];
   }
 }

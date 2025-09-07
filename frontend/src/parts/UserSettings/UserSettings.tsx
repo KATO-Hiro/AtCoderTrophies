@@ -12,11 +12,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { ReactElement } from 'react';
+import { type ReactElement, useId } from 'react';
 
 import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
 import { rankRanges } from '../../constants/rank';
-import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
+import type { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
 
 // See:
@@ -24,14 +24,7 @@ import { backgroundThemes } from '../../styles/background-themes';
 // https://material-ui.com/components/buttons/
 // https://material-ui.com/components/grid/
 function UserSettings(props: UserSettingsProps): ReactElement {
-  const {
-    queryParameters,
-    inputRef,
-    inputError,
-    onChange,
-    onSwitchChange,
-    onClick,
-  } = props;
+  const { queryParameters, inputRef, inputError, onChange, onSwitchChange, onClick } = props;
   const {
     userName,
     theme,
@@ -44,6 +37,17 @@ function UserSettings(props: UserSettingsProps): ReactElement {
     noBackground,
     noFrames,
   } = queryParameters;
+
+  // Generate unique IDs for form elements
+  const atCoderUserNameId = useId();
+  const themeId = useId();
+  const advancedOptionsId = useId();
+  const filterByTitleId = useId();
+  const filterByRankId = useId();
+  const cabinetRowId = useId();
+  const cabinetColumnId = useId();
+  const marginHeightId = useId();
+  const marginWidthId = useId();
 
   const SIZE_MIN = 1;
   const SIZE_MAX = 25;
@@ -72,7 +76,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
           <StyledGrid>
             <TextField
               required
-              id='atcoder-user-id'
+              id={atCoderUserNameId}
               name='userName'
               value={userName}
               label='User ID'
@@ -94,7 +98,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
         <Grid size={{ xs: 12, sm: 6 }}>
           <StyledGrid>
             <TextField
-              id='theme'
+              id={themeId}
               name='theme'
               select
               value={theme}
@@ -122,7 +126,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls='panel1a-content'
-              id='advanced-options'
+              id={advancedOptionsId}
             >
               <Typography>Advanced Options</Typography>
             </AccordionSummary>
@@ -131,7 +135,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <StyledGrid>
                     <TextField
-                      id='filter-by-title'
+                      id={filterByTitleId}
                       name='filterByTitle'
                       value={filterByTitle}
                       label='Filter by title'
@@ -150,7 +154,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <StyledGrid>
                     <TextField
-                      id='filter-by-rank'
+                      id={filterByRankId}
                       name='filterByRank'
                       select
                       value={filterByRank}
@@ -171,7 +175,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                 <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
-                      id='cabinet-row'
+                      id={cabinetRowId}
                       name='cabinetRow'
                       value={cabinetRow}
                       label='Row'
@@ -186,7 +190,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                       onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                         e.target.value = Math.max(
                           SIZE_MIN,
-                          Math.min(SIZE_MAX, parseInt(e.target.value)),
+                          Math.min(SIZE_MAX, parseInt(e.target.value, 10)),
                         )
                           .toString()
                           .slice(0, 30);
@@ -198,7 +202,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                 <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
-                      id='cabinet-column'
+                      id={cabinetColumnId}
                       name='cabinetColumn'
                       value={cabinetColumn}
                       label='Column'
@@ -213,7 +217,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                       onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                         e.target.value = Math.max(
                           SIZE_MIN,
-                          Math.min(SIZE_MAX, parseInt(e.target.value)),
+                          Math.min(SIZE_MAX, parseInt(e.target.value, 10)),
                         )
                           .toString()
                           .slice(0, 30);
@@ -225,7 +229,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                 <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
-                      id='margin-height'
+                      id={marginHeightId}
                       name='marginHeight'
                       value={marginHeight}
                       label='Margin Height'
@@ -240,7 +244,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                       onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                         e.target.value = Math.max(
                           MARGIN_MIN,
-                          Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                          Math.min(MARGIN_MAX, parseInt(e.target.value, 10)),
                         )
                           .toString()
                           .slice(0, 30);
@@ -252,7 +256,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                 <Grid size={{ xs: 12, sm: 3 }}>
                   <StyledGrid>
                     <TextField
-                      id='margin-width'
+                      id={marginWidthId}
                       name='marginWidth'
                       value={marginWidth}
                       label='Margin Width'
@@ -267,7 +271,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                       onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                         e.target.value = Math.max(
                           MARGIN_MIN,
-                          Math.min(MARGIN_MAX, parseInt(e.target.value)),
+                          Math.min(MARGIN_MAX, parseInt(e.target.value, 10)),
                         )
                           .toString()
                           .slice(0, 30);
@@ -294,11 +298,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                   <StyledGrid>
                     <FormControlLabel
                       control={
-                        <Switch
-                          name='noFrames'
-                          checked={noFrames}
-                          onChange={onSwitchChange}
-                        />
+                        <Switch name='noFrames' checked={noFrames} onChange={onSwitchChange} />
                       }
                       label='Hide frames'
                     />
@@ -312,12 +312,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
         {/* <CreateTrophiesButton /> */}
         <Grid size={12}>
           <StyledGrid>
-            <Button
-              variant='contained'
-              color='primary'
-              disabled={inputError}
-              onClick={onClick}
-            >
+            <Button variant='contained' color='primary' disabled={inputError} onClick={onClick}>
               Create
             </Button>
           </StyledGrid>

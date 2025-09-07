@@ -1,4 +1,4 @@
-import { Theme } from '../interfaces/Theme';
+import type { Theme } from '../interfaces/Theme';
 import capitalizeString from '../utils/capitalization';
 
 export const COLORS: { [name: string]: Theme } = {

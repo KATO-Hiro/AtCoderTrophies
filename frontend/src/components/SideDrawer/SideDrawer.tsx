@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// TODO: Fix MUI component type issues
 import Menu from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 
@@ -10,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
-import { ReactElement, useState } from 'react';
+import { type ReactElement, useState } from 'react';
 
 import externalLinks from '../../constants/external-links';
 import navLinks from '../../constants/nav-links';
@@ -18,15 +14,13 @@ import MuiNextLink from '../MuiNextLink/MuiNextLink';
 
 // See:
 // https://material-ui.com/components/drawers/
-// https://www.ansonlowzf.com/build-header-component-with-nextjs-material-ui-v5/
 const SideDrawer = (): ReactElement => {
   const [state, setState] = useState({
     right: false,
   });
 
   const toggleDrawer =
-    (anchor: any, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
+    (anchor: 'right', open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event.type === 'keydown' &&
         ((event as React.KeyboardEvent).key === 'Tab' ||
@@ -38,7 +32,7 @@ const SideDrawer = (): ReactElement => {
       setState({ ...state, [anchor]: open });
     };
 
-  const list = (anchor: unknown) => (
+  const list = (anchor: 'right') => (
     <Box
       sx={{ width: 250, marginTop: `auto`, marginBottom: `auto` }}
       role='presentation'
@@ -57,10 +51,7 @@ const SideDrawer = (): ReactElement => {
                 textTransform: `capitalize`,
               }}
             >
-              <MuiNextLink
-                sx={{ color: 'common.white', opacity: 0.6 }}
-                href={path}
-              >
+              <MuiNextLink sx={{ color: 'common.white', opacity: 0.6 }} href={path}>
                 {title}
               </MuiNextLink>
             </Typography>

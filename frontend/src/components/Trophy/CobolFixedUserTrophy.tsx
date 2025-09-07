@@ -17,14 +17,6 @@ export default class CobolFixedUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `COBOLFixedUser`;
-    this.filterTitles = [
-      'COBOLFixedUser',
-      'COBOL',
-      'Cobol',
-      'cobol',
-      'cbl',
-      'cob',
-      'cpy',
-    ];
+    this.filterTitles = ['COBOLFixedUser', 'COBOL', 'Cobol', 'cobol', 'cbl', 'cob', 'cpy'];
   }
 }
