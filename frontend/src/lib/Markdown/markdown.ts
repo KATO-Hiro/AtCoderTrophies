@@ -1,8 +1,9 @@
 // See:
 // https://github.com/vercel/next-learn/blob/master/basics/demo/lib/posts.js
-import fs from 'fs';
+
+import fs from 'node:fs';
+import path from 'node:path';
 import matter from 'gray-matter';
-import path from 'path';
 import rehypeDocument from 'rehype-document';
 import rehypeFormat from 'rehype-format';
 import rehypeHighlight from 'rehype-highlight';

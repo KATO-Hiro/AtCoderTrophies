@@ -70,8 +70,13 @@ export default class Trophy {
 
     const nextRank = RANK_ORDER[nextRankIndex];
     const nextRankCondition = this.rankConditions.find((r) => r.rank === nextRank);
-    const distance = nextRankCondition!.requiredScore - this.rankCondition!.requiredScore;
-    const progress = this.score - this.rankCondition!.requiredScore;
+
+    if (!nextRankCondition || !this.rankCondition) {
+      return 0; // Fallback if conditions are not found
+    }
+
+    const distance = nextRankCondition.requiredScore - this.rankCondition.requiredScore;
+    const progress = this.score - this.rankCondition.requiredScore;
     const result = progress / distance;
 
     return result;

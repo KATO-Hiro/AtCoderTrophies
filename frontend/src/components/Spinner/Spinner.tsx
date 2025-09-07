@@ -6,11 +6,9 @@ import type { ReactElement } from 'react';
 // https://mui.com/components/progress/
 const Spinner = (): ReactElement => {
   return (
-    <>
-      <Box sx={{ display: 'flex' }} style={{ margin: 'auto', width: '5rem', height: '5rem' }}>
-        <CircularProgress />
-      </Box>
-    </>
+    <Box sx={{ display: 'flex' }} style={{ margin: 'auto', width: '5rem', height: '5rem' }}>
+      <CircularProgress />
+    </Box>
   );
 };
 

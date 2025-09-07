@@ -4,17 +4,18 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
-import { type ReactElement, useState } from 'react';
+import { type ReactElement, useId, useState } from 'react';
 
 import externalLinks from '../../constants/external-links';
 import navLinks from '../../constants/nav-links';
 import MuiNextLink from '../MuiNextLink/MuiNextLink';
 
 // See:
-// https://www.ansonlowzf.com/build-header-component-with-nextjs-material-ui-v5/
 // https://material-ui.com/api/menu-item/
+// https://react.dev/reference/react/useId
 const MainNav = (): ReactElement => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const menuId = useId();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -47,7 +48,7 @@ const MainNav = (): ReactElement => {
         {/* HACK: The below button is dummy. */}
         <IconButton />
         <Button
-          aria-controls='links'
+          aria-controls={menuId}
           aria-haspopup='true'
           color='inherit'
           onClick={handleClick}
@@ -56,7 +57,7 @@ const MainNav = (): ReactElement => {
           Links
         </Button>
         <Menu
-          id='links'
+          id={menuId}
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}

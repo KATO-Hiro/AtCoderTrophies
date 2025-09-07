@@ -30,45 +30,43 @@ const TextBoxWithCopyButton = (props: TextBoxWithCopyButtonProps): ReactElement 
   };
 
   return (
-    <>
-      <Grid container spacing={1}>
-        <Grid size={{ xs: 12, sm: 6 }}>
-          <StyledGrid>
-            <FormControl
-              variant='standard'
-              sx={{
-                '& .MuiInput-root': {
-                  m: '8px',
-                  width: '90ch',
-                },
-              }}
-            >
-              <InputLabel>{label}</InputLabel>
-              <Input
-                type='text'
-                value={value}
-                endAdornment={
-                  <InputAdornment position='end'>
-                    <Tooltip
-                      arrow
-                      open={openTip}
-                      onClose={handleCloseTip}
-                      disableHoverListener
-                      placement='top'
-                      title='Copied'
-                    >
-                      <IconButton disabled={value === ''} onClick={handleClickButton}>
-                        <AssignmentIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-          </StyledGrid>
-        </Grid>
+    <Grid container spacing={1}>
+      <Grid size={{ xs: 12, sm: 6 }}>
+        <StyledGrid>
+          <FormControl
+            variant='standard'
+            sx={{
+              '& .MuiInput-root': {
+                m: '8px',
+                width: '90ch',
+              },
+            }}
+          >
+            <InputLabel>{label}</InputLabel>
+            <Input
+              type='text'
+              value={value}
+              endAdornment={
+                <InputAdornment position='end'>
+                  <Tooltip
+                    arrow
+                    open={openTip}
+                    onClose={handleCloseTip}
+                    disableHoverListener
+                    placement='top'
+                    title='Copied'
+                  >
+                    <IconButton disabled={value === ''} onClick={handleClickButton}>
+                      <AssignmentIcon />
+                    </IconButton>
+                  </Tooltip>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
+        </StyledGrid>
       </Grid>
-    </>
+    </Grid>
   );
 };
 

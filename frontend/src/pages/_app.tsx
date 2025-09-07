@@ -4,13 +4,13 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Roboto } from 'next/font/google';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import '../styles/globals.css';
 import GoogleAnalytics from '../components/GoogleAnalytics/GoogleAnalytics';
 import PRODUCT_NAME from '../constants/product-name';
 import { usePageView } from '../hooks/usePageView';
-import { MyAppProps } from '../interfaces/MyAppProps';
+import type { MyAppProps } from '../interfaces/MyAppProps';
 import Footer from '../parts/Footer/Footer';
 import Header from '../parts/Header/Header';
 import theme from '../styles/theme';

@@ -11,14 +11,12 @@ const ErrorAlert = (props: ErrorAlertProps): ReactElement => {
   const { message } = props;
 
   return (
-    <>
-      <Stack sx={{ width: '100%' }} spacing={2}>
-        <Alert severity='error'>
-          <AlertTitle>Error</AlertTitle>
-          {message}
-        </Alert>
-      </Stack>
-    </>
+    <Stack sx={{ width: '100%' }} spacing={2}>
+      <Alert severity='error'>
+        <AlertTitle>Error</AlertTitle>
+        {message}
+      </Alert>
+    </Stack>
   );
 };
 

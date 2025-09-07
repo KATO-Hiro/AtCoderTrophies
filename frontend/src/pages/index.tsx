@@ -76,10 +76,10 @@ export default function Home(): ReactElement {
     value += theme === DEFAULT_THEME ? '' : `&theme=${theme}`;
     value += filterByTitle === '' ? '' : `&title=${removeWhitespace(filterByTitle)}`;
     value += filterByRank === '' ? '' : `&rank=${removeWhitespace(filterByRank)}`;
-    value += cabinetRow == DEFAULT_MAX_ROW ? '' : `&row=${cabinetRow}`;
-    value += cabinetColumn == DEFAULT_MAX_COLUMN ? '' : `&column=${cabinetColumn}`;
-    value += marginHeight == DEFAULT_MARGIN_H ? '' : `&margin_h=${marginHeight}`;
-    value += marginWidth == DEFAULT_MARGIN_W ? '' : `&margin_w=${marginWidth}`;
+    value += cabinetRow === DEFAULT_MAX_ROW ? '' : `&row=${cabinetRow}`;
+    value += cabinetColumn === DEFAULT_MAX_COLUMN ? '' : `&column=${cabinetColumn}`;
+    value += marginHeight === DEFAULT_MARGIN_H ? '' : `&margin_h=${marginHeight}`;
+    value += marginWidth === DEFAULT_MARGIN_W ? '' : `&margin_w=${marginWidth}`;
     value += noBackground === DEFAULT_NO_BACKGROUND ? '' : `&no_bg=${noBackground}`;
     value += noFrames === DEFAULT_NO_FRAME ? '' : `&no_frame=${noFrames}`;
 
