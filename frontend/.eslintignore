@@ -1,4 +1,0 @@
-/.eslintrc
-
-# I added the below file to avoid an error, but I don't know if it's valid.
-/next.config.js

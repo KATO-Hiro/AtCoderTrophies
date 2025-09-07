@@ -19,10 +19,7 @@ const BackToTopButton = ({ children }: Props): ReactElement => {
     );
 
     if (anchor) {
-      anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 

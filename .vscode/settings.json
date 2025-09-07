@@ -36,10 +36,28 @@
     "ruff.path": [
         "./backend/.venv/bin/ruff"
     ],
-    // Node.js settings
+    // Node.js and TypeScript settings
     "typescript.preferences.includePackageJsonAutoImports": "on",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "debug.javascript.defaultRuntimeExecutable": {
         "pwa-node": "${env:HOME}/.local/share/mise/shims/node"
     },
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    }
 }
