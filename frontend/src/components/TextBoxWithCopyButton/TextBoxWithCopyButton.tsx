@@ -8,8 +8,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import copy from 'copy-text-to-clipboard';
-import { ReactElement } from 'react';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 
 import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
 import { TextBoxWithCopyButtonProps } from '../../interfaces/TextBoxWithCopyButtonProps';
@@ -35,7 +34,7 @@ const TextBoxWithCopyButton = (
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <StyledGrid>
             <FormControl
               variant='standard'
