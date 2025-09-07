@@ -1,9 +1,9 @@
 import { AcceptedCountByLanguageList } from '../../constants/languages';
-import { AcceptedCountAPI } from '../../interfaces/AcceptedCountAPI';
-import { AcceptedCount } from '../../interfaces/AcceptedCountByLanguageAPI';
-import { AtCoderProblemsStatAPI } from '../../interfaces/AtCoderProblemsStatAPI';
-import { LongestStreakAPI } from '../../interfaces/LongestStreakAPI';
-import { RatedPointSumAPI } from '../../interfaces/RatedPointSumAPI';
+import type { AcceptedCountAPI } from '../../interfaces/AcceptedCountAPI';
+import type { AcceptedCount } from '../../interfaces/AcceptedCountByLanguageAPI';
+import type { AtCoderProblemsStatAPI } from '../../interfaces/AtCoderProblemsStatAPI';
+import type { LongestStreakAPI } from '../../interfaces/LongestStreakAPI';
+import type { RatedPointSumAPI } from '../../interfaces/RatedPointSumAPI';
 import fetchAtCoderProblemsStatisticsAPI from './statisticsAPIFetcher';
 
 export default class AtCoderProblemsAPIClient {
@@ -57,18 +57,14 @@ export default class AtCoderProblemsAPIClient {
     }
   }
 
-  private readAcceptedCountAPI(
-    acceptedCountAPI: AcceptedCountAPI | null,
-  ): void {
+  private readAcceptedCountAPI(acceptedCountAPI: AcceptedCountAPI | null): void {
     // HACK: This code is not beautiful.
     if (acceptedCountAPI !== null) {
       this.totalAcceptedCount = acceptedCountAPI.count;
     }
   }
 
-  private readAcceptedCountByLanguageAPI(
-    acceptedCountByLanguageAPI: AcceptedCount[],
-  ): void {
+  private readAcceptedCountByLanguageAPI(acceptedCountByLanguageAPI: AcceptedCount[]): void {
     // HACK: This code is not beautiful.
     if (acceptedCountByLanguageAPI !== null) {
       const languages = acceptedCountByLanguageAPI;
@@ -82,18 +78,14 @@ export default class AtCoderProblemsAPIClient {
     }
   }
 
-  private readRatedPointSumAPI(
-    ratedPointSumAPI: RatedPointSumAPI | null,
-  ): void {
+  private readRatedPointSumAPI(ratedPointSumAPI: RatedPointSumAPI | null): void {
     // HACK: This code is not beautiful.
     if (ratedPointSumAPI !== null) {
       this.ratedPointSum = ratedPointSumAPI.count;
     }
   }
 
-  private readLongestStreakAPI(
-    longestStreakAPI: LongestStreakAPI | null,
-  ): void {
+  private readLongestStreakAPI(longestStreakAPI: LongestStreakAPI | null): void {
     // HACK: This code is not beautiful.
     if (longestStreakAPI !== null) {
       this.longestStreak = longestStreakAPI.count;

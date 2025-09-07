@@ -17,14 +17,6 @@ export default class PHPerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `PHPer`;
-    this.filterTitles = [
-      'PHPer',
-      'phper',
-      'phtml',
-      'phar',
-      'PHP',
-      'php',
-      'pht',
-    ];
+    this.filterTitles = ['PHPer', 'phper', 'phtml', 'phar', 'PHP', 'php', 'pht'];
   }
 }

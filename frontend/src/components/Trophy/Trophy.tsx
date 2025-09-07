@@ -4,12 +4,12 @@ import {
   DEFAULT_PANEL_SIZE,
 } from '../../constants/default-values';
 import { RANK, RANK_ORDER } from '../../constants/rank';
-import { Theme } from '../../interfaces/Theme';
+import type { Theme } from '../../interfaces/Theme';
 import { COLORS } from '../../styles/background-themes';
 import abridgeScore from '../../utils/abridgeScore';
 import getNextRankBar from '../NextRankBar/NextRankBar';
 import getTrophyIcon from '../TrophyIcon/TrophyIcon';
-import RankCondition from './RankCondition';
+import type RankCondition from './RankCondition';
 
 export default class Trophy {
   recordedScore = 0;
@@ -43,9 +43,7 @@ export default class Trophy {
     );
 
     // Set the rank that hit the first condition.
-    const rankCondition = sortedRankConditions.find(
-      (r) => this.score >= r.getRequiredScore,
-    );
+    const rankCondition = sortedRankConditions.find((r) => this.score >= r.getRequiredScore);
 
     if (rankCondition != null) {
       this.rank = rankCondition.getRank;
@@ -71,11 +69,8 @@ export default class Trophy {
     }
 
     const nextRank = RANK_ORDER[nextRankIndex];
-    const nextRankCondition = this.rankConditions.find(
-      (r) => r.rank === nextRank,
-    );
-    const distance =
-      nextRankCondition!.requiredScore - this.rankCondition!.requiredScore;
+    const nextRankCondition = this.rankConditions.find((r) => r.rank === nextRank);
+    const distance = nextRankCondition!.requiredScore - this.rankCondition!.requiredScore;
     const progress = this.score - this.rankCondition!.requiredScore;
     const result = progress / distance;
 
@@ -90,17 +85,8 @@ export default class Trophy {
     noBackground = DEFAULT_NO_BACKGROUND,
     noFrame = DEFAULT_NO_FRAME,
   ): string {
-    const {
-      BACKGROUND: PRIMARY,
-      TITLE: SECONDARY,
-      TEXT,
-      NEXT_RANK_BAR,
-    } = theme;
-    const nextRankBar = getNextRankBar(
-      this.title,
-      this.calculateNextRankRatio(),
-      NEXT_RANK_BAR,
-    );
+    const { BACKGROUND: PRIMARY, TITLE: SECONDARY, TEXT, NEXT_RANK_BAR } = theme;
+    const nextRankBar = getNextRankBar(this.title, this.calculateNextRankRatio(), NEXT_RANK_BAR);
     return `
       <svg
         x="${x}"

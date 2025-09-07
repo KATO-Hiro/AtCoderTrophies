@@ -1,9 +1,10 @@
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
+
 import TextBoxWithCopyButton from '../../components/TextBoxWithCopyButton/TextBoxWithCopyButton';
 import TwitterShareButton from '../../components/TwitterShareButton/TwitterShareButton';
 import PRODUCT_NAME, { PRODUCT_URL } from '../../constants/product-name';
 import { GITHUB_URL } from '../../constants/urls';
-import { TrophyCabinetProps } from '../../interfaces/TrophyCabinetProps';
+import type { TrophyCabinetProps } from '../../interfaces/TrophyCabinetProps';
 import Preview from './Preview';
 
 const TrophyCabinet = (props: TrophyCabinetProps): ReactElement => {

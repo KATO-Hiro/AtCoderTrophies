@@ -1,4 +1,4 @@
-import { RANK } from '../../constants/rank';
+import type { RANK } from '../../constants/rank';
 
 export default class RankCondition {
   readonly rank: RANK;

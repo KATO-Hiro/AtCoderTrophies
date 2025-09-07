@@ -1,9 +1,4 @@
-import {
-  ATCODER_BASE_URL,
-  GITHUB_URL,
-  TWITTER_URL,
-  ATCODER_CLANS_URL,
-} from './urls';
+import { ATCODER_BASE_URL, ATCODER_CLANS_URL, GITHUB_URL, TWITTER_URL } from './urls';
 
 const externalLinks = [
   { title: `AtCoder`, path: ATCODER_BASE_URL },

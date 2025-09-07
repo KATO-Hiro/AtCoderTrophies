@@ -12,11 +12,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import { StyledGrid } from '../../components/StyledGrid/StyledGrid';
 import { rankRanges } from '../../constants/rank';
-import { UserSettingsProps } from '../../interfaces/UserSettingsProps';
+import type { UserSettingsProps } from '../../interfaces/UserSettingsProps';
 import { backgroundThemes } from '../../styles/background-themes';
 
 // See:
@@ -24,14 +24,7 @@ import { backgroundThemes } from '../../styles/background-themes';
 // https://material-ui.com/components/buttons/
 // https://material-ui.com/components/grid/
 function UserSettings(props: UserSettingsProps): ReactElement {
-  const {
-    queryParameters,
-    inputRef,
-    inputError,
-    onChange,
-    onSwitchChange,
-    onClick,
-  } = props;
+  const { queryParameters, inputRef, inputError, onChange, onSwitchChange, onClick } = props;
   const {
     userName,
     theme,
@@ -294,11 +287,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
                   <StyledGrid>
                     <FormControlLabel
                       control={
-                        <Switch
-                          name='noFrames'
-                          checked={noFrames}
-                          onChange={onSwitchChange}
-                        />
+                        <Switch name='noFrames' checked={noFrames} onChange={onSwitchChange} />
                       }
                       label='Hide frames'
                     />
@@ -312,12 +301,7 @@ function UserSettings(props: UserSettingsProps): ReactElement {
         {/* <CreateTrophiesButton /> */}
         <Grid size={12}>
           <StyledGrid>
-            <Button
-              variant='contained'
-              color='primary'
-              disabled={inputError}
-              onClick={onClick}
-            >
+            <Button variant='contained' color='primary' disabled={inputError} onClick={onClick}>
               Create
             </Button>
           </StyledGrid>

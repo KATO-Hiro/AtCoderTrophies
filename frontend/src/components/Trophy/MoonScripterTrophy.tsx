@@ -17,13 +17,6 @@ export default class MoonScripterTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `MoonScripter`;
-    this.filterTitles = [
-      'MoonScripter',
-      'MoonScript',
-      'moonscript',
-      'MS',
-      'Ms',
-      'ms',
-    ];
+    this.filterTitles = ['MoonScripter', 'MoonScript', 'moonscript', 'MS', 'Ms', 'ms'];
   }
 }

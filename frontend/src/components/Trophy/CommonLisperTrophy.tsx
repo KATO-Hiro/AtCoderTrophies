@@ -17,14 +17,6 @@ export default class CommonLisperTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `CommonLisper`;
-    this.filterTitles = [
-      'CommonLisper',
-      'CommonLisp',
-      'commonlisp',
-      'Lisp',
-      'lisp',
-      'lsp',
-      'cl',
-    ];
+    this.filterTitles = ['CommonLisper', 'CommonLisp', 'commonlisp', 'Lisp', 'lisp', 'lsp', 'cl'];
   }
 }

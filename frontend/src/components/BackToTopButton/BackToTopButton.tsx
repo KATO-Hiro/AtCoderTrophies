@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
-import Zoom from '@mui/material/Zoom';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import { ReactElement, MouseEvent } from 'react';
+import Zoom from '@mui/material/Zoom';
+import type { MouseEvent, ReactElement } from 'react';
 
 // See:
 // https://material-ui.com/components/app-bar/#back-to-top
@@ -14,9 +14,9 @@ const BackToTopButton = ({ children }: Props): ReactElement => {
   const trigger = useScrollTrigger();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    const anchor = (
-      (event.target as HTMLDivElement).ownerDocument || document
-    ).querySelector('#back-to-top-anchor');
+    const anchor = ((event.target as HTMLDivElement).ownerDocument || document).querySelector(
+      '#back-to-top-anchor',
+    );
 
     if (anchor) {
       anchor.scrollIntoView({

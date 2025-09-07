@@ -4,8 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
-import { ReactElement } from 'react';
-import { useState } from 'react';
+import { type ReactElement, useState } from 'react';
 
 import externalLinks from '../../constants/external-links';
 import navLinks from '../../constants/nav-links';

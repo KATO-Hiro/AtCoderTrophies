@@ -1,8 +1,8 @@
 // See:
 // https://github.com/vercel/next-learn/blob/master/basics/demo/lib/posts.js
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
+import path from 'path';
 import rehypeDocument from 'rehype-document';
 import rehypeFormat from 'rehype-format';
 import rehypeHighlight from 'rehype-highlight';
@@ -15,7 +15,7 @@ import remarkRehype from 'remark-rehype';
 import { read } from 'to-vfile';
 import { unified } from 'unified';
 
-import { Markdown } from '../../interfaces/Markdown';
+import type { Markdown } from '../../interfaces/Markdown';
 
 const docsDirectory = path.join(process.cwd(), 'docs');
 

@@ -1,9 +1,9 @@
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
-import { ErrorAlertProps } from '../../interfaces/ErrorAlertProps';
+import type { ErrorAlertProps } from '../../interfaces/ErrorAlertProps';
 
 // See:
 // https://mui.com/components/alert/#main-content

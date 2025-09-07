@@ -1,8 +1,4 @@
-const getNextRankBar = (
-  title: string,
-  percentage: number,
-  color: string,
-): string => {
+const getNextRankBar = (title: string, percentage: number, color: string): string => {
   const maxWidth = 80;
 
   return `

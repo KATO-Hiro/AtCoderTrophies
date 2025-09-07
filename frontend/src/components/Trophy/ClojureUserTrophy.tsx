@@ -17,13 +17,6 @@ export default class ClojureUserTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `ClojureUser`;
-    this.filterTitles = [
-      'ClojureUser',
-      'Clojure',
-      'clojure',
-      'clj',
-      'cljc',
-      'cljs',
-    ];
+    this.filterTitles = ['ClojureUser', 'Clojure', 'clojure', 'clj', 'cljc', 'cljs'];
   }
 }

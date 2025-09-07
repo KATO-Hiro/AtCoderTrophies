@@ -1,7 +1,7 @@
 import DOMPurify from 'dompurify';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
-import { TrophySVGIconsProps } from '../../interfaces/TrophySVGIconsProps';
+import type { TrophySVGIconsProps } from '../../interfaces/TrophySVGIconsProps';
 
 // See:
 // https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml

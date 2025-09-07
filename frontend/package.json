@@ -6,8 +6,10 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && prettier --check .",
-    "lint:fix": "next lint --fix . && prettier --write ."
+    "lint": "next lint && biome check src",
+    "lint:fix": "next lint --fix . && biome check --write src",
+    "format": "biome format --write src",
+    "check": "biome ci src"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -43,6 +45,7 @@
     "unified": "10.1.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.3",
     "@types/dompurify": "^3.0.0",
     "@types/gtag.js": "^0.0.13",
     "@types/node": "^22.18.1",

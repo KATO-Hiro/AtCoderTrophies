@@ -1,12 +1,8 @@
 import { RANK } from '../../constants/rank';
-import { Theme } from '../../interfaces/Theme';
+import type { Theme } from '../../interfaces/Theme';
 import leafIcon from '../LeafIcon/LeafIcon';
 
-const getSmallTrophyIcon = (
-  icon: string,
-  color: string,
-  count: number,
-): string => {
+const getSmallTrophyIcon = (icon: string, color: string, count: number): string => {
   const leftXPosition = 7;
   const rightXPosition = 68;
   const getIcon = (x: number) => `

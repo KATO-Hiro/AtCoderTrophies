@@ -17,15 +17,6 @@ export default class VimmerTrophy extends Trophy {
 
     super(score, rankConditions);
     this.title = `Vimmer`;
-    this.filterTitles = [
-      'Vimmer',
-      'vimmer',
-      'VIM',
-      'Vim',
-      'vim',
-      'VI',
-      'Vi',
-      'vi',
-    ];
+    this.filterTitles = ['Vimmer', 'vimmer', 'VIM', 'Vim', 'vim', 'VI', 'Vi', 'vi'];
   }
 }
