@@ -40,7 +40,7 @@ importers:
         version: 2.1.1
       copy-text-to-clipboard:
         specifier: ^3.0.1
-        version: 3.2.0
+        version: 3.2.1
       dompurify:
         specifier: ^3.2.6
         version: 3.2.6
@@ -620,8 +620,8 @@ packages:
   convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
 
-  copy-text-to-clipboard@3.2.0:
-    resolution: {integrity: sha512-RnJFp1XR/LOBDckxTib5Qjr/PMfkatD0MUCQgdpqS8MdKiNUzBjAQBEN6oUy+jW7LI93BBG3DtMB2KOOKpGs2Q==}
+  copy-text-to-clipboard@3.2.1:
+    resolution: {integrity: sha512-3am6cw+WOicd0+HyzhC4kYS02wHJUiVQXmAADxfUARKsHBkWl1Vl3QQEiILlSs8YcPS/C0+y/urCNEYQk+byWA==}
     engines: {node: '>=12'}
 
   core-util-is@1.0.3:
@@ -1779,7 +1779,7 @@ snapshots:
 
   convert-source-map@1.9.0: {}
 
-  copy-text-to-clipboard@3.2.0: {}
+  copy-text-to-clipboard@3.2.1: {}
 
   core-util-is@1.0.3: {}
 
