@@ -11,7 +11,7 @@ httptools==0.6.4
 httpx==0.28.1
 idna==3.10
 iniconfig==2.1.0
-mypy==1.17.1
+mypy==1.18.1
 mypy-extensions==1.1.0
 packaging==25.0
 pathspec==0.12.1
