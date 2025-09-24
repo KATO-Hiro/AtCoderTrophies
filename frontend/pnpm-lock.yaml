@@ -40,7 +40,7 @@ importers:
         version: 2.1.1
       copy-text-to-clipboard:
         specifier: ^3.0.1
-        version: 3.2.1
+        version: 3.2.2
       dompurify:
         specifier: ^3.2.6
         version: 3.2.7
@@ -436,12 +436,6 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@14.2.32':
-    resolution: {integrity: sha512-v7JaO0oXXt6d+cFjrrKqYnR2ubrD+JYP7nQVRZgeo5uNE5hkCpWnHmXm9vy3g6foMO8SPwL0P3MPw1c+BjbAzA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-
   '@next/swc-linux-arm64-musl@14.2.32':
     resolution: {integrity: sha512-tA6sIKShXtSJBTH88i0DRd6I9n3ZTirmwpwAqH5zdJoQF7/wlJXR8DkPmKwYl5mFWhEKr5IIa3LfpMW9RRwKmQ==}
     engines: {node: '>= 10'}
@@ -620,8 +614,8 @@ packages:
   convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
 
-  copy-text-to-clipboard@3.2.1:
-    resolution: {integrity: sha512-3am6cw+WOicd0+HyzhC4kYS02wHJUiVQXmAADxfUARKsHBkWl1Vl3QQEiILlSs8YcPS/C0+y/urCNEYQk+byWA==}
+  copy-text-to-clipboard@3.2.2:
+    resolution: {integrity: sha512-T6SqyLd1iLuqPA90J5N4cTalrtovCySh58iiZDGJ6FGznbclKh4UI+FGacQSgFzwKG77W7XT5gwbVEbd9cIH1A==}
     engines: {node: '>=12'}
 
   core-util-is@1.0.3:
@@ -1632,9 +1626,6 @@ snapshots:
   '@next/swc-darwin-x64@14.2.32':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@14.2.32':
-    optional: true
-
   '@next/swc-linux-arm64-musl@14.2.32':
     optional: true
 
@@ -1779,7 +1770,7 @@ snapshots:
 
   convert-source-map@1.9.0: {}
 
-  copy-text-to-clipboard@3.2.1: {}
+  copy-text-to-clipboard@3.2.2: {}
 
   core-util-is@1.0.3: {}
 
@@ -2293,7 +2284,6 @@ snapshots:
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.32
       '@next/swc-darwin-x64': 14.2.32
-      '@next/swc-linux-arm64-gnu': 14.2.32
       '@next/swc-linux-arm64-musl': 14.2.32
       '@next/swc-linux-x64-gnu': 14.2.32
       '@next/swc-linux-x64-musl': 14.2.32
