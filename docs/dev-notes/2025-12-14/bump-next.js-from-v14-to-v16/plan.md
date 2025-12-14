@@ -114,10 +114,6 @@
   - `next@14.2.35` へ更新
   - `dev/build` 確認
 
-教訓:
-
-- patch 更新でも lockfile が動き得るため、差分確認と `dev/build` を必ずセットにする
-
 ### Step 2: Next 15 へ更新（+ React 19 を段階的に吸収）
 
 - 目的: Next 15 の breaking と React 19 の破壊的変更を **ここで** 収束（Next16と分離）
@@ -131,11 +127,6 @@
 - 備考:
   - ここで問題が出るなら、まず依存（MUI/Emotion）側の追従可否を確認し、必要なら“Reactの更新を止めて Next 15 側のみ先行”なども検討する
 
-教訓:
-
-- Next 15 では `experimental.turbo` の非推奨 warning と、`webpack` 設定が残っていることによる Turbopack との不整合 warning が出るため、Step 3 で `next.config.js` の整理が必須
-- `dev` と `build` の両方で最低限のページ/API を確認してから次ステップへ進む
-
 ### Step 3: Next 16.0.10 へ更新（Turbopack既定化対応がメイン）
 
 - 目的: `16.0.10` へ到達し、既定挙動変更に適応する
@@ -148,6 +139,14 @@
   - alias `~` は以下の順で最小対応:
     - まず `tsconfig paths (~/*)` の標準サポートで解決できるか確認（=最小）
     - もし不足があれば `turbopack.resolveAlias` を追加して補完（ガイドの “Resolve alias” 方式）
+
+---
+
+## 教訓（全体）
+
+- Step 1: patch 更新でも lockfile が動き得るため、差分確認と `dev/build` を必ずセットにする
+- Step 2: Next 15 は Turbo/webpack 周りの warning が出やすいので、次ステップで `next.config.js` 整理を前提にし、`dev` と `build` の両方で主要ページ/API を確認して進む
+- Step 3: Next 16 は Turbopack が既定なので、`next.config.js` の `webpack:` は撤去（または Turbopack 設定へ移行）を先に決める。`next dev --turbo` は不要。Next が `tsconfig.json` / `next-env.d.ts` を自動更新し得るため差分として取り込む
 
 ---
 
