@@ -1,6 +1,6 @@
 [project]
 name = "atcoder-trophies-backend"
-version = "0.3.3"
+version = "0.4.0"
 description = "AtCoder Trophies Backend API server built with FastAPI"
 requires-python = ">=3.12, <3.13"
 
@@ -10,7 +10,7 @@ dependencies = [
     "requests>=2.31.0",
     "types-requests>=2.31.0.2",
     "typing-extensions>=4.7.1",
-    "urllib3>=1.26.15,<2.0.0",
+    "urllib3>=2.0.0,<3.0.0",
     "uvicorn[standard]>=0.24.0",
 ]
 
@@ -28,7 +28,7 @@ dev = [
     "pytest-cov>=6.2.1",
     "pytest-recording>=0.13.4",
     "pytest-watch>=4.2.0",
-    "vcrpy>=5.1.0",
+    "vcrpy>=8.0.0,<9.0.0",
     "httpx>=0.24.0",            # Required for FastAPI TestClient
 
     # Development env
