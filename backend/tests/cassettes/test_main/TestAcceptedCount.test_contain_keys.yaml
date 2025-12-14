@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       content-type:
@@ -14,8 +14,7 @@ interactions:
     uri: https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user=chokudai
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAAKtWSs4vzStRsrIws9BRKkrMy1ayMjUyNq4FAL47J6AZAAAA
+      string: '{"count":869,"rank":5373}'
     headers:
       Connection:
       - keep-alive
@@ -26,15 +25,15 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 05 Sep 2025 12:43:58 GMT
+      - Sun, 14 Dec 2025 09:14:25 GMT
       x-amz-apigw-id:
-      - QbcqRGgktjMEOIA=
+      - VkjtwGhMNjMEgJA=
       x-amzn-Remapped-content-length:
       - '25'
       x-amzn-Remapped-date:
-      - Fri, 05 Sep 2025 12:43:58 GMT
+      - Sun, 14 Dec 2025 09:14:24 GMT
       x-amzn-RequestId:
-      - d138d0ea-8ba7-4c21-aee2-068dc03a0448
+      - 6b8d86c7-416d-4762-bc4b-e28cdea0d704
     status:
       code: 200
       message: OK
