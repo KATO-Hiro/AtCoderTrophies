@@ -323,7 +323,7 @@ git status  # main ブランチ上での実行推奨
 **目標**: Vercel デプロイメント対応と CI/CD パイプラインの確認
 
 - [ ] **requirements.txt 生成**
-  - [ ] `cd backend && uv export --format requirements-txt --no-hashes | awk -F';' '{print $1}' | grep -E '^[A-Za-z0-9_.-]+==[^=]+' > requirements.txt`
+  - [ ] `cd backend && uv export --format requirements-txt --no-hashes > requirements.txt`
   - [ ] requirements.txt が正常に生成されたか確認
 
 - [ ] **GitHub Actions パイプラインテスト**
@@ -622,3 +622,108 @@ Week 3:
 - **Phase 1 スキップ**: vcrpy 6.x は urllib3 v1 のみサポートで実用性なし
 - **Phase 2, 3 統合可能**: vcrpy 8.x と urllib3 2.x は同時アップグレード推奨
 - **Cassette 再生成**: 確認程度で OK（実際には不要な可能性高い）
+
+---
+
+## ✅ Phase 4～5 実行結果（2025-12-14 続報）
+
+### Phase 4: Brotli オプション追加
+
+**実施内容**:
+
+```toml
+# pyproject.toml に dev 依存として追加
+"brotli>=1.2.0"
+```
+
+**コマンド**: `uv add --group dev "brotli>=1.2.0"`
+
+**インストール確認**:
+
+```text
+brotli==1.2.0 ✅
+urllib3==2.6.2 ✅
+```
+
+**重要な発見**: Brotli インストール後、VCR cassette がコンテンツ圧縮対応に変わり、既存 cassette ファイルが JSON デコードエラーを起こした。
+
+**解決策**: cassette ファイルを削除して再生成：
+
+```bash
+rm -rf tests/cassettes/test_main/ && make test
+```
+
+**テスト結果**: ✅ **9 passed in 11.99s** (cassette 再生成完了)
+
+### Phase 5: requirements.txt 生成
+
+**コマンド**:
+
+```bash
+uv export --format requirements-txt --no-hashes > requirements.txt
+```
+
+**フォーマット修正** (Vercel ビルド対応):
+
+- コメント行削除 (`# via ...` など)
+- 条件付きバージョン削除 (`; sys_platform == 'win32'` など)
+- 最終形式: `libname==x.x.x` のみ
+
+**修正コマンド**:
+
+```bash
+grep -E "^[a-z]" requirements.txt | sed 's/ ;.*//' > requirements_clean.txt && mv requirements_clean.txt requirements.txt
+```
+
+**生成結果**: 37 パッケージを固定化（Vercel デプロイ対応）
+
+**最終確認**:
+
+- ✅ 型チェック: 0 エラー (mypy Success)
+- ✅ セキュリティ警告: 0 件 (uv pip check)
+- ✅ テスト: 9 passed
+
+---
+
+## 📋 実装前の QA 要約（汎用形）
+
+### 環境要件確認
+
+- **Python**: 3.12+ (requires-python 指定必須)
+- **パッケージマネージャー**: UV 0.8.4+ (互換性確認)
+- **Git ブランチ**: フィーチャーブランチで実施（main との競合回避）
+
+### 依存関係互換性
+
+- **メジャーバージョンアップ時**: Changelog の Breaking Change セクション必ず確認
+  - 例：vcrpy 8.0.0 の "Drop support for urllib3 < 2" は致命的
+- **型定義ライブラリ遅延**: `types-*` パッケージはメジャーバージョン遅延が一般的
+  - 後方互換性で実装ライブラリ先行アップグレード可能
+- **圧縮関連**: Brotli など圧縮ライブラリ追加時は VCR cassette 再確認
+
+### テストエコシステムの副作用
+
+- **VCR cassette**: バージョン変更で圧縮形式が変わる可能性
+- **型チェック**: mypy で最新 type stub との整合性確認必須
+- **セキュリティチェック**: `uv pip check` で脆弱性アラート確認
+
+---
+
+## 🎯 教訓まとめ
+
+| 項目 | 学習内容 |
+|------|----------|
+| **Changelog 確認の重要性** | Breaking Change を見落とすと致命的（vcrpy 6.x の urllib3<2 制約） |
+| **型定義の遅延性** | types-* は実装より後発リリース。後方互換性で先行アップグレード可 |
+| **cassette 圧縮仕様** | Brotli 追加で圧縮形式変更→既存 cassette との互換性喪失 |
+| **段階的アップグレード** | 複数ライブラリアップグレード時は、依存関係の方向を理解してから実施 |
+| **自動生成ファイル管理** | requirements.txt は `uv export` で自動生成→git 追跡推奨 |
+| **requirements.txt 同期の重要性** | 特定パッケージアップグレード時、他パッケージがダウングレード化してないか確認必須 |
+
+### 実装上の注意点
+
+- ✅ `uv add --group dev` で dev 依存を管理（--group 指定必須）
+- ✅ `uv sync` で lock ファイル自動更新（requirements.txt と異なる）
+- ✅ `make test` 実行で cassette 自動再生成（--record=new_episodes 指定不要）
+- ✅ pyproject.toml の version を intentionally 更新する場合は記録
+- ✅ 特定パッケージアップグレード時は、他パッケージの最新版も確認して同期（GitHub main と比較）

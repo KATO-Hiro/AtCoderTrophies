@@ -31,6 +31,9 @@ dev = [
     "vcrpy>=8.0.0,<9.0.0",
     "httpx>=0.24.0",            # Required for FastAPI TestClient
 
+    # Compression support
+    "brotli>=1.2.0",
+
     # Development env
     "ipython>=8.14.0",
 ]
@@ -78,3 +81,6 @@ explicit_package_bases = true
 
 [tool.uv]
 dev-dependencies = ["httpx>=0.25.0", "mypy>=1.7.0", "pytest>=8.4.1"]
+
+[dependency-groups]
+dev = ["brotli>=1.2.0"]
