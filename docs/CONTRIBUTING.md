@@ -10,14 +10,14 @@
 
 - [uv](https://github.com/astral-sh/uv) - 0.8.x
 - [Python](https://www.python.org/) - v3.12.x (For Python runtime in Vercel)
-- [FastAPI](https://fastapi.tiangolo.com) 0.116.x
+- [FastAPI](https://fastapi.tiangolo.com) 0.124.x
 - [GNU make](https://formulae.brew.sh/formula/make)
 
 ### Frontend
 
 - [Node.js](https://nodejs.org) 22.x
-- [Next.js](https://nextjs.org/) 14.x
-- [React](https://reactjs.org/) 18.x
+- [Next.js](https://nextjs.org/) 16.x
+- [React](https://reactjs.org/) 19.x
 - [TypeScript](https://www.typescriptlang.org/) 5.9.x
 
 ### Editor and Infrastructure (Optional)
