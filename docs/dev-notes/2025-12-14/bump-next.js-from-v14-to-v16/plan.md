@@ -115,6 +115,7 @@
   - `dev/build` 確認
 
 教訓:
+
 - patch 更新でも lockfile が動き得るため、差分確認と `dev/build` を必ずセットにする
 
 ### Step 2: Next 15 へ更新（+ React 19 を段階的に吸収）
@@ -129,6 +130,11 @@
     - GA / Link ラッパーの挙動
 - 備考:
   - ここで問題が出るなら、まず依存（MUI/Emotion）側の追従可否を確認し、必要なら“Reactの更新を止めて Next 15 側のみ先行”なども検討する
+
+教訓:
+
+- Next 15 では `experimental.turbo` の非推奨 warning と、`webpack` 設定が残っていることによる Turbopack との不整合 warning が出るため、Step 3 で `next.config.js` の整理が必須
+- `dev` と `build` の両方で最低限のページ/API を確認してから次ステップへ進む
 
 ### Step 3: Next 16.0.10 へ更新（Turbopack既定化対応がメイン）
 
