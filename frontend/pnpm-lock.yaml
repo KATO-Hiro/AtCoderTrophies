@@ -46,7 +46,7 @@ importers:
         version: 3.3.1
       github-markdown-css:
         specifier: ^5.1.0
-        version: 5.8.1
+        version: 5.9.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -935,8 +935,8 @@ packages:
     resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
 
-  github-markdown-css@5.8.1:
-    resolution: {integrity: sha512-8G+PFvqigBQSWLQjyzgpa2ThD9bo7+kDsriUIidGcRhXgmcaAWUIpCZf8DavJgc+xifjbCG+GvMyWr0XMXmc7g==}
+  github-markdown-css@5.9.0:
+    resolution: {integrity: sha512-tmT5sY+zvg2302XLYEfH2mtkViIM1SWf2nvYoF5N1ZsO0V6B2qZTiw3GOzw4vpjLygK/KG35qRlPFweHqfzz5w==}
     engines: {node: '>=10'}
 
   gopd@1.2.0:
@@ -2237,7 +2237,7 @@ snapshots:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
 
-  github-markdown-css@5.8.1: {}
+  github-markdown-css@5.9.0: {}
 
   gopd@1.2.0: {}
 
