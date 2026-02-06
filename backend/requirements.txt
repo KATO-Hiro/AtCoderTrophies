@@ -18,7 +18,7 @@ packaging==26.0
 pathspec==0.12.1
 pluggy==1.6.0
 pydantic==2.12.5
-pydantic-core==2.33.2
+pydantic-core==2.41.5
 pygments==2.19.2
 pytest==8.4.2
 python-dotenv==1.2.1
