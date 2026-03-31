@@ -20,7 +20,6 @@
     "@mui/lab": "7.0.0-beta.17",
     "@mui/material": "~7.3.2",
     "@types/prop-types": "^15.7.15",
-    "axios": "^1.11.0",
     "clsx": "^2.1.1",
     "copy-text-to-clipboard": "^3.0.1",
     "dompurify": "^3.2.6",
