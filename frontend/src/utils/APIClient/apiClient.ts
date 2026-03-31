@@ -1,10 +1,14 @@
-import axios from 'axios';
 import useSWR from 'swr';
 
 // TODO: Enable to reuse.
 async function fetcher(url: string): Promise<string | null> {
-  const response = await axios.get(url);
-  return response.data as string;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error: ${response.status}`);
+  }
+
+  return await response.text();
 }
 
 interface TrophySVGIconsResult {
