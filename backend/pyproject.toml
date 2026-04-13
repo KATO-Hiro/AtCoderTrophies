@@ -20,7 +20,7 @@ dev = [
     "ruff>=0.1.0",
 
     # Type checker
-    "mypy>=1.7.0",
+    "mypy>=1.20.1",
     "mypy-extensions>=1.1.0",
 
     # Test tools
@@ -80,7 +80,7 @@ namespace_packages = true
 explicit_package_bases = true
 
 [tool.uv]
-dev-dependencies = ["httpx>=0.25.0", "mypy>=1.7.0", "pytest>=8.4.1"]
+dev-dependencies = ["httpx>=0.25.0", "mypy>=1.20.1", "pytest>=8.4.1"]
 
 [dependency-groups]
 dev = ["brotli>=1.2.0"]
