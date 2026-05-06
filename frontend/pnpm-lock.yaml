@@ -60,8 +60,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(react@19.2.3)
       react-is:
-        specifier: 19.2.5
-        version: 19.2.5
+        specifier: 19.2.6
+        version: 19.2.6
       rehype-document:
         specifier: ^6.0.1
         version: 6.1.0
@@ -1180,8 +1180,8 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react-is@19.2.5:
-    resolution: {integrity: sha512-Dn0t8IQhCmeIT3wu+Apm1/YVsJXsGWi6k4sPdnBIdqMVtHtv0IGi6dcpNpNkNac0zB2uUAqNX3MHzN8c+z2rwQ==}
+  react-is@19.2.6:
+    resolution: {integrity: sha512-XjBR15BhXuylgWGuslhDKqlSayuqvqBX91BP8pauG8kd1zY8kotkNWbXksTCNRarse4kuGbe2kIY05ARtwNIvw==}
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -1769,7 +1769,7 @@ snapshots:
       prop-types: 15.8.1
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      react-is: 19.2.5
+      react-is: 19.2.6
       react-transition-group: 4.4.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
     optionalDependencies:
       '@emotion/react': 11.14.0(@types/react@19.2.9)(react@19.2.3)
@@ -1872,7 +1872,7 @@ snapshots:
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 19.2.3
-      react-is: 19.2.5
+      react-is: 19.2.6
     optionalDependencies:
       '@types/react': 19.2.9
 
@@ -1884,7 +1884,7 @@ snapshots:
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 19.2.3
-      react-is: 19.2.5
+      react-is: 19.2.6
     optionalDependencies:
       '@types/react': 19.2.9
 
@@ -2519,7 +2519,7 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-is@19.2.5: {}
+  react-is@19.2.6: {}
 
   react-transition-group@4.4.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
