@@ -14,7 +14,7 @@ idna==3.18
 iniconfig==2.3.0
 mypy==2.1.0
 mypy-extensions==1.1.0
-packaging==26.1
+packaging==26.2
 pathspec==1.1.1
 pluggy==1.6.0
 pydantic==2.13.4
