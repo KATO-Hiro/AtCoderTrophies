@@ -28,7 +28,7 @@ dev = [
     "pytest-cov>=6.2.1",
     "pytest-recording>=0.13.4",
     "pytest-watch>=4.2.0",
-    "vcrpy>=8.1.1,<9.0.0",
+    "vcrpy>=8.2.1,<9.0.0",
     "httpx>=0.24.0",            # Required for FastAPI TestClient
 
     # Compression support
