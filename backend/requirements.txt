@@ -12,7 +12,7 @@ httptools==0.8.0
 httpx==0.28.1
 idna==3.18
 iniconfig==2.3.0
-mypy==2.1.0
+mypy==2.3.0
 mypy-extensions==1.1.0
 packaging==26.2
 pathspec==1.1.1
