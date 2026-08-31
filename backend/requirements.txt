@@ -30,7 +30,7 @@ types-requests==2.33.0.20260712
 typing-extensions==4.16.0
 typing-inspection==0.4.4
 urllib3==2.7.0
-uvicorn==0.52.1
+uvicorn==0.52.4
 uvloop==0.22.1
 watchfiles==1.2.0
 websockets==17.0.1
